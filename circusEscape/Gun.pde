@@ -1,0 +1,2 @@
+public class Gun {
+}
