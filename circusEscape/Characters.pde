@@ -12,4 +12,9 @@ public class Characters {
     this.y = y;
     this.speed = speed;
   }
+  
+  //constructor without parameters
+  Characters() {
+    this(10, 2, 5, width/2, height/2, 2);
+  }
 }
