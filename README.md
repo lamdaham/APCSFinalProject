@@ -14,4 +14,5 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 # Development Log
 5/25/21 
+
 Ivan: Created walls of the game and made skeleton code for files
