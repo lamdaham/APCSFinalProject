@@ -37,4 +37,21 @@ public class Player extends Characters{
       right = false;
     }
   }
+  
+  //moving portion: if true for boolean
+  //then adjust x and y accordingly w/ speed
+  void moveP() {
+    if (up) {
+      this.y -= speed;
+    }
+    if (down) {
+      this.y += speed;
+    }
+    if (left) {
+      this.x -= speed;
+    }
+    if (right) {
+      this.x += speed;
+    }
+  }
 }
