@@ -1,5 +1,13 @@
 Scene scene = new Scene();
+Player p1 = new Player();
 ArrayList<Wall> walls;
+
+//four different boolean instance variables to keep track
+//of the direction player is moving using WASD keys
+boolean up = false;
+boolean down = false;
+boolean right = false;
+boolean left = false;
 
 void setup() {
   walls = new ArrayList<Wall>();
@@ -13,7 +21,38 @@ void draw() {
   for(Wall w : walls) {
     w.spawnWall();
   }
+  p1.moveP();
+  p1.display();
 }
 
+//if key is pressed (WASD), then set appropriate boolean true
 void keyPressed() {
+  if (key == 'w') {
+    up = true;
+  }
+  if (key == 'a') {
+    left = true;
+  }
+  if (key == 's') {
+    down = true;
+  }
+  if (key == 'd') {
+    right = true;
+  }
+}
+  
+//same as keyPressed but with released, set boolean false
+void keyReleased() {
+  if (key == 'w') {
+    up = false;
+  }
+  if (key == 'a') {
+    left = false;
+  }
+  if (key == 's') {
+    down = false;
+  }
+  if (key == 'd') {
+    right = false;
+  }
 }
