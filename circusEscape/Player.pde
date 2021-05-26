@@ -1,11 +1,4 @@
 public class Player extends Characters{
-  //four different boolean instance variables to keep track
-  //of the direction player is moving using WASD keys
-  //boolean up = false;
-  //boolean down = false;
-  //boolean right = false;
-  //boolean left = false;
-  
   //moving portion: if true for boolean
   //then adjust x and y accordingly w/ speed
   void moveP() {
