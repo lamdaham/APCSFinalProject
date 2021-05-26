@@ -21,4 +21,20 @@ public class Player extends Characters{
       right = true;
     }
   }
+  
+  //same as keyPressed but with released, set boolean false
+  void keyReleased() {
+    if (key == 'w') {
+      up = false;
+    }
+    if (key == 'a') {
+      left = false;
+    }
+    if (key == 's') {
+      down = false;
+    }
+    if (key == 'd') {
+      right = false;
+    }
+  }
 }
