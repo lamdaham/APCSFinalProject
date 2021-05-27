@@ -11,6 +11,8 @@ boolean down = false;
 boolean right = false;
 boolean left = false;
 boolean leftMouse = false;
+boolean collided = false;
+
 
 void setup() {
   walls = new ArrayList<Wall>();
@@ -39,7 +41,16 @@ void draw() {
     m.display();
   }
   for (Bullet b : bullet) {
-    b.display();
+    collided = false;
+    for(Wall w: walls) {
+      if(w.bulletCollision(b)) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      b.display();
+    } 
+
   }
   p1.moveP();
   p1.fire();

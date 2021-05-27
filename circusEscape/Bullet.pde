@@ -22,5 +22,15 @@ public class Bullet {
     ellipse(location.x, location.y, r * 2, r * 2);
   }
   
+  float getX() {
+    return location.x;
+  }
   
+  float getY() {
+    return location.y;
+  }
+  
+  float getR() {
+    return r;
+  }
 }
