@@ -11,7 +11,15 @@ public class Monsters extends Characters{
   }
   
   Monsters() {
-    this(5, 3, 10.0, random(0, width), random(0, height), 0.5);
+    this(5, 3, 10.0, random(0, width), random(0, height), random(0, 3));
+  }
+  
+  //moving monsters around (just in one direction at the moment)
+  //have some delay so the monsters aren't speeding around
+  void moveM() {
+    this.x += speed;
+    this.y += speed;
+    delay(1);
   }
   
   void display() {
