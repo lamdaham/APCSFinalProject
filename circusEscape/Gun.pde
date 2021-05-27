@@ -18,13 +18,19 @@ public class Gun extends GameObjects{
       fill(255);
       rect(x,y,10,10);
     } else {
+      degree = 0;
       pushMatrix();
-        rotate(radians(degree));
+        rotate(0);
+        translate(p1.getX(), p1.getY());
+        rotate(getAngle());
         fill(255);
-        rect(p1.getX(),p1.getY(),10,10);
+        rect(5,5,10,10);
        popMatrix();
-      degree++;
     }
+  }
+  
+  float getAngle() {
+    return atan2(mouseY-p1.getY(), mouseX-p1.getX());
   }
   
 }
