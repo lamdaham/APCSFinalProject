@@ -38,6 +38,13 @@ public class Characters {
     return radius;
   }
   
+  void removeRestriction() {
+    ableLeft = true;
+    ableRight = true;
+    ableUp = true;
+    ableDown = true;
+  }
+  
   
   void restrictLeft() {
     ableLeft = false;

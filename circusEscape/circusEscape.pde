@@ -18,6 +18,7 @@ void setup() {
 
 void draw() {
   background(#000000);
+  p1.removeRestriction();
   for(Wall w : walls) {
     w.spawnWall();
     w.moveRestrict();

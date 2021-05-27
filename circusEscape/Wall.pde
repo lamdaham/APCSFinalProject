@@ -25,21 +25,23 @@ public class Wall {
     char dir;
     float tempX = p1.getX();
     float tempY = p1.getY();
-    dir = 'U';
+    dir = 'N';
 
     if (p1.getX()<x) {
       tempX = x;
-      dir = 'L';
-    } else if (p1.getX()>(x+w)) {
-      tempX = x+w;
       dir = 'R';
+    } 
+    else if (p1.getX()>(x+w)) {
+      tempX = x+w;
+      dir = 'L';
     }
-    if (p1.getY()<Y) {
+    if (p1.getY()<y) {
       tempY = y;
-      dir = 'U';
-    } else if (p1.getY()>(y+h)) {
-      tempY = y+h;
       dir = 'D';
+    } 
+    else if (p1.getY()>(y+h)) {
+      tempY = y+h;
+      dir = 'U';
     }
 
     float distX = p1.getX() - tempX;
