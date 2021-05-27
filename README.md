@@ -13,6 +13,11 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 
 # Development Log
+**5/26/21 **
+
+Ivan: Created restrictions on movement from walls, also created Room class
+
+
 **5/25/21 **
 
 In Class: Started creating files, confirmed plans for the project, delegated roles, and started watching video in regards to branching
@@ -20,3 +25,5 @@ In Class: Started creating files, confirmed plans for the project, delegated rol
 Ivan: Created walls of the game and made skeleton code for files
 
 Sophia: Started working on the character and player class: player moves accordingly with WASD keys
+
+
