@@ -1,5 +1,5 @@
 public class Characters {
-  int hp, atkPower;
+  int hp, atkPower, dmgTaken, fireRate;
   float x, y, speed, radius;
   boolean ableLeft, ableRight, ableUp, ableDown;
   
