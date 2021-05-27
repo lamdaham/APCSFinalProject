@@ -13,7 +13,7 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 
 # Development Log
-**5/26/21**
+**5/26/21 **
 
 Ivan: Created restrictions on movement from walls, also created Room class
 
