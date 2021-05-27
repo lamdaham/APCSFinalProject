@@ -13,6 +13,11 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 
 # Development Log
+
+**5/27/21 **
+
+Ivan: Created a gun that shoots Bullets. When bullets hit a wall, it deletes itself
+
 **5/26/21 **
 
 Ivan: Created restrictions on movement from walls, also created Room class
