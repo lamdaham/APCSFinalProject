@@ -17,6 +17,8 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 Ivan: Created restrictions on movement from walls, also created Room class
 
+Sophia: Started working on monster movements
+
 
 **5/25/21 **
 
