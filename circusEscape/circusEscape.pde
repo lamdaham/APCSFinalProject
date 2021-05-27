@@ -2,6 +2,7 @@ Scene scene = new Scene();
 Player p1 = new Player();
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
+ArrayList<Bullet> bullet;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -18,6 +19,7 @@ void setup() {
   
   //setting up the monsters, testing (just 5 at the moment)
   monsters = new ArrayList<Monsters>();
+  bullet = new ArrayList<Bullet>();
   for (int i = 0; i < 5; i++) {
     monsters.add(new Monsters());
   }
