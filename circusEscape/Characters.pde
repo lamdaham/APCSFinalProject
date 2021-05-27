@@ -1,5 +1,5 @@
 public class Characters {
-  int hp, atkPower, dmgTaken;
+  int hp, atkPower, dmgTaken, fireRate;
   float x, y, speed, radius;
   
   //constructor w/ health, attack power (starting with just a circle to represent character)
