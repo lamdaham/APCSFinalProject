@@ -1,12 +1,26 @@
 public class Bullet {
   
-  float x,y,r;
+  float r,dmg;
   
-  float speed, degree;
+  PVector location;
+  PVector velocity; 
   
-  Bullet(float x, float y, float r){
-    this.x = x;
-    this.y = y;
+  Bullet(float x, float y,float r, float dmg, float deg){
+    location = new PVector(x, y);
+    velocity = new PVector(3*cos(deg), 3*sin(deg));
     this.r = r;
+    this.dmg = dmg;
   }
+  
+  void move() {
+    location.add(velocity);
+  }
+  
+  void display() {
+    move();
+    fill(200);
+    ellipse(location.x, location.y, r * 2, r * 2);
+  }
+  
+  
 }

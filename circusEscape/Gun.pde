@@ -20,7 +20,6 @@ public class Gun extends GameObjects{
     } else {
       degree = 0;
       pushMatrix();
-        rotate(0);
         translate(p1.getX(), p1.getY());
         rotate(getAngle());
         fill(255);
@@ -33,4 +32,7 @@ public class Gun extends GameObjects{
     return atan2(mouseY-p1.getY(), mouseX-p1.getX());
   }
   
+  void fire() {
+    bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 3, getAngle()));
+  }
 }

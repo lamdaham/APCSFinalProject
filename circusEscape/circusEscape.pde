@@ -10,6 +10,7 @@ boolean up = false;
 boolean down = false;
 boolean right = false;
 boolean left = false;
+boolean leftMouse = false;
 
 void setup() {
   walls = new ArrayList<Wall>();
@@ -37,8 +38,11 @@ void draw() {
     m.moveM();
     m.display();
   }
-  
+  for (Bullet b : bullet) {
+    b.display();
+  }
   p1.moveP();
+  p1.fire();
   p1.display();
 }
 
@@ -71,5 +75,18 @@ void keyReleased() {
   }
   if (key == 'd') {
     right = false;
+  }
+}
+
+
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    leftMouse = true;
+  }
+}
+
+void mouseReleased() {
+  if (mouseButton == LEFT) {
+    leftMouse = false;
   }
 }

@@ -32,4 +32,10 @@ public class Player extends Characters{
     ellipse(x, y, radius * 2, radius * 2);
     gun.display();
   }
+  
+  void fire() {
+    if (leftMouse) {
+      gun.fire();
+    }
+  }
 }
