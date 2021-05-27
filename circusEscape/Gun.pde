@@ -2,11 +2,14 @@ public class Gun extends GameObjects{
   
   String type;
   float degree;
+  int cooldown;
+  int t;
   
   Gun(){
     type = "pistol";
     pickedUp = true;
     degree = 0;
+    cooldown = 100;
   }
   
   void fireBullet() {
@@ -21,7 +24,7 @@ public class Gun extends GameObjects{
       degree = 0;
       pushMatrix();
         translate(p1.getX(), p1.getY());
-        rotate(getAngle());
+        rotate(getAngle()- radians(45));
         fill(255);
         rect(5,5,10,10);
        popMatrix();
@@ -33,6 +36,13 @@ public class Gun extends GameObjects{
   }
   
   void fire() {
-    bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 3, getAngle()));
+    if(t>=cooldown) {
+      bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 3, getAngle()));
+      t = 0;
+    }
+  }
+  
+  void decreaseCooldown() {
+    t++;
   }
 }

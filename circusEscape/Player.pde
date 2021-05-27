@@ -30,6 +30,7 @@ public class Player extends Characters{
     stroke(0);
     fill(255);
     ellipse(x, y, radius * 2, radius * 2);
+    gun.decreaseCooldown();
     gun.display();
   }
   
