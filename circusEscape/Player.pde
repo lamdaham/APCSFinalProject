@@ -1,6 +1,15 @@
 public class Player extends Characters{
   //moving portion: if true for boolean
   //then adjust x and y accordingly w/ speed
+  Gun gun;
+  
+  Player() {
+    super();
+    gun = new Gun();
+    
+  }
+  
+  
   void moveP() {
     if (up && ableUp) {
       this.y -= speed;
@@ -21,5 +30,13 @@ public class Player extends Characters{
     stroke(0);
     fill(255);
     ellipse(x, y, radius * 2, radius * 2);
+    gun.decreaseCooldown();
+    gun.display();
+  }
+  
+  void fire() {
+    if (leftMouse) {
+      gun.fire();
+    }
   }
 }

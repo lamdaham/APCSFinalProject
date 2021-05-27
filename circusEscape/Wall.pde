@@ -61,4 +61,29 @@ public class Wall {
       }
     }
   }
+  
+  boolean bulletCollision(Bullet bb) {
+
+    float tempX = bb.getX();
+    float tempY = bb.getY();
+
+    if (bb.getX()<x) {
+      tempX = x;
+    } 
+    else if (bb.getX()>(x+w)) {
+      tempX = x+w;
+    }
+    if (bb.getY()<y) {
+      tempY = y;
+    } 
+    else if (bb.getY()>(y+h)) {
+      tempY = y+h;
+    }
+
+    float distX = bb.getX() - tempX;
+    float distY = bb.getY() - tempY;
+
+    float dist = sqrt((distX*distX) + (distY*distY));
+    return(dist<=bb.getR());
+  }
 }

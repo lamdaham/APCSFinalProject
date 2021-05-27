@@ -2,6 +2,7 @@ Scene scene = new Scene();
 Player p1 = new Player();
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
+ArrayList<Bullet> bullet;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -9,6 +10,9 @@ boolean up = false;
 boolean down = false;
 boolean right = false;
 boolean left = false;
+boolean leftMouse = false;
+boolean collided = false;
+
 
 void setup() {
   walls = new ArrayList<Wall>();
@@ -18,6 +22,7 @@ void setup() {
   
   //setting up the monsters, testing (just 5 at the moment)
   monsters = new ArrayList<Monsters>();
+  bullet = new ArrayList<Bullet>();
   for (int i = 0; i < 5; i++) {
     monsters.add(new Monsters());
   }
@@ -35,8 +40,23 @@ void draw() {
     m.moveM();
     m.display();
   }
-  
+  for (int i = 0; i<bullet.size(); i++) {
+    collided = false;
+    for(Wall w: walls) {
+      if(w.bulletCollision(bullet.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bullet.get(i).display();
+    } else {
+      bullet.remove(bullet.get(i));
+      continue;
+    }
+
+  }
   p1.moveP();
+  p1.fire();
   p1.display();
 }
 
@@ -69,5 +89,18 @@ void keyReleased() {
   }
   if (key == 'd') {
     right = false;
+  }
+}
+
+
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    leftMouse = true;
+  }
+}
+
+void mouseReleased() {
+  if (mouseButton == LEFT) {
+    leftMouse = false;
   }
 }
