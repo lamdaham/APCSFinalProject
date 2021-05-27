@@ -31,6 +31,11 @@ void draw() {
     w.moveRestrict();
   }
   
+  for (Monsters m : monsters) {
+    m.moveM();
+    m.display();
+  }
+  
   p1.moveP();
   p1.display();
 }
