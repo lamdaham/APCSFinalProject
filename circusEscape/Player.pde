@@ -2,16 +2,16 @@ public class Player extends Characters{
   //moving portion: if true for boolean
   //then adjust x and y accordingly w/ speed
   void moveP() {
-    if (up) {
+    if (up && ableUp) {
       this.y -= speed;
     }
-    if (down) {
+    if (down && ableDown) {
       this.y += speed;
     }
-    if (left) {
+    if (left && ableLeft) {
       this.x -= speed;
     }
-    if (right) {
+    if (right && ableRight) {
       this.x += speed;
     }
   }

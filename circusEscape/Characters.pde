@@ -1,6 +1,7 @@
 public class Characters {
   int hp, atkPower;
   float x, y, speed, radius;
+  boolean ableLeft, ableRight, ableUp, ableDown;
   
   //constructor w/ health, attack power (starting with just a circle to represent character)
   //also accounting for radius, x, y, and the speed
@@ -11,10 +12,43 @@ public class Characters {
     this.x = x;
     this.y = y;
     this.speed = speed;
+    ableLeft = true;
+    ableRight = true;
+    ableUp = true;
+    ableDown = true;
   }
+  
+  
   
   //constructor without parameters
   Characters() {
     this(10, 2, 5, width/2, height/2, 2);
+  }
+  
+  
+  float getX() {
+    return x;
+  }
+  
+  float getY() {
+    return y;
+  }
+  
+  float getR() {
+    return radius;
+  }
+  
+  
+  void restrictLeft() {
+    ableLeft = false;
+  }
+  void restrictRight() {
+    ableRight = false;
+  }
+  void restrictUp() {
+    ableUp = false;
+  }
+  void restrictDown() {
+    ableDown = false;
   }
 }

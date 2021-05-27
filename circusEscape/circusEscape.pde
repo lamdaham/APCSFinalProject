@@ -20,6 +20,7 @@ void draw() {
   background(#000000);
   for(Wall w : walls) {
     w.spawnWall();
+    w.moveRestrict();
   }
   p1.moveP();
   p1.display();
