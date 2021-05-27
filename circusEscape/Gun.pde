@@ -9,7 +9,7 @@ public class Gun extends GameObjects{
     type = "pistol";
     pickedUp = true;
     degree = 0;
-    cooldown = 100;
+    cooldown = 20;
   }
   
   void fireBullet() {

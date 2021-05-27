@@ -40,16 +40,19 @@ void draw() {
     m.moveM();
     m.display();
   }
-  for (Bullet b : bullet) {
+  for (int i = 0; i<bullet.size(); i++) {
     collided = false;
     for(Wall w: walls) {
-      if(w.bulletCollision(b)) {
+      if(w.bulletCollision(bullet.get(i))) {
         collided = true;
       }
     }
     if (!collided) {
-      b.display();
-    } 
+      bullet.get(i).display();
+    } else {
+      bullet.remove(bullet.get(i));
+      continue;
+    }
 
   }
   p1.moveP();
