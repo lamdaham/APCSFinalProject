@@ -1,6 +1,7 @@
 Scene scene = new Scene();
 Player p1 = new Player();
 ArrayList<Wall> walls;
+ArrayList<Monsters> monsters;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -14,6 +15,12 @@ void setup() {
   size(1600,1000);
   background(#000000);
   scene.createRoom();
+  
+  //setting up the monsters, testing (just 5 at the moment)
+  monsters = new ArrayList<Monsters>();
+  for (int i = 0; i < 5; i++) {
+    monsters.add(new Monsters());
+  }
 }
 
 void draw() {
@@ -23,6 +30,7 @@ void draw() {
     w.spawnWall();
     w.moveRestrict();
   }
+  
   p1.moveP();
   p1.display();
 }
