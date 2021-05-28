@@ -5,6 +5,7 @@ ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
 
+
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
 boolean up = false;
@@ -13,6 +14,8 @@ boolean right = false;
 boolean left = false;
 boolean leftMouse = false;
 boolean collided = false;
+boolean dropGun = false;
+boolean pickupGun = false;
 
 
 void setup() {
@@ -64,7 +67,9 @@ void draw() {
   text("health: " + p1.hp, 0, 20);
   
   p1.moveP();
-  p1.fire();
+  if (p1.hasGun) {
+    p1.fire();
+  }
   p1.display();
 }
 
@@ -89,6 +94,13 @@ void keyPressed() {
   if (key == 'd') {
     right = true;
   }
+  
+  if (key == 'c' && p1.hasGun) {
+    dropGun = true;
+  }
+  if (key == 'v') {
+    pickupGun = true;
+  }
 }
   
 //same as keyPressed but with released, set boolean false
@@ -104,6 +116,14 @@ void keyReleased() {
   }
   if (key == 'd') {
     right = false;
+  }
+  
+  
+  if (key == 'c') {
+    dropGun = false;
+  }
+  if (key == 'v') {
+    pickupGun = false;
   }
 }
 

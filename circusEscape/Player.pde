@@ -1,12 +1,12 @@
 public class Player extends Characters{
   //moving portion: if true for boolean
   //then adjust x and y accordingly w/ speed
-  Gun gun;
+  Gun currentGun;
   
   Player() {
     super();
-    gun = new Gun();
-    
+    currentGun = new Gun();
+    gun.add(currentGun);
   }
   
   void moveP() {
@@ -40,13 +40,13 @@ public class Player extends Characters{
     stroke(0);
     fill(255);
     ellipse(x, y, radius * 2, radius * 2);
-    gun.decreaseCooldown();
-    gun.display();
+    currentGun.decreaseCooldown();
+    currentGun.display();
   }
   
   void fire() {
     if (leftMouse) {
-      gun.fire();
+      currentGun.fire();
     }
   }
 }
