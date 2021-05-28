@@ -11,15 +11,20 @@ public class Monsters extends Characters{
   }
   
   Monsters() {
-    this(5, 1, 10.0, random(0, width), random(0, height), random(0, 3));
+    this(5, 1, 10.0, random(0, width), random(0, height), random(6) - 3);
   }
   
   //moving monsters around (just in one direction at the moment)
-  //have some delay so the monsters aren't speeding around
+  //if hp is 0, then set hp + speed to 0 
+  //differentiate from "alive" monsters
   void moveM() {
-    this.x += speed;
-    this.y += speed;
-    delay(1);
+    if (hp <= 0) {
+      speed = 0;
+      hp = 0;
+      alive = false;
+    }
+    x += speed;
+    y += speed;
   }
   
   //if the player and monsters are touching, then attack the player and decrease health
@@ -31,7 +36,14 @@ public class Monsters extends Characters{
   
   void display() {
     stroke(0);
-    fill(100);
+    if (alive == false) {
+      fill(255, 0, 0);
+    }
+    if (alive == true) {
+      fill(100);
+    }
     ellipse(x, y, radius * 2, radius * 2);
+    textSize(10);
+    text("health: " + hp, x + 15, y + 12);
   }
 }
