@@ -21,25 +21,25 @@ public class Wall {
     rect(x, y, w, h);
   }
 
-  void moveRestrict() {
+  void moveRestrict(Characters c) {
     char dir;
     float tempX = p1.getX();
     float tempY = p1.getY();
     dir = 'N';
 
-    if (p1.getX()<x) {
+    if (c.getX()<x) {
       tempX = x;
       dir = 'R';
     } 
-    else if (p1.getX()>(x+w)) {
+    else if (c.getX()>(x+w)) {
       tempX = x+w;
       dir = 'L';
     }
-    if (p1.getY()<y) {
+    if (c.getY()<y) {
       tempY = y;
       dir = 'D';
     } 
-    else if (p1.getY()>(y+h)) {
+    else if (c.getY()>(y+h)) {
       tempY = y+h;
       dir = 'U';
     }
@@ -49,15 +49,15 @@ public class Wall {
 
     float dist = sqrt((distX*distX) + (distY*distY));
 
-    if (dist<=p1.getR()) {
+    if (dist<=c.getR()) {
       if (dir == 'L') {
-        p1.restrictLeft();
+        c.restrictLeft();
       } else if (dir == 'R') {
-        p1.restrictRight();
+        c.restrictRight();
       } else if (dir == 'U') {
-        p1.restrictUp();
+        c.restrictUp();
       } else if (dir == 'D') {
-        p1.restrictDown();
+        c.restrictDown();
       }
     }
   }

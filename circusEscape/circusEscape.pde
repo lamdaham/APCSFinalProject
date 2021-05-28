@@ -36,7 +36,10 @@ void draw() {
   p1.removeRestriction();
   for(Wall w : walls) {
     w.spawnWall();
-    w.moveRestrict();
+    w.moveRestrict(p1);
+    for(Monsters m : monsters) {
+      w.moveRestrict(m);
+    }
   }
   
   for (Monsters m : monsters) {
