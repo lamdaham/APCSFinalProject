@@ -42,11 +42,7 @@ void draw() {
     }
   }
   
-  for (Monsters m : monsters) {
-    m.moveM();
-    m.attackP(p1);
-    m.display();
-  }
+
   for (int i = 0; i<bullet.size(); i++) {
     collided = false;
     for(Wall w: walls) {
@@ -60,8 +56,20 @@ void draw() {
       bullet.remove(bullet.get(i));
       continue;
     }
-
   }
+  
+  for (Monsters m : monsters) {
+    for (int i = 0; i<bullet.size(); i++) {
+      if (m.takeDamage(bullet.get(i))) {
+        bullet.remove(i);
+        i--;
+      }
+    }
+    m.moveM();
+    m.attackP(p1);
+    m.display();
+  }
+
   
   fill(0);
   textSize(20);

@@ -34,6 +34,14 @@ public class Monsters extends Characters{
     }
   }
   
+  boolean takeDamage(Bullet b) {
+    if (dist(b.getX(),b.getY(), x,y)<=(radius+b.getR())&&alive) {
+      hp -= b.getdmg();
+      return true;
+    }
+    return false;
+  }
+  
   void display() {
     stroke(0);
     if (alive == false) {

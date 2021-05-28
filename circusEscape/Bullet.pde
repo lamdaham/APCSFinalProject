@@ -33,4 +33,8 @@ public class Bullet {
   float getR() {
     return r;
   }
+  
+  float getdmg() {
+    return dmg;
+  }
 }
