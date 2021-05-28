@@ -16,7 +16,7 @@ boolean collided = false;
 
 void setup() {
   walls = new ArrayList<Wall>();
-  size(1600,1000);
+  size(1000,700);
   background(#000000);
   scene.createRoom();
   
@@ -65,6 +65,13 @@ void draw() {
   p1.moveP();
   p1.fire();
   p1.display();
+}
+
+void removeM(Monsters m) {
+  if (m.hp <= 0) {
+    m.hp = 0;
+    monsters.remove(m);
+  }
 }
 
 //if key is pressed (WASD), then set appropriate boolean true
