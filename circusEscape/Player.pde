@@ -26,7 +26,12 @@ public class Player extends Characters{
   
   void attackM(Monsters m) {
     if (dist(x, y, m.x, m.y) < m.radius + radius) {
-      m.hp -= atkPower;
+      //this is so that every time the player touches the monster
+      //the monster's health wouldn't switch
+      if (c != 100) {       
+        m.hp -= atkPower;
+      }
+      m.hp = 0;
     }
   }
   
