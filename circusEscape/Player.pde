@@ -56,7 +56,6 @@ public class Player extends Characters{
   
   void dropGun() {
     if(drop&&hasGun) {
-      print("aaa");
       currentGun.droppedGun();
       hasGun = false;
     }
