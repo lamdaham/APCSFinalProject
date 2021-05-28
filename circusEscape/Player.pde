@@ -9,7 +9,6 @@ public class Player extends Characters{
     
   }
   
-  
   void moveP() {
     if (up && ableUp) {
       this.y -= speed;
@@ -22,6 +21,12 @@ public class Player extends Characters{
     }
     if (right && ableRight) {
       this.x += speed;
+    }
+  }
+  
+  void attackM(Monsters m) {
+    if (dist(x, y, m.x, m.y) < m.radius + radius) {
+      m.hp -= atkPower;
     }
   }
   
