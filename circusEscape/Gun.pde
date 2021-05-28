@@ -45,4 +45,14 @@ public class Gun extends GameObjects{
   void decreaseCooldown() {
     t++;
   }
+  
+  void pickedupGun() {
+    pickedUp = true;
+  }
+  
+  void droppedGun() {
+    x = p1.getX();
+    y = p1.getY();
+    pickedUp = false;
+  }
 }

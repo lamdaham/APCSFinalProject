@@ -13,7 +13,8 @@ boolean right = false;
 boolean left = false;
 boolean leftMouse = false;
 boolean collided = false;
-
+boolean pickup = false;
+boolean drop = false;
 
 void setup() {
   walls = new ArrayList<Wall>();
@@ -89,6 +90,12 @@ void keyPressed() {
   if (key == 'd') {
     right = true;
   }
+  if (key == 'c') {
+    pickup = true;
+  }
+  if (key == 'v') {
+    drop = true;
+  }
 }
   
 //same as keyPressed but with released, set boolean false
@@ -104,6 +111,12 @@ void keyReleased() {
   }
   if (key == 'd') {
     right = false;
+  }
+  if (key == 'c') {
+    pickup = false;
+  }
+  if (key == 'v') {
+    drop = false;
   }
 }
 

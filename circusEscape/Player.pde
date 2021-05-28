@@ -2,11 +2,13 @@ public class Player extends Characters{
   //moving portion: if true for boolean
   //then adjust x and y accordingly w/ speed
   Gun currentGun;
+  boolean hasGun;
   
   Player() {
     super();
     currentGun = new Gun();
     gun.add(currentGun);
+    hasGun = true;
   }
   
   void moveP() {
@@ -42,11 +44,37 @@ public class Player extends Characters{
     ellipse(x, y, radius * 2, radius * 2);
     currentGun.decreaseCooldown();
     currentGun.display();
+    dropGun();
+    pickupGun();
   }
   
   void fire() {
-    if (leftMouse) {
+    if (leftMouse&&hasGun) {
       currentGun.fire();
+    }
+  }
+  
+  void dropGun() {
+    if(drop&&hasGun) {
+      print("aaa");
+      currentGun.droppedGun();
+      hasGun = false;
+    }
+  }
+  
+  void pickupGun() {
+    if(pickup) {
+      for(Gun g: gun) {
+        if (dist(g.x,g.y,x,y)<=radius+6) {
+          if(hasGun) {
+            dropGun();
+          }
+          g.pickedupGun();
+          currentGun = g;
+          hasGun = true;
+          break;
+        }
+      }
     }
   }
 }
