@@ -30,6 +30,7 @@ void setup() {
 
 void draw() {
   background(#000000);
+
   p1.removeRestriction();
   for(Wall w : walls) {
     w.spawnWall();
@@ -38,6 +39,7 @@ void draw() {
   
   for (Monsters m : monsters) {
     m.moveM();
+    m.attackP(p1);
     m.display();
   }
   for (int i = 0; i<bullet.size(); i++) {
@@ -55,6 +57,11 @@ void draw() {
     }
 
   }
+  
+  fill(0);
+  textSize(20);
+  text("health: " + p1.hp, 0, 20);
+  
   p1.moveP();
   p1.fire();
   p1.display();
