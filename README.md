@@ -16,7 +16,11 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 **5/27/21 **
 
+In Class: Discussed plans in regards to project, what to do next
+
 Ivan: Created a gun that shoots Bullets. When bullets hit a wall, it deletes itself
+
+Sophia: Working with attack, damage taken by both monsters and player; adding to Characters to keep track of color and to differentiate between a monster's status.
 
 **5/26/21 **
 
