@@ -53,12 +53,12 @@ public class Player extends Characters{
     
     //eyes
     fill(0);
-    ellipse(x - radius / 2, y - 2, radius / 2, radius / 2 + 3);
-    ellipse(x + radius / 2, y - 2, radius / 2, radius / 2 + 3);
+    ellipse(x - radius / 2, y - 2, radius / 2 + 2, radius / 2 + 3);
+    ellipse(x + radius / 2, y - 2, radius / 2 + 2, radius / 2 + 3);
     //pupils
     fill(255);
-    circle(x - radius / 2, y - 2, radius / 3);
-    circle(x + radius / 2, y - 2, radius / 3);
+    circle(x - radius / 2, y - 2, radius / 4);
+    circle(x + radius / 2, y - 2, radius / 4);
     
     
     currentGun.decreaseCooldown();
