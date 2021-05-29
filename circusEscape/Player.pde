@@ -37,11 +37,14 @@ public class Player extends Characters{
     }
   }
   
-  //displaying the player as just a white circle atm
   void display() {
     stroke(0);
+    
     fill(255);
-    ellipse(x, y, radius * 2, radius * 2);
+    //basic head + body of panda
+    ellipse(x, y + 30, radius * 2, radius * 2 + 5);
+    ellipse(x, y, radius * 2 + 5, radius * 2);  
+    
     currentGun.decreaseCooldown();
     currentGun.display();
     dropGun();
