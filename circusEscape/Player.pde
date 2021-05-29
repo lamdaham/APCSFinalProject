@@ -45,6 +45,11 @@ public class Player extends Characters{
     //ears
     circle(x - radius * 2 + 23, y - 13, radius + 3);
     circle(x - radius * 2 + 55, y - 13, radius + 3);
+    
+    //arms
+    //rotate(PI/3.0);
+    ellipse(x - radius * 2 + 25, y + 25, radius * 1.3, radius * 2 - 20);
+    ellipse(x - radius * 2 + 55, y + 25, radius * 1.3, radius * 2 - 20);
         
     fill(255);
     //basic head + body of panda
@@ -60,11 +65,13 @@ public class Player extends Characters{
     circle(x - radius / 2, y - 2, radius / 4);
     circle(x + radius / 2, y - 2, radius / 4);
     
-    
     currentGun.decreaseCooldown();
     currentGun.display();
     dropGun();
     pickupGun();
+  }
+  
+  void look() {
   }
   
   void fire() {
