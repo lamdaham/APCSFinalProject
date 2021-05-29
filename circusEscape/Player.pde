@@ -49,7 +49,12 @@ public class Player extends Characters{
     fill(255);
     //basic head + body of panda
     ellipse(x, y + 30, radius * 2, radius * 2 + 5);
-    ellipse(x, y, radius * 2 + 5, radius * 2);  
+    ellipse(x, y, radius * 2 + 5, radius * 2); 
+    
+    //eyes
+    fill(0);
+    ellipse(x - radius / 2, y - 2, radius / 2, radius / 2 + 3);
+    ellipse(x + radius / 2, y - 2, radius / 2, radius / 2 + 3);
     
     currentGun.decreaseCooldown();
     currentGun.display();
