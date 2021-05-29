@@ -13,7 +13,7 @@ public class Monsters extends Characters{
   Monsters() {
     this(5, 1, 10.0, random(0, width), random(0, height), random(6) - 3);
   }
-  
+   
   //moving monsters around (just in one direction at the moment)
   //if hp is 0, then set hp + speed to 0 
   //differentiate from "alive" monsters
@@ -53,5 +53,9 @@ public class Monsters extends Characters{
     ellipse(x, y, radius * 2, radius * 2);
     textSize(10);
     text("health: " + hp, x + 15, y + 12);
+  }
+  
+  boolean withinRange() {
+    return false;
   }
 }

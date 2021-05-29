@@ -3,7 +3,7 @@ public class Characters {
   float x, y, speed, radius;
   color c;
   boolean ableLeft, ableRight, ableUp, ableDown, alive;
-  
+
   //constructor w/ health, attack power (starting with just a circle to represent character)
   //also accounting for radius, x, y, and the speed
   //including c to check for it later
