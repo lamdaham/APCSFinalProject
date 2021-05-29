@@ -1,5 +1,5 @@
 public class Wall {
-
+ 
   int x, y, w, h, leftSide, rightSide, topSide, bottomSide;
 
   public Wall(int x, int y, int w, int h) {

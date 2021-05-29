@@ -9,12 +9,10 @@ public class Gun extends GameObjects{
     type = "pistol";
     pickedUp = true;
     degree = 0;
-    cooldown = 20;
+    cooldown = 10;
   }
   
-  void fireBullet() {
-    
-  }
+
   
   void display() {
     if(!pickedUp) {
@@ -37,7 +35,7 @@ public class Gun extends GameObjects{
   
   void fire() {
     if(t>=cooldown) {
-      bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 3, getAngle()));
+      bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5, getAngle()));
       t = 0;
     }
   }

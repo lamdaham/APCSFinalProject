@@ -74,7 +74,7 @@ public class Player extends Characters{
     dropGun();
     pickupGun();
   }
-  
+   
   void look() {
   }
   

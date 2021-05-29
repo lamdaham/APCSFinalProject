@@ -15,7 +15,7 @@ boolean leftMouse = false;
 boolean collided = false;
 boolean pickup = false;
 boolean drop = false;
-
+ 
 void setup() {
   walls = new ArrayList<Wall>();
   size(1000,700);

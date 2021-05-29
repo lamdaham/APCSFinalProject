@@ -8,4 +8,4 @@ public class Room{
     walls.add(new Wall(0,0,1600,20));
     walls.add(new Wall(200,200,30,20));
   }
-}
+} 

@@ -7,4 +7,4 @@ public class Scene {
   void createRoom() {
     Room room = new Room();
   }
-}
+} 

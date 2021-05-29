@@ -1,5 +1,5 @@
 public class Bullet {
-  
+
   float r,dmg;
   
   PVector location;
