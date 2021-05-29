@@ -15,7 +15,8 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 # Development Log
 
 **5/28/21**
-Ivan:
+
+Ivan: Creating picking up and dropping gun, as well as damage taken by monsters.
 
 Sophia: Started on designing the characters (on paper), incorporated basic design of the player.
 
