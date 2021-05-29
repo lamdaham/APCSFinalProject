@@ -40,6 +40,12 @@ public class Player extends Characters{
   void display() {
     stroke(0);
     
+    //black part of panda is purple atm
+    fill(#9c64ba);
+    //ears
+    circle(x - radius * 2 + 23, y - 13, radius + 3);
+    circle(x - radius * 2 + 55, y - 13, radius + 3);
+        
     fill(255);
     //basic head + body of panda
     ellipse(x, y + 30, radius * 2, radius * 2 + 5);
