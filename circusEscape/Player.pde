@@ -50,6 +50,10 @@ public class Player extends Characters{
     //rotate(PI/3.0);
     ellipse(x - radius * 2 + 25, y + 25, radius * 1.3, radius * 2 - 20);
     ellipse(x - radius * 2 + 55, y + 25, radius * 1.3, radius * 2 - 20);
+    
+    //feet
+    ellipse(x - radius * 2 + 30, y + radius * 2 + 10, radius * 2 - 20, radius - 2);
+    ellipse(x - radius * 2 + 50, y + radius * 2 + 10, radius * 2 - 20, radius - 2);
         
     fill(255);
     //basic head + body of panda
