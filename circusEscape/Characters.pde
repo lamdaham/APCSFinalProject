@@ -24,7 +24,7 @@ public class Characters {
   
   //constructor without parameters
   Characters() {
-    this(10, 2, 10, 500, 500, 2);
+    this(10, 2, 20, 500, 500, 2);
   }
   
   
