@@ -70,6 +70,13 @@ void draw() {
       m.attackP(p1);
       m.display();
     }
+    
+    for (int m = 0; m<monsters.size(); m++) {
+      if (!(monsters.get(m).alive)) {
+        monsters.remove(m);
+        m--;
+      }
+    }
   
     
     fill(0);
