@@ -31,7 +31,8 @@ void setup() {
 
 void draw() {
   if (p1.isAlive()) {
-    background(#C0C0C0);
+    //background(#C0C0C0);
+    bg();
     scene.changeRoom();
     
     p1.removeRestriction();
@@ -156,5 +157,20 @@ void mousePressed() {
 void mouseReleased() {
   if (mouseButton == LEFT) {
     leftMouse = false;
+  }
+}
+
+void bg() {
+  noStroke();
+  for (int i = 0; i < width; i += 50) {
+    for (int j = 0; j < height; j += 50) {
+      if ((i + j) % 20 == 0) {
+        fill(#c9c9c9);
+      }
+      else {
+        fill(#8f8f8f);
+      }
+      rect(i, j, 50, 50);
+    }
   }
 }
