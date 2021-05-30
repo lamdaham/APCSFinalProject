@@ -32,6 +32,15 @@ public class Monsters extends Characters{
         x += 1;
       }
     }
+    
+    if (abs(p1.y - y) > p1.radius) {
+      if (p1.y - y < 0) {
+        y -= 1;
+      }
+      if (p1.y - y >= 0) {
+        y += 1;
+      }
+    }
   }
   
   //if the player and monsters are touching, then attack the player and decrease health
