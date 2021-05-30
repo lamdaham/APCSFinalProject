@@ -14,9 +14,11 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 # Development Log
 
-**5/29/21 ** 
+**5/29/21** 
 
 Ivan: Created multiple levels, prevented monsters from spawning in walls, and remove dead clowns when killed.
+
+Sophia: Designed monster, slight change to player + background, started thinking about monster movement.
 
 **5/28/21**
 
@@ -37,7 +39,6 @@ Sophia: Worked with attack, damage taken by both monsters and player; adding to 
 Ivan: Created restrictions on movement from walls, also created Room class
 
 Sophia: Started working on monster movements
-
 
 **5/25/21**
 
