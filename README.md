@@ -14,6 +14,10 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 # Development Log
 
+**5/29/21 ** 
+
+Ivan: Created multiple levels, prevented monsters from spawning in walls, and remove dead clowns when killed.
+
 **5/28/21**
 
 Ivan: Creating picking up and dropping gun, as well as damage taken by monsters.
