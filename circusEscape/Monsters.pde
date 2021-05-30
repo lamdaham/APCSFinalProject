@@ -94,6 +94,11 @@ public class Monsters extends Characters{
     circle(x - 8, y + 6, radius - 4);
     circle(x + 8, y + 6, radius - 4);
     
+    //eyebrows
+    stroke(0);
+    line(x - 5, y - 10, x, y - 5);
+    line(x, y - 5, x + 5, y - 10);
+    
     fill(0);
     textSize(10);
     text("health: " + hp, x + 15, y + 12);
