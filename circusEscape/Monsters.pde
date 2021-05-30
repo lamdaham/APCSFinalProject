@@ -53,7 +53,20 @@ public class Monsters extends Characters{
       fill(255);
     }
     
+    //hair
+    noStroke();
+    fill(#e84646);
+    stroke(#b52b2b);
+    circle(x - 13, y - 5, radius - 1);
+    circle(x - 13, y + 5, radius - 1);
+    circle(x - 16, y, radius + 1);
+    circle(x + 13, y - 5, radius - 1);
+    circle(x + 13, y + 5, radius - 1);
+    circle(x + 16, y, radius + 1);
+    
     //face
+    noStroke();
+    fill(255);
     circle(x, y, radius * 3);
     //eyes
     fill(#1538e8);
