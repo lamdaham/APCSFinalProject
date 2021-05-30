@@ -18,21 +18,21 @@ boolean drop = false;
  
 void setup() {
   walls = new ArrayList<Wall>();
-  size(1000,700);
-  background(#000000);
-  scene.createRoom();
-  
-  //setting up the monsters, testing (just 5 at the moment)
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
-  for (int i = 0; i < 5; i++) {
-    monsters.add(new Monsters());
-  }
+  size(1000,700);
+  background(#C0C0C0);
+  scene.createRoom(1);
+  
+  //setting up the monsters, testing (just 5 at the moment)
+
+  
 }
 
 void draw() {
-  background(#000000);
-
+  background(#C0C0C0);
+  scene.changeRoom();
+  
   p1.removeRestriction();
   for(Wall w : walls) {
     w.spawnWall();

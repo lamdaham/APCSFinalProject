@@ -16,15 +16,15 @@ public class Wall {
 
 
   void spawnWall() {
-    fill(#C0C0C0);
+    fill(#9c64ba);
     noStroke();
     rect(x, y, w, h);
   }
 
   void moveRestrict(Characters c) {
     char dir;
-    float tempX = p1.getX();
-    float tempY = p1.getY();
+    float tempX = c.getX();
+    float tempY = c.getY();
     dir = 'N';
 
     if (c.getX()<x) {

@@ -18,7 +18,7 @@ public class Bullet {
   
   void display() {
     move();
-    fill(200);
+    fill(0);
     ellipse(location.x, location.y, r * 2, r * 2);
   }
   

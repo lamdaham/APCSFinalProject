@@ -11,7 +11,7 @@ public class Monsters extends Characters{
   }
   
   Monsters() {
-    this(5, 1, 10.0, random(0, width), random(0, height), random(6) - 3);
+    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), 0);
   }
    
   //moving monsters around (just in one direction at the moment)
@@ -29,8 +29,10 @@ public class Monsters extends Characters{
   
   //if the player and monsters are touching, then attack the player and decrease health
   void attackP(Player p1) {
-    if (dist(x, y, p1.x, p1.y) < p1.radius + radius) {
-      p1.hp -= atkPower;
+    if (alive){
+      if (dist(x, y, p1.x, p1.y) < p1.radius + radius) {
+        p1.hp -= atkPower;
+      }
     }
   }
   
