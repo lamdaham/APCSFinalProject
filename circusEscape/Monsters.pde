@@ -14,17 +14,24 @@ public class Monsters extends Characters{
     this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), 0);
   }
    
-  //moving monsters around (just in one direction at the moment)
   //if hp is 0, then set hp + speed to 0 
   //differentiate from "alive" monsters
-  void moveM() {
+  void moveM(Player p1) {
     if (hp <= 0) {
       speed = 0;
       hp = 0;
       alive = false;
     }
-    x += speed;
-    y += speed;
+   
+    //monster moves towards player
+    if (abs(p1.x - x) > p1.radius) {
+      if (p1.x - x < 0) {
+        x -= 1;
+      }
+      if (p1.x - x >= 0) {
+        x += 1;
+      }
+    }
   }
   
   //if the player and monsters are touching, then attack the player and decrease health
