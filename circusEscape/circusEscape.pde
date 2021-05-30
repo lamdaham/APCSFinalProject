@@ -75,6 +75,7 @@ void draw() {
     fill(0);
     textSize(20);
     text("health: " + p1.hp, 0, 20);
+    text("Level: " + scene.roomNum, 0, 50);
     
     p1.moveP();
     p1.fire();

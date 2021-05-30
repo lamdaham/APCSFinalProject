@@ -21,7 +21,7 @@ public class Wall {
     rect(x, y, w, h);
   }
 
-  void moveRestrict(Characters c) {
+  boolean moveRestrict(Characters c) {
     char dir;
     float tempX = c.getX();
     float tempY = c.getY();
@@ -59,7 +59,9 @@ public class Wall {
       } else if (dir == 'D') {
         c.restrictDown();
       }
+      return true;
     }
+    return false;
   }
   
   boolean bulletCollision(Bullet bb) {
