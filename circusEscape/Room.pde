@@ -8,7 +8,14 @@ public class Room {
     walls.add(new Wall(0, 0, 1600, 20));
     walls.add(new Wall(200, 200, 30, 20));
     for (int i = 0; i < num * 5; i++) {
-      monsters.add(new Monsters());
+      monsters.add(0, new Monsters());
+      for(int w = 0; w<walls.size(); w++) {
+        if((walls.get(w)).moveRestrict(monsters.get(0))){
+          monsters.remove(0);
+          monsters.add(0, new Monsters());
+          w=0;
+        }
+      }
       mobCount++;
     }
   }
