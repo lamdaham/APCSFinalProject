@@ -38,7 +38,7 @@ public class Player extends Characters{
   }
   
   void display() {
-    stroke(0);
+    noStroke();
     
     //black part of panda is purple atm
     fill(#9c64ba);
@@ -54,10 +54,11 @@ public class Player extends Characters{
     //feet
     ellipse(x - radius * 2 + 30, y + radius * 2 + 10, radius * 2 - 20, radius - 2);
     ellipse(x - radius * 2 + 50, y + radius * 2 + 10, radius * 2 - 20, radius - 2);
-        
+    
     fill(255);
     //basic head + body of panda
     ellipse(x, y + 30, radius * 2, radius * 2 + 5);
+    stroke(#c7c7c7);
     ellipse(x, y, radius * 2 + 5, radius * 2); 
     
     //eyes
