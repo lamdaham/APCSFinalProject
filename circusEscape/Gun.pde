@@ -24,7 +24,7 @@ public class Gun extends GameObjects{
         translate(p1.getX(), p1.getY());
         rotate(getAngle()- radians(45));
         fill(255);
-        rect(5,5,10,10);
+        rect(16,16,10,10);
        popMatrix();
     }
   }
