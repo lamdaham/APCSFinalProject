@@ -30,54 +30,61 @@ void setup() {
 }
 
 void draw() {
-  background(#C0C0C0);
-  scene.changeRoom();
-  
-  p1.removeRestriction();
-  for(Wall w : walls) {
-    w.spawnWall();
-    w.moveRestrict(p1);
-    for(Monsters m : monsters) {
-      w.moveRestrict(m);
-    }
-  }
-  
-
-  for (int i = 0; i<bullet.size(); i++) {
-    collided = false;
-    for(Wall w: walls) {
-      if(w.bulletCollision(bullet.get(i))) {
-        collided = true;
+  if (p1.isAlive()) {
+    background(#C0C0C0);
+    scene.changeRoom();
+    
+    p1.removeRestriction();
+    for(Wall w : walls) {
+      w.spawnWall();
+      w.moveRestrict(p1);
+      for(Monsters m : monsters) {
+        w.moveRestrict(m);
       }
     }
-    if (!collided) {
-      bullet.get(i).display();
-    } else {
-      bullet.remove(bullet.get(i));
-      continue;
-    }
-  }
+    
   
-  for (Monsters m : monsters) {
     for (int i = 0; i<bullet.size(); i++) {
-      if (m.takeDamage(bullet.get(i))) {
-        bullet.remove(i);
-        i--;
+      collided = false;
+      for(Wall w: walls) {
+        if(w.bulletCollision(bullet.get(i))) {
+          collided = true;
+        }
+      }
+      if (!collided) {
+        bullet.get(i).display();
+      } else {
+        bullet.remove(bullet.get(i));
+        continue;
       }
     }
-    m.moveM();
-    m.attackP(p1);
-    m.display();
+    
+    for (Monsters m : monsters) {
+      for (int i = 0; i<bullet.size(); i++) {
+        if (m.takeDamage(bullet.get(i))) {
+          bullet.remove(i);
+          i--;
+        }
+      }
+      m.moveM();
+      m.attackP(p1);
+      m.display();
+    }
+  
+    
+    fill(0);
+    textSize(20);
+    text("health: " + p1.hp, 0, 20);
+    
+    p1.moveP();
+    p1.fire();
+    p1.display();
+  } else {
+    clear();
+    textSize(20);
+    text("You died", 0, 20);
+    text("You reached level " + scene.roomNum, 00, 50);
   }
-
-  
-  fill(0);
-  textSize(20);
-  text("health: " + p1.hp, 0, 20);
-  
-  p1.moveP();
-  p1.fire();
-  p1.display();
 }
 
 void removeM(Monsters m) {

@@ -106,4 +106,8 @@ public class Player extends Characters{
       }
     }
   }
+  
+  boolean isAlive() {
+    return hp>0;
+  }
 }
