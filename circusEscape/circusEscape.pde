@@ -67,7 +67,7 @@ void draw() {
           i--;
         }
       }
-      m.moveM();
+      m.moveM(p1);
       m.attackP(p1);
       m.display();
     }
