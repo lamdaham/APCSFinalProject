@@ -50,9 +50,26 @@ public class Monsters extends Characters{
       fill(255, 0, 0);
     }
     if (alive == true) {
-      fill(100);
+      fill(255);
     }
-    ellipse(x, y, radius * 2, radius * 2);
+    
+    //face
+    circle(x, y, radius * 3);
+    //eyes
+    fill(#1538e8);
+    ellipse(x - 7, y - 3, radius - 2, radius - 1);
+    ellipse(x + 7, y - 3, radius - 2, radius - 1);
+    fill(255);
+    ellipse(x - 7, y - 3, radius - 3.5, radius - 2);
+    ellipse(x + 7, y - 3, radius - 3.5, radius - 2);
+    fill(0);
+    circle(x - 7, y - 3, radius - 7);
+    circle(x + 7, y - 3, radius - 7);
+    
+    //nose
+    fill(#e84646);
+    circle(x, y + 3, 5);
+    
     textSize(10);
     text("health: " + hp, x + 15, y + 12);
   }

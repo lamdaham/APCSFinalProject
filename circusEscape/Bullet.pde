@@ -18,8 +18,8 @@ public class Bullet {
   
   void display() {
     move();
-    fill(0);
-    ellipse(location.x, location.y, r * 2, r * 2);
+    fill(#4ced28);
+    circle(location.x, location.y, r * 3);
   }
   
   float getX() {
