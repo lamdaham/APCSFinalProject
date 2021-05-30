@@ -87,8 +87,14 @@ public class Monsters extends Characters{
     fill(#eb2323);
     ellipse(x, y + 10, radius + 2, radius - 5);
     fill(255);
-    ellipse(x, y + 10, radius - 2, radius - 7);
+    ellipse(x, y + 10, radius - 2, radius - 6);
     
+    //cheeks
+    fill(#f5bff2, 191);
+    circle(x - 8, y + 6, radius - 4);
+    circle(x + 8, y + 6, radius - 4);
+    
+    fill(0);
     textSize(10);
     text("health: " + hp, x + 15, y + 12);
   }
