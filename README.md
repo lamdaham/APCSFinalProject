@@ -18,7 +18,7 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 Ivan: Created multiple levels, prevented monsters from spawning in walls, and remove dead clowns when killed.
 
-Sophia: Designed monster, slight change to player + background, started thinking about monster movement.
+Sophia: Designed monster, slight change to player + background, coded monster movement (monsters head towards the player).
 
 **5/28/21**
 
