@@ -64,6 +64,10 @@ public class Monsters extends Characters{
     circle(x - 7, y - 3, radius - 7);
     circle(x + 7, y - 3, radius - 7);
     
+    //nose
+    fill(#e84646);
+    circle(x, y + 3, 5);
+    
     textSize(10);
     text("health: " + hp, x + 15, y + 12);
   }
