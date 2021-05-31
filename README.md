@@ -15,7 +15,8 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 # Development Log
 
 **5/30/21**
-Ivan:
+
+Ivan: Debugged movement restriction on mosters
 
 Sophia: Made changes to the player appearance, started planning more game objects, including player's hp count.
 
