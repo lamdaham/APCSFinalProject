@@ -44,8 +44,8 @@ public class Wall {
       dir = 'U';
     }
 
-    float distX = p1.getX() - tempX;
-    float distY = p1.getY() - tempY;
+    float distX = c.getX() - tempX;
+    float distY = c.getY() - tempY;
 
     float dist = sqrt((distX*distX) + (distY*distY));
 

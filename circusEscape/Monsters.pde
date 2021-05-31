@@ -10,8 +10,8 @@ public class Monsters extends Characters{
     this.speed = speed;
   }
   
-  Monsters() {
-    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), 1);
+  Monsters(float speed) {
+    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), speed);
   }
    
   //if hp is 0, then set hp + speed to 0 
@@ -22,22 +22,22 @@ public class Monsters extends Characters{
       hp = 0;
       alive = false;
     }
-   
+      
     //monster moves towards player
     if (abs(p1.x - x) > p1.radius) {
-      if (p1.x - x < 0) {
+      if (p1.x - x < 0 && ableLeft) {
         x -= speed;
       }
-      if (p1.x - x >= 0) {
+      if (p1.x - x >= 0 && ableRight) {
         x += speed;
       }
     }
     
     if (abs(p1.y - y) > p1.radius) {
-      if (p1.y - y < 0) {
+      if (p1.y - y < 0 && ableUp) {
         y -= speed;
       }
-      if (p1.y - y >= 0) {
+      if (p1.y - y >= 0 && ableDown) {
         y += speed;
       }
     }
