@@ -1,5 +1,6 @@
 Scene scene = new Scene();
 ArrayList<Gun> gun = new ArrayList<Gun>();
+ArrayList<Health> health = new ArrayList<Health>();
 Player p1 = new Player();
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
@@ -20,6 +21,12 @@ void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
+  health = new ArrayList<Health>();
+  
+  for (int i = 0; i < 10; i++) {
+    health.add(new Health(20 + i * 50, 10));
+  }
+  
   size(1000, 700);
   background(#C0C0C0);
   scene.createRoom(1);
@@ -43,6 +50,8 @@ void draw() {
     playerAction();
     
     displayGun();
+    
+    displayHealth();
 
 
     fill(0);
@@ -198,6 +207,12 @@ void playerAction() {
 void displayGun() {
   for (Gun g: gun) {
     g.display();
+  }
+}
+
+void displayHealth() {
+  for (Health h : health) {
+    h.display();
   }
 }
 
