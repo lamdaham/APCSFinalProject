@@ -10,6 +10,7 @@ public class Monsters extends Characters{
     this.speed = speed;
   }
   
+  //monsters spawn randomly on the map
   Monsters(float speed) {
     this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), speed);
   }
@@ -60,15 +61,8 @@ public class Monsters extends Characters{
     return false;
   }
   
+  //appearance of the monster
   void display() {
-    stroke(0);
-    if (alive == false) {
-      fill(255, 0, 0);
-    }
-    if (alive == true) {
-      fill(255);
-    }
-    
     //hair
     noStroke();
     fill(#e84646);
@@ -115,9 +109,10 @@ public class Monsters extends Characters{
     line(x - 5, y - 10, x, y - 5);
     line(x, y - 5, x + 5, y - 10);
     
-    fill(0);
-    textSize(10);
-    text("health: " + hp, x + 15, y + 12);
+    //displaying the health for reference
+    //fill(0);
+    //textSize(10);
+    //text("health: " + hp, x + 15, y + 12);
   }
   
   boolean withinRange() {
