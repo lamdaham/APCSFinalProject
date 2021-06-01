@@ -91,9 +91,14 @@ void draw() {
     p1.display();
   } else {
     clear();
+    fill(255, 0, 0);
+    rect(200, 200, 600, 300);
+    fill(255);
     textSize(20);
-    text("You died", 0, 20);
-    text("You reached level " + scene.roomNum, 00, 50);
+    textAlign(CENTER);
+    text("You died :(", width / 2, height / 2 - 30);
+    text("You reached level " + scene.roomNum, width / 2, height / 2);
+    text("Try Again!", width / 2, height / 2 + 30);
   }
 }
 
