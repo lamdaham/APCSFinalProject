@@ -46,15 +46,7 @@ void draw() {
     text("health: " + p1.hp, 0, 20);
     text("Level: " + scene.roomNum, 0, 50);
   } else {
-    clear();
-    fill(255, 0, 0);
-    rect(200, 200, 600, 300);
-    fill(255);
-    textSize(20);
-    textAlign(CENTER);
-    text("You died :(", width / 2, height / 2 - 30);
-    text("You reached level " + scene.roomNum, width / 2, height / 2);
-    text("Try Again!", width / 2, height / 2 + 30);
+    deathMessage();
   }
 }
 
@@ -192,4 +184,16 @@ void playerAction() {
   p1.moveP();
   p1.fire();
   p1.display();
+}
+
+void deathMessage() {
+  clear();
+  fill(255, 0, 0);
+  rect(200, 200, 600, 300);
+  fill(255);
+  textSize(20);
+  textAlign(CENTER);
+  text("You died :(", width / 2, height / 2 - 30);
+  text("You reached level " + scene.roomNum, width / 2, height / 2);
+  text("Try Again!", width / 2, height / 2 + 30);
 }
