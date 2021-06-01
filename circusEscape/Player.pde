@@ -43,20 +43,20 @@ public class Player extends Characters{
     //black part of panda is purple atm
     fill(0);
     //ears
-    circle(x - radius * 2 + 26, y - 15, radius);
-    circle(x - radius * 2 + 53, y - 15, radius);
+    circle(x - radius * 2 + 26, y - 13, radius - 5);
+    circle(x - radius * 2 + 53, y - 13, radius - 5);
     
     //arms
-    ellipse(x - radius * 2 + 25, y + 20, radius * 1.3, radius * 2 - 20);
-    ellipse(x - radius * 2 + 55, y + 20, radius * 1.3, radius * 2 - 20);
+    //ellipse(x - radius * 2 + 25, y + 20, radius * 1.3, radius * 2 - 20);
+    //ellipse(x - radius * 2 + 55, y + 20, radius * 1.3, radius * 2 - 20);
     
     //feet
-    ellipse(x - radius * 2 + 30, y + radius * 2 + 5, radius * 2 - 20, radius - 2);
-    ellipse(x - radius * 2 + 50, y + radius * 2 + 5, radius * 2 - 20, radius - 2);
+    //ellipse(x - radius * 2 + 30, y + radius * 2 + 5, radius * 2 - 20, radius - 2);
+    //ellipse(x - radius * 2 + 50, y + radius * 2 + 5, radius * 2 - 20, radius - 2);
     
     fill(255);
     //basic head + body of panda
-    ellipse(x, y + 25, radius * 1.8, radius * 1.5 + 5);
+    //ellipse(x, y + 25, radius * 1.8, radius * 1.5 + 5);
     stroke(#c7c7c7);
     ellipse(x, y, radius * 1.7, radius * 1.5 + 3); 
     
