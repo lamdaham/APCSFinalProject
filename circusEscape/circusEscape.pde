@@ -12,6 +12,7 @@ boolean up = false;
 boolean down = false;
 boolean right = false;
 boolean left = false;
+
 boolean leftMouse = false;
 boolean collided = false;
 boolean pickup = false;
@@ -23,8 +24,8 @@ void setup() {
   bullet = new ArrayList<Bullet>();
   health = new ArrayList<Health>();
   
-  for (int i = 0; i < 10; i++) {
-    health.add(new Health(20 + i * 50, 10));
+  for (int i = 0; i < p1.hp; i++) {
+    health.add(new Health(125 + i * 30, 10));
   }
   
   size(1000, 700);
@@ -35,39 +36,44 @@ void setup() {
 }
 
 void draw() {
+  //while the player is alive
   if (p1.isAlive()) {
-    //background(#C0C0C0);
+    //setting up the background
     bg();
     scene.changeRoom();
 
-
+    //restricting the characters' movements, control over
+    //the bullets, monsters, and the player
     restrictMovement();
-
     removeBullet();
-
     monsterAction();
-
     playerAction();
     
+    //displaying the gun and health
     displayGun();
-    
     displayHealth();
 
 
+    //text: health, level, gun type
     fill(0);
     textSize(20);
     text("health: " + p1.hp, 0, 20);
     text("Level: " + scene.roomNum, 0, 50);
+    
+    //different messages for the gun types
     if (p1.hasGun) {
       text("Gun: " + (p1.currentGun).type, 0, 80);
     } else {
       text("Gun: " + "good'ol panda paws", 0, 80);
     }
+    
+    //if the player is dead, display the death message
   } else {
     deathMessage();
   }
 } 
 
+//removing monsters when hp is <= 0
 void removeM(Monsters m) {
   if (m.hp <= 0) {
     m.hp = 0;
@@ -75,10 +81,10 @@ void removeM(Monsters m) {
   }
 }
 
-//if key is pressed (WASD), then set appropriate boolean true
-// c is pickup weapon
-// v is drop weapon
-
+//if key is pressed, then set appropriate boolean true
+//WASD is for the directions
+//c is to pickup weapon
+//v is to drop weapon
 void keyPressed() {
   if (key == 'w') {
     up = true;
@@ -135,6 +141,7 @@ void mouseReleased() {
   }
 }
 
+//setting up the checkerboard background
 void bg() {
   noStroke();
   for (int i = 0; i < width; i += 50) {
@@ -149,6 +156,7 @@ void bg() {
   }
 }
 
+//restricting the movement of the monsters when at wall
 void restrictMovement() {
   p1.removeRestriction();
   for (Wall w : walls) {
@@ -177,6 +185,7 @@ void removeBullet() {
   }
 }
 
+//monster movement, taking damage, attacking player
 void monsterAction() {
   for (Monsters m : monsters) {
     for (int i = 0; i<bullet.size(); i++) {
@@ -198,24 +207,28 @@ void monsterAction() {
   }
 }
 
+//player movement and firing
 void playerAction() {
   p1.moveP();
   p1.fire();
   p1.display();
 }
 
+//displays the gun the player is using
 void displayGun() {
   for (Gun g: gun) {
     g.display();
   }
 }
 
+//displays the health of the player
 void displayHealth() {
   for (Health h : health) {
     h.display();
   }
 }
 
+//displayed when the player dies
 void deathMessage() {
   clear();
   fill(255, 0, 0);
