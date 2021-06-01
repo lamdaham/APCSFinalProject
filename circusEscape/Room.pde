@@ -10,7 +10,7 @@ public class Room {
     for (int i = 0; i < num * 5; i++) {
       monsters.add(0, new Monsters(.75  *num));
       for(int w = 0; w<walls.size(); w++) {
-        if((walls.get(w)).moveRestrict(monsters.get(0))){
+        if((walls.get(w)).moveRestrict(monsters.get(0)) || dist((monsters.get(0)).x, monsters.get(0).y, p1.x, p1.y)<50){
           monsters.remove(0);
           monsters.add(0, new Monsters(.75*num));
           w=0;
