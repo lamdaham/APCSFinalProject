@@ -33,6 +33,7 @@ void draw() {
     bg();
     scene.changeRoom();
 
+
     restrictMovement();
 
     removeBullet();
@@ -41,12 +42,16 @@ void draw() {
 
     playerAction();
 
+
     fill(0);
     textSize(20);
     text("health: " + p1.hp, 0, 20);
     text("Level: " + scene.roomNum, 0, 50);
   } else {
+
     deathMessage();
+
+
   }
 }
 
