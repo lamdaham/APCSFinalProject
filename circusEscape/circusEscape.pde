@@ -24,7 +24,7 @@ void setup() {
   background(#C0C0C0);
   scene.createRoom(1);
 
-  //setting up the monsters, testing (just 5 at the moment)
+  //testing 
 }
 
 void draw() {
