@@ -16,5 +16,9 @@ public class Health {
     line(x, y, x - 10, y - 10);
     line(x - 10, y - 10, x - 20, y);
     line(x - 20, y, x, y + 20);
+    //right half of the heart
+    line(x, y, x + 10, y - 10);
+    line(x + 10, y - 10, x + 20, y);
+    line(x + 20, y, x, y + 20);
   }
 }
