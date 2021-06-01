@@ -1,12 +1,10 @@
 public class Characters {
+  //applies to both the player and the monsters
   int hp, atkPower, dmgTaken, fireRate;
   float x, y, speed, radius;
-  color c;
   boolean ableLeft, ableRight, ableUp, ableDown, alive;
 
-  //constructor w/ health, attack power (starting with just a circle to represent character)
-  //also accounting for radius, x, y, and the speed
-  //including c to check for it later
+  //constructor accounting for health, attack power, radius, position, speed
   Characters(int hp, int atkPower, float rad, float x, float y, float speed) {
     this.hp = hp;
     this.atkPower = atkPower;
@@ -14,7 +12,6 @@ public class Characters {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    c = 255;
     ableLeft = true;
     ableRight = true;
     ableUp = true;
@@ -27,26 +24,24 @@ public class Characters {
     this(10, 2, 20, 500, 500, 2);
   }
   
-  
+  //getting x, y, and radius
   float getX() {
     return x;
-  }
-  
+  }  
   float getY() {
     return y;
-  }
-  
+  } 
   float getR() {
     return radius;
   }
   
+  //keeping track of restrictions on characters using booleans
   void removeRestriction() {
     ableLeft = true;
     ableRight = true;
     ableUp = true;
     ableDown = true;
   }
-  
   
   void restrictLeft() {
     ableLeft = false;
