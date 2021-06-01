@@ -1,6 +1,4 @@
 public class Player extends Characters{
-  //moving portion: if true for boolean
-  //then adjust x and y accordingly w/ speed
   Gun currentGun;
   boolean hasGun;
   
@@ -12,6 +10,7 @@ public class Player extends Characters{
     gun.add(new Gun("shotgun", 100, 100));
   }
   
+  //moving the player
   void moveP() {
     if (up && ableUp) {
       this.y -= speed;
@@ -27,21 +26,18 @@ public class Player extends Characters{
     }
   }
   
+  //attacking monster if the player is touching the monster
+  //decrease monster health based off player's attack power
   void attackM(Monsters m) {
-    if (dist(x, y, m.x, m.y) < m.radius + radius) {
-      //this is so that every time the player touches the monster
-      //the monster's health wouldn't switch
-      if (c != 100) {       
-        m.hp -= atkPower;
-      }
-      m.hp = 0;
+    if (dist(x, y, m.x, m.y) < m.radius + radius) { 
+      m.hp -= atkPower;
     }
   }
   
+  //the appearance of the player and gun
   void display() {
     noStroke();
     
-    //black part of panda is purple atm
     fill(0);
     //ears
     circle(x - radius * 2 + 26, y - 13, radius - 5);
