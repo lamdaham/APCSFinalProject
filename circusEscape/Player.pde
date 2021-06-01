@@ -9,6 +9,7 @@ public class Player extends Characters{
     currentGun = new Gun();
     gun.add(currentGun);
     hasGun = true;
+    gun.add(new Gun("shotgun", 100, 100));
   }
   
   void moveP() {

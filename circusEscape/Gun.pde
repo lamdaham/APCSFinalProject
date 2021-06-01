@@ -12,6 +12,14 @@ public class Gun extends GameObjects{
     cooldown = 10;
   }
   
+  Gun(String type, float x, float y) {
+    this.type = type;
+    pickedUp = false;
+    this.x = x; 
+    this.y = y;
+    cooldown = 10;
+  }
+  
 
   
   void display() {
@@ -35,8 +43,15 @@ public class Gun extends GameObjects{
   
   void fire() {
     if(t>=cooldown) {
-      bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5, getAngle()));
-      t = 0;
+      if (type.equals("pistol")) {
+        bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5, getAngle()));
+        t = 0;
+      } else if (type.equals("shotgun")) {
+        for(int ang = -50; ang <= 50; ang += 10) {
+          bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5, getAngle()+radians(ang)));
+          t = 0;
+        }
+      }
     }
   }
   

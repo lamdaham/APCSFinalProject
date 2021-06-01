@@ -41,6 +41,8 @@ void draw() {
     monsterAction();
 
     playerAction();
+    
+    displayGun();
 
 
     fill(0);
@@ -48,10 +50,7 @@ void draw() {
     text("health: " + p1.hp, 0, 20);
     text("Level: " + scene.roomNum, 0, 50);
   } else {
-
     deathMessage();
-
-
   }
 }
 
@@ -189,6 +188,12 @@ void playerAction() {
   p1.moveP();
   p1.fire();
   p1.display();
+}
+
+void displayGun() {
+  for (Gun g: gun) {
+    g.display();
+  }
 }
 
 void deathMessage() {
