@@ -57,7 +57,7 @@ void draw() {
   } else {
     deathMessage();
   }
-}
+} 
 
 void removeM(Monsters m) {
   if (m.hp <= 0) {
