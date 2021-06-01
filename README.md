@@ -18,7 +18,7 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 Ivan: Organized code, fixed uml, added a shotgun. Prevent monsters from spawning on top of players, and added display for gun name.
 
-Sophia:
+Sophia: Revised prototype, changed the game over screen as well as the appearance of the player, and started health class.
 
 **5/30/21**
 
