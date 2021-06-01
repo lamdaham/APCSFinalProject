@@ -41,7 +41,7 @@ public class Player extends Characters{
     noStroke();
     
     //black part of panda is purple atm
-    fill(#9c64ba);
+    fill(0);
     //ears
     circle(x - radius * 2 + 26, y - 15, radius);
     circle(x - radius * 2 + 53, y - 15, radius);
