@@ -79,7 +79,6 @@ void draw() {
         m--;
       }
     }
-  
     
     fill(0);
     textSize(20);
@@ -96,7 +95,7 @@ void draw() {
     fill(255);
     textSize(20);
     textAlign(CENTER);
-    text("G A M E  O V E R", width / 2, height / 2 - 30);
+    text("G A M E    O V E R", width / 2, height / 2 - 30);
     text("You reached level " + scene.roomNum, width / 2, height / 2);
     text("Try Again!", width / 2, height / 2 + 30);
   }
