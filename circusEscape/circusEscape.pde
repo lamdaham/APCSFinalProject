@@ -15,18 +15,16 @@ boolean leftMouse = false;
 boolean collided = false;
 boolean pickup = false;
 boolean drop = false;
- 
+
 void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
-  size(1000,700);
+  size(1000, 700);
   background(#C0C0C0);
   scene.createRoom(1);
-  
-  //setting up the monsters, testing (just 5 at the moment)
 
-  
+  //setting up the monsters, testing (just 5 at the moment)
 }
 
 void draw() {
@@ -34,63 +32,22 @@ void draw() {
     //background(#C0C0C0);
     bg();
     scene.changeRoom();
-    
-    p1.removeRestriction();
-    for(Wall w : walls) {
-      w.spawnWall();
-      w.moveRestrict(p1);
-      for(Monsters m : monsters) {
-        m.removeRestriction();
-        w.moveRestrict(m);
-      }
-    }
-    
-  
-    for (int i = 0; i<bullet.size(); i++) {
-      collided = false;
-      for(Wall w: walls) {
-        if(w.bulletCollision(bullet.get(i))) {
-          collided = true;
-        }
-      }
-      if (!collided) {
-        bullet.get(i).display();
-      } else {
-        bullet.remove(bullet.get(i));
-        continue;
-      }
-    }
-    
-    for (Monsters m : monsters) {
-      for (int i = 0; i<bullet.size(); i++) {
-        if (m.takeDamage(bullet.get(i))) {
-          bullet.remove(i);
-          i--;
-        }
-      }
-      m.moveM(p1);
-      m.attackP(p1);
-      m.display();
-    }
-    
-    for (int m = 0; m<monsters.size(); m++) {
-      if (!(monsters.get(m).alive)) {
-        monsters.remove(m);
-        m--;
-      }
-    }
-  
-    
+
+    restrictMovement();
+
+    removeBullet();
+
+    monsterAction();
+
+    playerAction();
+
     fill(0);
     textSize(20);
     text("health: " + p1.hp, 0, 20);
     text("Level: " + scene.roomNum, 0, 50);
-    
-    p1.moveP();
-    p1.fire();
-    p1.display();
   } else {
     clear();
+    fill(255);
     textSize(20);
     text("You died", 0, 20);
     text("You reached level " + scene.roomNum, 00, 50);
@@ -105,6 +62,9 @@ void removeM(Monsters m) {
 }
 
 //if key is pressed (WASD), then set appropriate boolean true
+// c is pickup weapon
+// v is drop weapon
+
 void keyPressed() {
   if (key == 'w') {
     up = true;
@@ -125,7 +85,7 @@ void keyPressed() {
     drop = true;
   }
 }
-  
+
 //same as keyPressed but with released, set boolean false
 void keyReleased() {
   if (key == 'w') {
@@ -167,11 +127,65 @@ void bg() {
     for (int j = 0; j < height; j += 50) {
       if ((i + j) % 20 == 0) {
         fill(#c9c9c9);
-      }
-      else {
+      } else {
         fill(#8f8f8f);
       }
       rect(i, j, 50, 50);
     }
   }
+}
+
+void restrictMovement() {
+  p1.removeRestriction();
+  for (Wall w : walls) {
+    w.spawnWall();
+    w.moveRestrict(p1);
+    for (Monsters m : monsters) {
+      m.removeRestriction();
+      w.moveRestrict(m);
+    }
+  }
+}
+
+void removeBullet() {
+  for (int i = 0; i<bullet.size(); i++) {
+    collided = false;
+    for (Wall w : walls) {
+      if (w.bulletCollision(bullet.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bullet.get(i).display();
+    } else {
+      bullet.remove(bullet.get(i));
+    }
+  }
+}
+
+void monsterAction() {
+  for (Monsters m : monsters) {
+    for (int i = 0; i<bullet.size(); i++) {
+      if (m.takeDamage(bullet.get(i))) {
+        bullet.remove(i);
+        i--;
+      }
+    }
+    m.moveM(p1);
+    m.attackP(p1);
+    m.display();
+  }
+
+  for (int m = 0; m<monsters.size(); m++) {
+    if (!(monsters.get(m).alive)) {
+      monsters.remove(m);
+      m--;
+    }
+  }
+}
+
+void playerAction() {
+  p1.moveP();
+  p1.fire();
+  p1.display();
 }
