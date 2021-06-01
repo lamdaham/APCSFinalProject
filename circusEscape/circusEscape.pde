@@ -49,6 +49,11 @@ void draw() {
     textSize(20);
     text("health: " + p1.hp, 0, 20);
     text("Level: " + scene.roomNum, 0, 50);
+    if (p1.hasGun) {
+      text("Gun: " + (p1.currentGun).type, 0, 80);
+    } else {
+      text("Gun: " + "good'ol panda paws", 0, 80);
+    }
   } else {
     deathMessage();
   }
