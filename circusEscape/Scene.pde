@@ -17,10 +17,14 @@ public class Scene {
   
   void changeRoom(){
     if(room.getMobCount()==0) {
-      clearBoard();
+      if (roomNum%2 == 0){
+        buffScreen = true;
+      }
       roomNum++;
       monsters = new ArrayList();
       createRoom(roomNum);   
     }
   }
+  
+  
 } 

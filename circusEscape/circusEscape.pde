@@ -5,6 +5,7 @@ Player p1 = new Player();
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
+boolean buffScreen;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -23,50 +24,53 @@ void setup() {
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
   health = new ArrayList<Health>();
-  
+
   for (int i = 0; i < p1.hp; i++) {
     health.add(new Health(125 + i * 30, 10));
   }
-  
+
   size(1000, 700);
   background(#C0C0C0);
   scene.createRoom(1);
-
-  //testing 
+  buffScreen = false;
+  //testing
 }
 
 void draw() {
   //while the player is alive
   if (p1.isAlive()) {
-    //setting up the background
-    bg();
-    scene.changeRoom();
-
-    //restricting the characters' movements, control over
-    //the bullets, monsters, and the player
-    restrictMovement();
-    removeBullet();
-    monsterAction();
-    playerAction();
-    
-    //displaying the gun and health
-    displayGun();
-    displayHealth();
-
-
-    //text: health, level, gun type
-    fill(0);
-    textSize(20);
-    text("health: " + p1.hp, 0, 20);
-    text("Level: " + scene.roomNum, 0, 50);
-    
-    //different messages for the gun types
-    if (p1.hasGun) {
-      text("Gun: " + (p1.currentGun).type, 0, 80);
+    if (buffScreen) {
+      chooseBuff();
     } else {
-      text("Gun: " + "good'ol panda paws", 0, 80);
+      //setting up the background
+      bg();
+      scene.changeRoom();
+
+      //restricting the characters' movements, control over
+      //the bullets, monsters, and the player
+      restrictMovement();
+      removeBullet();
+      monsterAction();
+      playerAction();
+
+      //displaying the gun and health
+      displayGun();
+      displayHealth();
+
+
+      //text: health, level, gun type
+      fill(0);
+      textSize(20);
+      text("health: " + p1.hp, 0, 20);
+      text("Level: " + scene.roomNum, 0, 50);
+
+      //different messages for the gun types
+      if (p1.hasGun) {
+        text("Gun: " + (p1.currentGun).type, 0, 80);
+      } else {
+        text("Gun: " + "good'ol panda paws", 0, 80);
+      }
     }
-    
     //if the player is dead, display the death message
   } else {
     deathMessage();
@@ -216,7 +220,7 @@ void playerAction() {
 
 //displays the gun the player is using
 void displayGun() {
-  for (Gun g: gun) {
+  for (Gun g : gun) {
     g.display();
   }
 }
@@ -239,4 +243,30 @@ void deathMessage() {
   text("You died :(", width / 2, height / 2 - 30);
   text("You reached level " + scene.roomNum, width / 2, height / 2);
   text("Try Again!", width / 2, height / 2 + 30);
+}
+
+void chooseBuff() {
+  clear();
+  fill(255);
+  noStroke();
+  rect(300, 300, 100, 100);
+  rect(450, 300, 100, 100);
+  rect(600, 300, 100, 100);
+  if (leftMouse && overRect(300, 300, 100, 100)) {
+    buffScreen = false;
+  }
+  else if (leftMouse && overRect(450, 300, 100, 100)) {
+    buffScreen = false;
+  }
+  else if (leftMouse && overRect(600, 300, 100, 100)) {
+    buffScreen = false;
+  }
+}
+
+boolean overRect(int x, int y, int rectWidth, int rectHeight) {
+  if (mouseX >= x && mouseX <= x+rectWidth && mouseY >= y && mouseY <= y+rectHeight) {
+    return true;
+  } else {
+    return false;
+  }
 }
