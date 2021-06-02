@@ -41,14 +41,14 @@ public class Gun extends GameObjects{
     return atan2(mouseY-p1.getY(), mouseX-p1.getX());
   }
   
-  void fire() {
+  void fire(int extra) {
     if(t>=cooldown) {
       if (type.equals("pistol")) {
-        bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5, getAngle()));
+        bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5+extra, getAngle()));
         t = 0;
       } else if (type.equals("shotgun")) {
         for(int ang = -50; ang <= 50; ang += 10) {
-          bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5, getAngle()+radians(ang)));
+          bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 2+extra, getAngle()+radians(ang)));
           t = 0;
         }
       }

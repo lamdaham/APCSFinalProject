@@ -1,13 +1,21 @@
 public class Player extends Characters{
   Gun currentGun;
   boolean hasGun;
+  int extraDamage;
+  int maxHealth;
+  int regenCooldown;
+  int tempCooldown;
   
   Player() {
     super();
+    maxHealth = hp;
     currentGun = new Gun();
     gun.add(currentGun);
     hasGun = true;
+    extraDamage = 0;
     gun.add(new Gun("shotgun", 100, 100));
+    regenCooldown = 200;
+    tempCooldown = 0;
   }
   
   //moving the player
@@ -70,6 +78,7 @@ public class Player extends Characters{
     currentGun.display();
     dropGun();
     pickupGun();
+    regen();
   }
    
   void look() {
@@ -77,7 +86,7 @@ public class Player extends Characters{
   
   void fire() {
     if (leftMouse&&hasGun) {
-      currentGun.fire();
+      currentGun.fire(extraDamage);
     }
   }
   
@@ -106,5 +115,19 @@ public class Player extends Characters{
   
   boolean isAlive() {
     return hp>0;
+  }
+  
+  void regen() {
+    if (hp<maxHealth) {
+      print(tempCooldown);
+      if (tempCooldown>=regenCooldown) {
+        hp++;
+        tempCooldown = tempCooldown%regenCooldown;
+      } else {
+        tempCooldown++;
+      }
+    } else {
+      tempCooldown = 0;
+    }
   }
 }

@@ -249,16 +249,31 @@ void chooseBuff() {
   clear();
   fill(255);
   noStroke();
+  textSize(10);
   rect(300, 300, 100, 100);
+  fill(0);
+  text("Extra Damage +1", 310,350);
+  fill(255);
   rect(450, 300, 100, 100);
+  fill(0);
+  textSize(8);
+  text("Increase Health Regen", 460,350);
+  fill(255);
   rect(600, 300, 100, 100);
+  fill(0);
+  textSize(9);
+  text("Increase Max Health", 610,350);
+  fill(255);
   if (leftMouse && overRect(300, 300, 100, 100)) {
+    p1.extraDamage++;
     buffScreen = false;
   }
   else if (leftMouse && overRect(450, 300, 100, 100)) {
+    p1.regenCooldown-=5;
     buffScreen = false;
   }
   else if (leftMouse && overRect(600, 300, 100, 100)) {
+    p1.maxHealth++;
     buffScreen = false;
   }
 }
