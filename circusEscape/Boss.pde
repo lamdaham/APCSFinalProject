@@ -53,6 +53,11 @@ public class Boss extends Monsters {
   void display() {
     noStroke();
     fill(255);
-    circle(x, y, radius * 3);
+    circle(x, y, radius * 1.25);
+    
+    //eyes
+    fill(0);
+    circle(x - 20, y, radius / 3);
+    circle(x + 20, y, radius / 3);
   }
 }
