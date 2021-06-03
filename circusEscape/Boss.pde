@@ -51,6 +51,7 @@ public class Boss extends Monsters {
   }
   
   void display() {
+    //idea: make the boss design a circus ringleader
     noStroke();
     fill(255);
     circle(x, y, radius * 1.25);
