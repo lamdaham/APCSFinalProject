@@ -1,6 +1,6 @@
 public class Monsters extends Characters {
-  int cooldown;
-  int t;
+  int cooldown, t;
+
   //same as Player, copying constructors from Characters
   //changing size/color of monsters and setting the position at random positions
   Monsters(int hp, int atkPower, float rad, float x, float y, float speed) {
@@ -15,6 +15,10 @@ public class Monsters extends Characters {
   }
 
   //monsters spawn randomly on the map
+  Monsters() {
+    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), 2);
+  }
+  
   Monsters(float speed) {
     this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), speed);
   }

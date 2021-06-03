@@ -47,5 +47,6 @@ public class Boss extends Monsters {
         y += speed;
       }
     }
+
   }
 }
