@@ -22,7 +22,7 @@ public class Scene {
       if (roomNum%2 == 0) {
         buffScreen = true;
       }
-      if (roomNum==10) {
+      if (roomNum==2) {
         walls.clear();
         room.bossRoom();
       } else {

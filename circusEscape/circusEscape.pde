@@ -108,13 +108,13 @@ void keyPressed() {
   if (key == 'v') {
     drop = true;
   }
-  if (key == 'i') {
+  if (key == '1') {
     buff1 = true;
   }
-  if (key == 'o') {
+  if (key == '2') {
     buff2 = true;
   }
-  if (key == 'p') {
+  if (key == '3') {
     buff3 = true;
   }
 }
@@ -139,13 +139,13 @@ void keyReleased() {
   if (key == 'v') {
     drop = false;
   }
-  if (key == 'i') {
+  if (key == '1') {
     buff1 = false;
   }
-  if (key == 'o') {
+  if (key == '2') {
     buff2 = false;
   }
-  if (key == 'p') {
+  if (key == '3') {
     buff3 = false;
   }
 }
@@ -277,19 +277,19 @@ void chooseBuff() {
   rect(300, 300, 100, 100);
   fill(0);
   text("Extra Damage +1", 310, 350);
-  text("(i)", 310, 370);
+  text("(1)", 310, 370);
   fill(255);
   rect(450, 300, 100, 100);
   fill(0);
   textSize(8);
   text("Increase Health Regen", 460, 350);
-  text("(o)", 460, 370);
+  text("(2)", 460, 370);
   fill(255);
   rect(600, 300, 100, 100);
   fill(0);
   textSize(9);
   text("Increase Max Health", 610, 350);
-  text("(p)", 610, 370);
+  text("(3)", 610, 370);
   fill(255);
   if (buff1) {
     p1.extraDamage++;

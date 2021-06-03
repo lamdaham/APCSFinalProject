@@ -6,7 +6,7 @@ public class Boss extends Monsters {
 
   Boss() {
     super(1000, 5, 70, 800, 500, 2);
-    spawnMonsterCooldown = 30;
+    spawnMonsterCooldown = 200;
     tempCounter = 0;
   }
 
