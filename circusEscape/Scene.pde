@@ -1,8 +1,8 @@
 public class Scene {
-  
+
   Room room;
   int roomNum;
-  
+
   Scene() {
     roomNum = 0;
   }
@@ -14,17 +14,24 @@ public class Scene {
   void createRoom(int num) {
     room = new Room(num);
   }
-  
-  void changeRoom(){
-    if(room.getMobCount()==0) {
-      if (roomNum%2 == 0){
+
+  void changeRoom() {
+    if (room.getMobCount()==0) {
+      clearBoard();
+      roomNum++;
+      if (roomNum%2 == 0) {
         buffScreen = true;
       }
-      roomNum++;
-      monsters = new ArrayList();
-      createRoom(roomNum);   
+      if (roomNum==10) {
+        walls.clear();
+        room.bossRoom();
+      } else {
+        walls.clear();
+        monsters = new ArrayList();
+        createRoom(roomNum);
+        room.room1();
+        room.spawnMobs();
+      }
     }
   }
-  
-  
 } 

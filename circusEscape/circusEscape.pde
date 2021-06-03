@@ -159,11 +159,13 @@ void bg() {
 //restricting the movement of the monsters when at wall
 void restrictMovement() {
   p1.removeRestriction();
+  for (Monsters m : monsters) {
+    m.removeRestriction();
+  }
   for (Wall w : walls) {
     w.spawnWall();
     w.moveRestrict(p1);
     for (Monsters m : monsters) {
-      m.removeRestriction();
       w.moveRestrict(m);
     }
   }
@@ -187,16 +189,16 @@ void removeBullet() {
 
 //monster movement, taking damage, attacking player
 void monsterAction() {
-  for (Monsters m : monsters) {
+  for (int m = 0; m < monsters.size(); m++) {
     for (int i = 0; i<bullet.size(); i++) {
-      if (m.takeDamage(bullet.get(i))) {
+      if ((monsters.get(m)).takeDamage(bullet.get(i))) {
         bullet.remove(i);
         i--;
       }
     }
-    m.moveM(p1);
-    m.attackP(p1);
-    m.display();
+    (monsters.get(m)).moveM(p1);
+    (monsters.get(m)).attackP(p1);
+    (monsters.get(m)).display();
   }
 
   for (int m = 0; m<monsters.size(); m++) {
