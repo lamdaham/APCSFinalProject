@@ -13,10 +13,10 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 
 # Development Log
-**6/2/21**
-Ivan:
 
-Sophia: Added to health bar and started Boss class and the boss' appearance.
+**6/2/21**
+
+Ivan: Coded the boss class
 
 **6/1/21**
 
