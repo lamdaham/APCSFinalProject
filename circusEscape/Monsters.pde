@@ -117,6 +117,7 @@ public class Monsters extends Characters {
 
     //eyebrows
     stroke(0);
+    strokeWeight(1);
     line(x - 5, y - 10, x, y - 5);
     line(x, y - 5, x + 5, y - 10);
 
