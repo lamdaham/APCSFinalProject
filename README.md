@@ -18,6 +18,8 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 
 Ivan: Coded the boss class
 
+Sophia: Added to health bar and started Boss class and the boss' appearance.
+
 **6/1/21**
 
 Ivan: Coded buffs every two levels, coded monster cooldown, and created health regen. Starting map layout.
