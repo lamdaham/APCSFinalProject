@@ -67,7 +67,14 @@ public class Boss extends Monsters {
 
   void display() {
     //idea: make the boss design a circus ringleader
+    //hat
+    stroke(#4d4d4d);
+    strokeWeight(2);
+    fill(0);
+    ellipse(x, y - 25, radius * 1.75, radius / 1.5);
     noStroke();
+    rect(x - 30, y - radius * 1.25, radius - 10, radius * 1.25);
+    
     fill(255);
     circle(x, y, radius * 1.25);
 
@@ -87,6 +94,7 @@ public class Boss extends Monsters {
     strokeWeight(1);
     line(x, y - 5, x - 3, y + 15);
     line(x - 3, y + 15, x + 5, y + 15);
+    
     print(hp + "\n");
   }
 }
