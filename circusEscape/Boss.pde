@@ -66,5 +66,11 @@ public class Boss extends Monsters {
     strokeWeight(4);
     line(x - 20, y - 30, x, y - 20);
     line(x + 20, y - 30, x, y - 20);
+    
+    //nose
+    stroke(0);
+    strokeWeight(1);
+    line(x, y - 5, x - 3, y + 15);
+    line(x - 3, y + 15, x + 5, y + 15);
   }
 }
