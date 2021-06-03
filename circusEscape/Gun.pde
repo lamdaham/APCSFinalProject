@@ -9,7 +9,7 @@ public class Gun extends GameObjects{
     type = "pistol";
     pickedUp = true;
     degree = 0;
-    cooldown = 10;
+    cooldown = 2;
   }
   
   Gun(String type, float x, float y) {
@@ -17,7 +17,7 @@ public class Gun extends GameObjects{
     pickedUp = false;
     this.x = x; 
     this.y = y;
-    cooldown = 10;
+    cooldown = 1;
   }
   
 
