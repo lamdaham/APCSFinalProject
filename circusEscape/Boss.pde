@@ -49,4 +49,10 @@ public class Boss extends Monsters {
     }
 
   }
+  
+  void display() {
+    noStroke();
+    fill(255);
+    circle(x, y, radius * 3);
+  }
 }
