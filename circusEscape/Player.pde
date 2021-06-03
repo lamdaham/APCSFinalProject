@@ -63,6 +63,7 @@ public class Player extends Characters{
     //basic head + body of panda
     //ellipse(x, y + 25, radius * 1.8, radius * 1.5 + 5);
     stroke(#c7c7c7);
+    strokeWeight(1);
     ellipse(x, y, radius * 1.7, radius * 1.5 + 3); 
     
     //eyes
