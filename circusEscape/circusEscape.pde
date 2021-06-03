@@ -19,6 +19,10 @@ boolean collided = false;
 boolean pickup = false;
 boolean drop = false;
 
+boolean buff1 = false;
+boolean buff2 = false;
+boolean buff3 = false;
+
 void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
@@ -104,6 +108,15 @@ void keyPressed() {
   if (key == 'v') {
     drop = true;
   }
+  if (key == 'i') {
+    buff1 = true;
+  }
+  if (key == 'o') {
+    buff2 = true;
+  }
+  if (key == 'p') {
+    buff3 = true;
+  }
 }
 
 //same as keyPressed but with released, set boolean false
@@ -125,6 +138,15 @@ void keyReleased() {
   }
   if (key == 'v') {
     drop = false;
+  }
+  if (key == 'i') {
+    buff1 = false;
+  }
+  if (key == 'o') {
+    buff2 = false;
+  }
+  if (key == 'p') {
+    buff3 = false;
   }
 }
 
@@ -254,27 +276,28 @@ void chooseBuff() {
   textSize(10);
   rect(300, 300, 100, 100);
   fill(0);
-  text("Extra Damage +1", 310,350);
+  text("Extra Damage +1", 310, 350);
+  text("(i)", 310, 370);
   fill(255);
   rect(450, 300, 100, 100);
   fill(0);
   textSize(8);
-  text("Increase Health Regen", 460,350);
+  text("Increase Health Regen", 460, 350);
+  text("(o)", 460, 370);
   fill(255);
   rect(600, 300, 100, 100);
   fill(0);
   textSize(9);
-  text("Increase Max Health", 610,350);
+  text("Increase Max Health", 610, 350);
+  text("(p)", 610, 370);
   fill(255);
-  if (leftMouse && overRect(300, 300, 100, 100)) {
+  if (buff1) {
     p1.extraDamage++;
     buffScreen = false;
-  }
-  else if (leftMouse && overRect(450, 300, 100, 100)) {
+  } else if (buff2) {
     p1.regenCooldown-=5;
     buffScreen = false;
-  }
-  else if (leftMouse && overRect(600, 300, 100, 100)) {
+  } else if (buff3) {
     p1.maxHealth++;
     buffScreen = false;
   }
