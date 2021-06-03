@@ -5,9 +5,10 @@ public class Boss extends Monsters {
   boolean enraged;
 
   Boss() {
-    super(1000, 5, 70, 800, 500, 2);
+    super(1000, 5, 70, 800, 500, 1);
     spawnMonsterCooldown = 200;
     tempCounter = 0;
+    enraged = false;
   }
 
   void spawnMonster() {
@@ -27,40 +28,54 @@ public class Boss extends Monsters {
       alive = false;
     } else {
       spawnMonster();
+      if (hp<=200) {
+        enraged = true;
+      }
     }
 
     //monster moves towards player
     if (abs(p1.x - x) > p1.radius) {
       if (p1.x - x < 0 && ableLeft) {
         x -= speed;
+        if (enraged && p1.x - x < 0 && ableLeft) {
+          x-=speed;
+        }
       }
       if (p1.x - x >= 0 && ableRight) {
         x += speed;
+        if (enraged && p1.x - x >= 0 && ableRight) {
+          x += speed;
+        }
       }
     }
 
     if (abs(p1.y - y) > p1.radius) {
       if (p1.y - y < 0 && ableUp) {
         y -= speed;
+        if (enraged && p1.y - y < 0 && ableUp) {
+          y -= speed;
+        }
       }
       if (p1.y - y >= 0 && ableDown) {
         y += speed;
+        if (enraged && p1.y - y >= 0 && ableDown) {
+          y += speed;
+        }
       }
     }
-
   }
-  
+
   void display() {
     //idea: make the boss design a circus ringleader
     noStroke();
     fill(255);
     circle(x, y, radius * 1.25);
-    
+
     //eyes
     fill(0);
     circle(x - 20, y, radius / 3);
     circle(x + 20, y, radius / 3);
-    
+
     //eyebrows
     stroke(0);
     strokeWeight(4);
@@ -72,5 +87,6 @@ public class Boss extends Monsters {
     strokeWeight(1);
     line(x, y - 5, x - 3, y + 15);
     line(x - 3, y + 15, x + 5, y + 15);
+    print(hp + "\n");
   }
 }
