@@ -119,7 +119,7 @@ public class Player extends Characters{
   
   void regen() {
     if (hp<maxHealth) {
-      print(tempCooldown);
+      //print(tempCooldown);
       if (tempCooldown>=regenCooldown) {
         hp++;
         tempCooldown = tempCooldown%regenCooldown;
