@@ -25,7 +25,7 @@ public class Scene {
       if (roomNum == 11) {
         end = true;
       }
-      if (roomNum==1) {
+      if (roomNum==10) {
         walls.clear();
         room.bossRoom();
       } else {
