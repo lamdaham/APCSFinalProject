@@ -95,6 +95,9 @@ public class Boss extends Monsters {
     line(x, y - 5, x - 3, y + 15);
     line(x - 3, y + 15, x + 5, y + 15);
     
-    print(hp + "\n");
+    //mouth
+    stroke(255, 0, 0);
+    fill(255, 0, 0);
+    arc(x, y + radius / 2, radius / 4, radius / 5, PI, 2 * PI);
   }
 }
