@@ -109,6 +109,10 @@ public class Boss extends Monsters {
     line(x - 5, y + radius / 2 - 13, x - 20, y + radius/2 - 5);
     line(x + 5, y + radius / 2 - 13, x + 20, y + radius/2 - 5);
     
+    //beard
+    fill(0);
+    triangle(x - 5, y + radius / 2 + 5, x + 5, y + radius / 2 + 5, x, y + radius * 0.75);
+    
     print(hp + "\n");
   }
 }
