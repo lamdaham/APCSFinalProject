@@ -99,5 +99,13 @@ public class Boss extends Monsters {
     stroke(255, 0, 0);
     fill(255, 0, 0);
     arc(x, y + radius / 2, radius / 4, radius / 5, PI, 2 * PI);
+    
+    //mustache
+    stroke(0);
+    strokeWeight(4);
+    line(x - 5, y + radius / 2 - 13, x - 20, y + radius/2 - 5);
+    line(x + 5, y + radius / 2 - 13, x + 20, y + radius/2 - 5);
+    
+    print(hp + "\n");
   }
 }
