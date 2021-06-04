@@ -44,8 +44,14 @@ void draw() {
   if (end) {
     clear();
     walls.clear();
-    fill(255);
-    text("CoNgraTs u Win. uwu lol", 500, 300);
+    fill(#cfcfcf);
+    stroke(255);
+    rect(200, 200, 600, 300);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("Congratulations!", width / 2, height / 2 - 30);
+    text("You made it to the end!", width / 2, height / 2 + 30);
   } else {
     if (p1.isAlive()) {
       if (buffScreen) {
