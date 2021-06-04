@@ -15,7 +15,8 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game.
 # Development Log
 
 **6/3/21**
-Ivan:
+
+Ivan: coded more gun class, created end screen 
 
 Sophia: Changed boss' appearance and the end screen.
 
