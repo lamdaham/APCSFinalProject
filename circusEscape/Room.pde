@@ -20,7 +20,7 @@ public class Room {
 
   void spawnMobs() {
     for (int i = 0; i < roomNum * 5; i++) {
-      monsters.add(0, new Monsters(.75  *roomNum));
+      monsters.add(0, new Monsters(.3  *roomNum));
       for (int w = 0; w<walls.size(); w++) {
         if ((walls.get(w)).moveRestrict(monsters.get(0)) 
           || dist((monsters.get(0)).getX(), monsters.get(0).getY(), p1.getX(), p1.getY())<50) {

@@ -13,7 +13,8 @@ public class Player extends Characters{
     gun.add(currentGun);
     hasGun = true;
     extraDamage = 0;
-    gun.add(new Gun("shotgun", 100, 100));
+    gun.add(new Gun("shotgun", 100, 100, 25));
+    gun.add(new Gun("sniper", 100, 300, 100));
     regenCooldown = 200;
     tempCooldown = 0;
   }

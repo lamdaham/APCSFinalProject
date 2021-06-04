@@ -213,6 +213,7 @@ void removeBullet() {
     }
     if (!collided) {
       bullet.get(i).display();
+    } else if ((bullet.get(i)).bounce>0) {
     } else {
       bullet.remove(bullet.get(i));
     }

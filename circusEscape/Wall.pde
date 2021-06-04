@@ -1,5 +1,5 @@
 public class Wall {
- 
+
   int x, y, w, h, leftSide, rightSide, topSide, bottomSide;
 
   public Wall(int x, int y, int w, int h) {
@@ -30,16 +30,14 @@ public class Wall {
     if (c.getX()<x) {
       tempX = x;
       dir = 'R';
-    } 
-    else if (c.getX()>(x+w)) {
+    } else if (c.getX()>(x+w)) {
       tempX = x+w;
       dir = 'L';
     }
     if (c.getY()<y) {
       tempY = y;
       dir = 'D';
-    } 
-    else if (c.getY()>(y+h)) {
+    } else if (c.getY()>(y+h)) {
       tempY = y+h;
       dir = 'U';
     }
@@ -63,7 +61,7 @@ public class Wall {
     }
     return false;
   }
-  
+
   boolean bulletCollision(Bullet bb) {
 
     float tempX = bb.getX();
@@ -71,14 +69,12 @@ public class Wall {
 
     if (bb.getX()<x) {
       tempX = x;
-    } 
-    else if (bb.getX()>(x+w)) {
+    } else if (bb.getX()>(x+w)) {
       tempX = x+w;
     }
     if (bb.getY()<y) {
       tempY = y;
-    } 
-    else if (bb.getY()>(y+h)) {
+    } else if (bb.getY()>(y+h)) {
       tempY = y+h;
     }
 
