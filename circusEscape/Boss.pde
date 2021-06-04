@@ -113,6 +113,6 @@ public class Boss extends Monsters {
     fill(0);
     triangle(x - 5, y + radius / 2 + 5, x + 5, y + radius / 2 + 5, x, y + radius * 0.75);
     
-    print(hp + "\n");
+    //print(hp + "\n");
   }
 }
