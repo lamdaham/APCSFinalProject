@@ -9,7 +9,7 @@ public class Gun extends GameObjects{
     type = "pistol";
     pickedUp = true;
     degree = 0;
-    cooldown = 2;
+    cooldown = 5;
   }
   
   Gun(String type, float x, float y, int cooldown) {
