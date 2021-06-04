@@ -82,6 +82,9 @@ public class Boss extends Monsters {
     fill(0);
     circle(x - 20, y, radius / 3);
     circle(x + 20, y, radius / 3);
+    fill(255);
+    circle(x - 20, y, radius / 6);
+    circle(x + 20, y, radius / 6);
 
     //eyebrows
     stroke(0);
