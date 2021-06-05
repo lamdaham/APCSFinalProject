@@ -15,7 +15,8 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game,
 # Development Log
 
 **6/4/21**
-Ivan:
+
+Ivan: Started more rooms in a level
 
 Sophia: Started coding the Potions class and started the appearance of the potions.
 
