@@ -5,6 +5,7 @@ Player p1 = new Player();
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
+ArrayList<Potions> potions;
 boolean buffScreen;
 boolean end;
 
@@ -29,6 +30,7 @@ void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
+  potions = new ArrayList<Potions>();
   //health = new ArrayList<Health>();
 
   size(1000, 700);
@@ -71,7 +73,7 @@ void draw() {
         //displaying the gun and health
         displayGun();
         displayHealth();
-
+        displayPotion();
 
         //text: health, level, gun type
         fill(0);
@@ -270,6 +272,12 @@ void displayHealth() {
   }
   for (Health h : placeholder) {
     h.display();
+  }
+}
+
+void displayPotion() {
+  for (Potions p : potions) {
+    p.display();
   }
 }
 
