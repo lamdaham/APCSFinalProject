@@ -32,6 +32,7 @@ void setup() {
   bullet = new ArrayList<Bullet>();
   potions = new ArrayList<Potions>();
   //health = new ArrayList<Health>();
+  potions.add(new Potions());
 
   size(1000, 700);
   background(#C0C0C0);
