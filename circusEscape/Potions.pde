@@ -28,28 +28,28 @@ public class Potions extends GameObjects{
     rect(x - 3.5, y - 27, radius - 3.5, 7);
     fill(#f73520);
     circle(x, y - 4, radius * 1.5);  
-    int x = (int) random(0, 5);
+    int r = (int) random(0, 5);
     
     if (dist(x, y, p1.x, p1.y) < p1.radius + radius) {
       //increasing health
-      if (x == 0) {
+      if (r == 0) {
         p.hp += 2;
         consumed = true;
       }
       //decreasing health
-      if (x == 1) {
+      if (r == 1) {
         if (p.hp >= 2) {
           p.hp -= 1;
           consumed = true;
         }
       }
       //increasing attack power
-      if (x == 2) {
+      if (r == 2) {
         p.atkPower += 2;
         consumed = true;
       }
       //decreasing attack power
-      if (x == 3) {
+      if (r == 3) {
         p.atkPower -= 2;
         consumed = true;
       }
