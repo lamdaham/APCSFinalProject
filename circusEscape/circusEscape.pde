@@ -278,7 +278,14 @@ void displayHealth() {
 
 void displayPotion() {
   for (Potions p : potions) {
-    p.display();
+    p.display(p1);
+  }
+  
+  for (int p = 0; p <potions.size(); p++) {
+    if (potions.get(p).consumed) {
+      potions.remove(p);
+      p--;
+    }
   }
 }
 
