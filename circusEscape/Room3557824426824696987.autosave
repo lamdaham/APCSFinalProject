@@ -1,15 +1,10 @@
 public class Room {
   int mobCount;
   int roomNum;
-  int x, y, w, h;
 
   Room(int num) {
 
     roomNum = num;
-    x=175;
-    y=25;
-    w=650;
-    h=520;
   }
 
   int getMobCount() {
@@ -17,10 +12,10 @@ public class Room {
   }
 
   void defaultRoom() {
-    walls.add(new Wall(825, 0, 175, 1000));
-    walls.add(new Wall(0, 0, 175, 1000));
-    walls.add(new Wall(0, 545, 1600, 155));
-    walls.add(new Wall(0, 0, 1600, 25));
+    walls.add(new Wall(980, 0, 20, 1000));
+    walls.add(new Wall(0, 0, 20, 1000));
+    walls.add(new Wall(0, 680, 1600, 20));
+    walls.add(new Wall(0, 0, 1600, 20));
   }
 
   void spawnMobs() {
@@ -37,31 +32,22 @@ public class Room {
       mobCount=monsters.size();
     }
   }
-
-
+  
+  
   void room1() {
     defaultRoom();
-    walls.add(new Wall(x+130, y+0, 10, 130, #800080));
-    walls.add(new Wall(x+130, y+130, 130, 10, #800080));
-    walls.add(new Wall(x+260, y+130, 10, 130, #800080));
-    walls.add(new Wall(x, y+260, 130, 260, #800080));
-
-    walls.add(new Wall(x+520, y+0, 130, 130, #800080));
-    walls.add(new Wall(x+400, y+130, 130, 10, #800080));
-    walls.add(new Wall(x+400, y+130, 250, 130, #800080));
-
-
-    walls.add(new Wall(x+w-130, y+h-130, 130, 130, #800080));
-    walls.add(new Door(x+130, y+520,130,10));
+    walls.add(new Wall(250, 150, 500, 30, 0));
+    walls.add(new Wall(250, 300, 500, 30));
+    walls.add(new Wall(250, 450, 500, 30));
   }
-
+  
   void bossRoom() {
     clear();
     defaultRoom();
     Boss boss = new Boss();
     monsters.add(boss);
   }
-
+  
   void updateCount() {
     mobCount=monsters.size();
   }

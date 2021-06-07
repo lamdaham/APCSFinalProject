@@ -16,11 +16,11 @@ public class Monsters extends Characters {
 
   //monsters spawn randomly on the map
   Monsters() {
-    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), 2);
+    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), 0);
   }
   
   Monsters(float speed) {
-    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), speed);
+    this(5, 1, 10.0, random(0+30, width-30), random(0+30, height-30), 0);
   }
 
   //if hp is 0, then set hp + speed to 0 

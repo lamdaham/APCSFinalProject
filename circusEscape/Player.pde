@@ -10,12 +10,12 @@ public class Player extends Characters{
     super();
     maxHealth = hp;
     currentGun = new Gun();
-    gun.add(currentGun);
+    gun.get(scene.roomNum).add(currentGun);
     hasGun = true;
     extraDamage = 0;
-    gun.add(new Gun("shotgun", 100, 100, 25));
-    gun.add(new Gun("sniper", 100, 300, 100));
-    gun.add(new Gun("minigun", 100, 500, 1));
+    gun.get(scene.roomNum).add(new Gun("shotgun", 100, 100, 25));
+    gun.get(scene.roomNum).add(new Gun("sniper", 100, 300, 100));
+    gun.get(scene.roomNum).add(new Gun("minigun", 100, 500, 1));
     regenCooldown = 200;
     tempCooldown = 0;
   }
@@ -102,7 +102,7 @@ public class Player extends Characters{
   
   void pickupGun() {
     if(pickup) {
-      for(Gun g: gun) {
+      for(Gun g: gun.get(scene.roomNum)) {
         if (dist(g.x,g.y,x,y)<=radius+6) {
           if(hasGun) {
             dropGun();

@@ -1,11 +1,11 @@
 Scene scene = new Scene();
-ArrayList<Gun> gun = new ArrayList<Gun>();
+ArrayList<ArrayList<Gun>> gun = new ArrayList<ArrayList<Gun>>();
 //ArrayList<Health> health = new ArrayList<Health>();
-Player p1 = new Player();
+Player p1;
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
-ArrayList<Potions> potions;
+ArrayList<ArrayList<Potions>> potions = new ArrayList<ArrayList<Potions>>();
 boolean buffScreen;
 boolean end;
 
@@ -30,9 +30,12 @@ void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
-  potions = new ArrayList<Potions>();
+  for(int i = 0; i<10; i++) {
+    potions.add(new ArrayList<Potions>());
+    gun.add(new ArrayList<Gun>());
+  }
   //health = new ArrayList<Health>();
-  potions.add(new Potions());
+  potions.get(scene.roomNum).add(new Potions());
 
   size(1000, 700);
   background(#C0C0C0);
@@ -40,6 +43,7 @@ void setup() {
   buffScreen = false;
   end = false;
   //testing
+  p1 = new Player(); 
 }
 
 void draw() {
@@ -56,6 +60,7 @@ void draw() {
     text("Congratulations!", width / 2, height / 2 - 30);
     text("You made it to the end!", width / 2, height / 2 + 30);
   } else {
+    print(""+mouseX +", "  + mouseY + "\n");
     if (p1.isAlive()) {
       if (buffScreen) {
         chooseBuff();
@@ -260,7 +265,7 @@ void playerAction() {
 
 //displays the gun the player is using
 void displayGun() {
-  for (Gun g : gun) {
+  for (Gun g : gun.get(scene.roomNum)) {
     g.display();
   }
 }
@@ -277,12 +282,12 @@ void displayHealth() {
 }
 
 void displayPotion() {
-  for (Potions p : potions) {
+  for (Potions p : potions.get(scene.roomNum)) {
     p.display(p1);
   }
   
-  for (int p = 0; p <potions.size(); p++) {
-    if (potions.get(p).consumed) {
+  for (int p = 0; p <potions.get(scene.roomNum).size(); p++) {
+    if ((potions.get(scene.roomNum)).get(p).consumed) {
       potions.remove(p);
       p--;
     }

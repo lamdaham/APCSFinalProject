@@ -1,6 +1,7 @@
 public class Wall {
 
   int x, y, w, h, leftSide, rightSide, topSide, bottomSide;
+  color c;
 
   public Wall(int x, int y, int w, int h) {
     this.x = x;
@@ -12,11 +13,27 @@ public class Wall {
     this.rightSide = x + (w/2);
     this.topSide = y - (w/2);
     this.bottomSide = y + (w/2);
+    
+    this.c = #9c64ba;
+  }
+  
+  public Wall(int x, int y, int w, int h, color c) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+
+    this.leftSide = x - (w/2);
+    this.rightSide = x + (w/2);
+    this.topSide = y - (w/2);
+    this.bottomSide = y + (w/2);
+    
+    this.c = c;
   }
 
 
   void spawnWall() {
-    fill(#9c64ba);
+    fill(c);
     noStroke();
     rect(x, y, w, h);
   }
