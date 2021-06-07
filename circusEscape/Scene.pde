@@ -19,6 +19,12 @@ public class Scene {
     if (room.getMobCount()==0) {
       clearBoard();
       roomNum++;
+      if (roomNum % 2 == 1) {
+        int r = (int) random(0, 3);
+        for (int i = 0; i < r; i++) {
+          potions.add(new Potions());
+        }
+      }
       if (roomNum%2 == 0) {
         buffScreen = true;
       }

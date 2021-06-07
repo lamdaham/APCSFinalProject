@@ -27,7 +27,7 @@ public class Potions extends GameObjects{
     fill(#f5e282, 255);
     rect(x - 3.5, y - 27, radius - 3.5, 7);
     fill(#f73520);
-    circle(x, y - 4, radius * 1.5);  
+    circle(x, y - 4, radius * 1.5);
     int r = (int) random(0, 5);
     
     if (dist(x, y, p1.x, p1.y) < p1.radius + radius) {
