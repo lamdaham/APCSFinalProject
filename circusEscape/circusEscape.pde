@@ -1,4 +1,5 @@
 Scene scene = new Scene();
+boolean[] cleared = {false, false, false, false, false, false, false, false, false, false, false};
 ArrayList<ArrayList<Gun>> gun = new ArrayList<ArrayList<Gun>>();
 //ArrayList<Health> health = new ArrayList<Health>();
 Player p1;
@@ -60,7 +61,7 @@ void draw() {
     text("Congratulations!", width / 2, height / 2 - 30);
     text("You made it to the end!", width / 2, height / 2 + 30);
   } else {
-    print(""+mouseX +", "  + mouseY + "\n");
+    //print(""+mouseX +", "  + mouseY + "\n");
     if (p1.isAlive()) {
       if (buffScreen) {
         chooseBuff();
@@ -267,6 +268,9 @@ void playerAction() {
 void displayGun() {
   for (Gun g : gun.get(scene.roomNum)) {
     g.display();
+  }
+  if (p1.hasGun) {
+    p1.currentGun.display();
   }
 }
 

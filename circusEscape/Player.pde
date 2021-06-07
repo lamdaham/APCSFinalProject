@@ -10,7 +10,6 @@ public class Player extends Characters{
     super();
     maxHealth = hp;
     currentGun = new Gun();
-    gun.get(scene.roomNum).add(currentGun);
     hasGun = true;
     extraDamage = 0;
     gun.get(scene.roomNum).add(new Gun("shotgun", 100, 100, 25));
@@ -78,7 +77,6 @@ public class Player extends Characters{
     circle(x + radius / 2 - 3, y - 2, radius / 6);
     
     currentGun.decreaseCooldown();
-    currentGun.display();
     dropGun();
     pickupGun();
     regen();

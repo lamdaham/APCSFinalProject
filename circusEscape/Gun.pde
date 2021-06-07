@@ -72,6 +72,7 @@ public class Gun extends GameObjects {
   void droppedGun() {
     x = p1.getX();
     y = p1.getY();
+    gun.get(scene.roomNum).add(p1.currentGun);
     pickedUp = false;
   }
 }

@@ -15,7 +15,10 @@ public class Door extends Wall {
   }
 
   void spawnWall() {
-    if (open) {
+
+    if (scene.room.getMobCount()==0) {
+      cleared[scene.roomNum] = true;
+      open =true;
       fill(255);
     } else {
       fill(#4E4E4E);
@@ -23,7 +26,7 @@ public class Door extends Wall {
     rect(x, y, w, h);
   }
 
-  void moveRestrict(Characters c) {
+  boolean moveRestrict(Characters c) {
     char dir;
     float tempX = c.getX();
     float tempY = c.getY();
@@ -59,11 +62,21 @@ public class Door extends Wall {
       } else if (dir == 'D') {
         c.restrictDown();
       }
-      if(direction.equals("foward")) {
-        scene.roomNum++;
-      } else {
-        scene.roomNum--;
+      if (open) {
+        if (direction.equals("foward")) {
+          scene.roomNum++;
+          scene.onDoor = true;
+          p1.x = 400;
+          p1.y = 400;
+          return true;
+        } else {
+          scene.roomNum--;
+          scene.onDoor = true;
+          scene.backDoor = true;
+          return true;
+        }
       }
     }
+    return false;
   }
 }
