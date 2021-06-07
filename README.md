@@ -13,6 +13,9 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game,
 
 
 # Development Log
+**6/6/21**
+
+Sophia: Tested potions, drew out mazes on paper, and edited the prototype.
 
 **6/5/21**
 
