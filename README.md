@@ -17,6 +17,8 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game,
 
 Ivan: Coded multiple rooms and created traveling through rooms
 
+Sophia: Worked on powerpoint for presentation, continued working on making maze on paper and started planning for inventory.
+
 **6/6/21**
 
 Sophia: Tested potions, drew out mazes on paper, and edited the prototype.
