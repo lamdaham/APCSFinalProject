@@ -62,7 +62,7 @@ public class Door extends Wall {
         c.restrictDown();
       }
       if (open) {
-        if (direction.equals("foward")) {
+        if (direction.equals("forward")) {
           scene.roomNum++;
           scene.onDoor = true;
           p1.x = 400;

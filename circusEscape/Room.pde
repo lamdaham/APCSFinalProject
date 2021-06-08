@@ -54,8 +54,10 @@ public class Room {
       room2();
     } else if (roomNum==3){
       room3();
-    } else if (roomNum>=4){
-      defaultRoom();
+    } else if (roomNum==4){
+      room4();
+    } else if (roomNum>=5){
+      room5();
     }
     
   }
@@ -75,7 +77,7 @@ public class Room {
     defaultRoom();
     spawnX = 500;
     spawnY = 350;
-    walls.add(new Door(x, y+520,130,10, "foward"));
+    walls.add(new Door(x, y+520,130,10, "forward"));
   }
   
   void room1() {
@@ -95,7 +97,7 @@ public class Room {
 
 
     walls.add(new Wall(x+w-130, y+h-130, 130, 130, #800080));
-    walls.add(new Door(x+130, y+520,130,10, "foward"));
+    walls.add(new Door(x+130, y+520,130,10, "forward"));
   }
   
   void room2() {
@@ -113,7 +115,7 @@ public class Room {
     walls.add(new Wall(x+130, y+260, 10, 130, #800080));
     walls.add(new Wall(x+0, y+390, 260, 130, #800080));
     walls.add(new Wall(x+390, y+390, 260, 130, #800080));
-    walls.add(new Door(x+260, y+520,130,10, "foward"));
+    walls.add(new Door(x+260, y+520, 130, 10, "forward"));
     walls.add(new Door(x+130, y+0,130,10, "backward"));
   }
   
@@ -121,6 +123,8 @@ public class Room {
     defaultRoom();
     spawnX = 500;
     spawnY= 90;
+    endX = x+w-65;
+    endY = y+h-65;
     walls.add(new Wall(x+0, y+0, 260, 130, #800080));
     walls.add(new Wall(x+0, y+130, 130, 130, #800080));
     
@@ -132,8 +136,52 @@ public class Room {
     walls.add(new Wall(x+130, y+390, 130, 10, #800080));
     walls.add(new Wall(x+260, y+270, 10, 130, #800080));
     walls.add(new Wall(x+390, y+390, 10, 130, #800080));
-    walls.add(new Door(x+650, y+390,10,130, "foward"));
+    walls.add(new Door(x+650, y+390,10,130, "forward"));
     walls.add(new Door(x+260, y+0,130,10, "backward"));
+  }
+  
+  void room4() {
+    defaultRoom();
+    spawnX = x+65;
+    spawnY = y+3*130+65;
+    endX = x+390+65;
+    endY = y+65;
+    walls.add(new Wall(x,y, 130, 390, #800080));
+    walls.add(new Wall(x+130,y, 130, 260, #800080));
+    walls.add(new Wall(x+260,y, 130, 130, #800080));
+    walls.add(new Wall(x+520,y, 130, 130, #800080));
+    
+    walls.add(new Wall(x+260,y+390, 10, 130, #800080));
+    walls.add(new Wall(x+390,y+260, 10, 260, #800080));
+    walls.add(new Wall(x+520,y+260, 130, 260, #800080));
+    
+    
+    walls.add(new Door(x+390, y-10,130,10, "forward"));
+    walls.add(new Door(x, y+390,10,130, "backward"));
+  }
+  
+  void room5() {
+    defaultRoom();
+    spawnX = x+390+65;
+    spawnY = y+390+65;
+    walls.add(new Wall(x,y, 130, 130, #800080));
+    walls.add(new Wall(x,y+260, 130, 260, #800080));
+    
+    walls.add(new Wall(x+390,y+390, 10, 130, #800080));
+    walls.add(new Wall(x+260,y+390, 130, 10, #800080));
+    walls.add(new Wall(x+260,y+260, 10, 130, #800080));
+    walls.add(new Wall(x+260,y+260, 130, 10, #800080));
+    walls.add(new Wall(x+390,y+130, 10, 140, #800080));
+    walls.add(new Wall(x+260,y+130, 130, 10, #800080));
+    
+    walls.add(new Wall(x+520,y+390, 130, 130, #800080));
+    
+    walls.add(new Wall(x+520,y+260, 130, 10, #800080));
+    walls.add(new Wall(x+520,y+130, 10, 140, #800080));
+    
+    walls.add(new Door(x+130, y-10,130,10, "forward"));
+    walls.add(new Door(x+400, y+510,120,10, "backward"));
+    
   }
   
 } 

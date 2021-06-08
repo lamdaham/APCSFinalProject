@@ -257,7 +257,9 @@ void monsterAction() {
   }
   if (monsters.size()==0) {
     scene.room.open = true;
-    cleared = scene.room.roomNum;
+    if(scene.room.roomNum>cleared){
+      cleared = scene.room.roomNum;
+    }
   }
 }
 
