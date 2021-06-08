@@ -4,6 +4,8 @@ public class Room {
   int x, y, w, h;
   int spawnX, spawnY;
   int endX, endY;
+  boolean spawnedMobs;
+  boolean open;
 
   Room(int num) {
 
@@ -12,6 +14,8 @@ public class Room {
     y=25;
     w=650;
     h=520;
+    spawnedMobs = false;
+    open = false;
   }
 
   int getMobCount() {
@@ -26,6 +30,7 @@ public class Room {
   }
 
   void spawnMobs() {
+    
     for (int i = 0; i < roomNum * 5; i++) {
       monsters.add(0, new Monsters(.3  *roomNum));
       for (int w = 0; w<walls.size(); w++) {
@@ -47,7 +52,9 @@ public class Room {
       room1();
     } else if (roomNum==2){
       room2();
-    } else if (roomNum>=2){
+    } else if (roomNum==3){
+      room3();
+    } else if (roomNum>=4){
       defaultRoom();
     }
     
@@ -95,6 +102,8 @@ public class Room {
     defaultRoom();
     spawnX = 370;
     spawnY = 90;
+    endX = 325+x;
+    endY = y+h-65;
     walls.add(new Wall(x+0, y+0, 130, 130, #800080));
     //walls.add(new Wall(x, y+120, 130, 10, #800080));
     walls.add(new Wall(x+260, y+0, 390, 130, #800080));
@@ -106,6 +115,25 @@ public class Room {
     walls.add(new Wall(x+390, y+390, 260, 130, #800080));
     walls.add(new Door(x+260, y+520,130,10, "foward"));
     walls.add(new Door(x+130, y+0,130,10, "backward"));
+  }
+  
+  void room3(){
+    defaultRoom();
+    spawnX = 500;
+    spawnY= 90;
+    walls.add(new Wall(x+0, y+0, 260, 130, #800080));
+    walls.add(new Wall(x+0, y+130, 130, 130, #800080));
+    
+    walls.add(new Wall(x+390, y+0, 260, 130, #800080));
+    walls.add(new Wall(x+520, y+130, 130, 260, #800080));
+    walls.add(new Wall(x+390, y+260, 130, 10, #800080));
+    
+    walls.add(new Wall(x+130, y+390, 10, 130, #800080));
+    walls.add(new Wall(x+130, y+390, 130, 10, #800080));
+    walls.add(new Wall(x+260, y+270, 10, 130, #800080));
+    walls.add(new Wall(x+390, y+390, 10, 130, #800080));
+    walls.add(new Door(x+650, y+390,10,130, "foward"));
+    walls.add(new Door(x+260, y+0,130,10, "backward"));
   }
   
 } 

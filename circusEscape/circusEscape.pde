@@ -1,5 +1,5 @@
 Scene scene = new Scene();
-boolean[] cleared = {false, false, false, false, false, false, false, false, false, false, false};
+int cleared = 0;
 ArrayList<ArrayList<Gun>> gun = new ArrayList<ArrayList<Gun>>();
 //ArrayList<Health> health = new ArrayList<Health>();
 Player p1;
@@ -254,6 +254,10 @@ void monsterAction() {
       monsters.remove(m);
       m--;
     }
+  }
+  if (monsters.size()==0) {
+    scene.room.open = true;
+    cleared = scene.room.roomNum;
   }
 }
 

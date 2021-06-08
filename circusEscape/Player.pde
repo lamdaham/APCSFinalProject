@@ -93,6 +93,7 @@ public class Player extends Characters{
   
   void dropGun() {
     if(drop&&hasGun) {
+      gun.get(scene.roomNum).add(currentGun);
       currentGun.droppedGun();
       hasGun = false;
     }
@@ -106,6 +107,7 @@ public class Player extends Characters{
             dropGun();
           }
           g.pickedupGun();
+          gun.get(scene.roomNum).remove(g);
           currentGun = g;
           hasGun = true;
           break;

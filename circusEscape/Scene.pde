@@ -38,24 +38,28 @@ public class Scene {
         room.bossRoom();
       } else {
         walls.clear();
-        monsters = new ArrayList();
+        monsters.clear();
         createRoom(roomNum);
         room.createRoom();
+        if(roomNum>cleared){
+            room.spawnMobs();
+         }
         if (backDoor) {
           p1.x = room.endX;
           p1.y = room.endY;
+          monsters.clear();
           onDoor = false;
           backDoor = false;
         } else {
           p1.x = room.spawnX;
           p1.y = room.spawnY;
-          //print(roomNum);
-          if(!cleared[roomNum]){
-            room.spawnMobs();
-            //print(cleared[roomNum]);
-          }
+          print(roomNum>cleared);
+          print(roomNum);
+          print(cleared);
+          print("\n");
           onDoor = false;
         }
+        room.spawnedMobs = true;
       }
     }
   }

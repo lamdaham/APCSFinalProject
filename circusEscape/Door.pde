@@ -1,7 +1,7 @@
 public class Door extends Wall {
 
-  boolean open;
   String direction;
+  boolean open;
 
 
   Door(int x, int y, int w, int h, String direction) {
@@ -12,14 +12,13 @@ public class Door extends Wall {
     this.h = h;
     this.direction = direction;
     open = false;
+    
   }
 
   void spawnWall() {
-
-    if (scene.room.getMobCount()==0) {
-      cleared[scene.roomNum] = true;
-      open =true;
+    if (scene.room.open) {      
       fill(255);
+      open = true;
     } else {
       fill(#4E4E4E);
     }
