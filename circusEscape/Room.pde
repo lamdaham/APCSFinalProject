@@ -49,15 +49,18 @@ public class Room {
     if (roomNum == 0) {
       room0();
     } else if (roomNum==1) {
-      room1();
+      room5();
     } else if (roomNum==2){
-      room2();
+      room6();
     } else if (roomNum==3){
       room3();
     } else if (roomNum==4){
       room4();
-    } else if (roomNum>=5){
+    } else if (roomNum==5){
       room5();
+    }
+    else if (roomNum >= 6) {
+      room6();
     }
     
   }
@@ -164,6 +167,9 @@ public class Room {
     defaultRoom();
     spawnX = x+390+65;
     spawnY = y+390+65;
+    endX = x + 400 - 130 - 65;
+    endY = y + 65;
+    
     walls.add(new Wall(x,y, 130, 130, #800080));
     walls.add(new Wall(x,y+260, 130, 260, #800080));
     
@@ -184,4 +190,12 @@ public class Room {
     
   }
   
+  void room6() {
+    defaultRoom();
+    spawnX = x + 390 - 250 + 65;
+    spawnY = y + h - 65;
+    
+    walls.add(new Door(x + 650, y + 260, 10, 130, "forward"));
+    walls.add(new Door(x + 390 - 250, y + h - 10, 120, 10,"backward"));
+  }
 } 
