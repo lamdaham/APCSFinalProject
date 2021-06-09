@@ -195,6 +195,18 @@ public class Room {
     spawnX = x + 390 - 250 + 65;
     spawnY = y + h - 65;
     
+    walls.add(new Wall(x, y, 130, 260, #800080));
+    walls.add(new Wall(x, y + 390, 130, 130, #800080));
+    
+    walls.add(new Wall(x + 130, y + 130, 130, 10, #800080));
+    walls.add(new Wall(x + 260, y + 130, 10, 130, #800080));
+    walls.add(new Wall(x + 260, y + 390, 10, 130, #800080));
+    walls.add(new Wall(x + 520, y + 390, 10, 130, #800080));
+    walls.add(new Wall(x + 520, y, 10, 130, #800080));
+    walls.add(new Wall(x + 390, y + 130, 10, 260, #800080));
+    walls.add(new Wall(x + 390, y + 130, 140, 10, #800080));
+    walls.add(new Wall(x + 390, y + 260, 130, 10, #800080));
+    
     walls.add(new Door(x + 650, y + 260, 10, 130, "forward"));
     walls.add(new Door(x + 390 - 250, y + h - 10, 120, 10,"backward"));
   }
