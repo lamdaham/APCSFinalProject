@@ -49,9 +49,9 @@ public class Room {
     if (roomNum == 0) {
       room0();
     } else if (roomNum==1) {
-      room8();
+      room1();
     } else if (roomNum==2){
-      room9();
+      room2();
     } else if (roomNum==3){
       room3();
     } else if (roomNum==4){
