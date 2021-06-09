@@ -67,6 +67,17 @@ public class Boss extends Monsters {
 
   void display() {
     //idea: make the boss design a circus ringleader
+    if (enraged) {
+      displayEnraged();
+    }
+    else {
+      displayNormal();
+    }
+    
+    //print(hp + "\n");
+  }
+  
+  void displayNormal() {
     //hat
     stroke(#4d4d4d);
     strokeWeight(2);
@@ -112,7 +123,54 @@ public class Boss extends Monsters {
     //beard
     fill(0);
     triangle(x - 5, y + radius / 2 + 5, x + 5, y + radius / 2 + 5, x, y + radius * 0.75);
+  }
+  
+  void displayEnraged() {
+    //hat
+    stroke(#4d4d4d);
+    strokeWeight(2);
+    fill(0);
+    ellipse(x, y - 25, radius * 1.75, radius / 1.5);
+    noStroke();
+    rect(x - 30, y - radius * 1.25, radius - 10, radius * 1.25);
     
-    //print(hp + "\n");
+    fill(255);
+    circle(x, y, radius * 1.25);
+
+    //eyes
+    fill(0);
+    circle(x - 20, y, radius / 3);
+    circle(x + 20, y, radius / 3);
+    fill(255);
+    circle(x - 20, y, radius / 6);
+    circle(x + 20, y, radius / 6);
+
+    //eyebrows
+    fill(255, 0, 0);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(x - 20, y - 30, x, y - 20);
+    line(x + 20, y - 30, x, y - 20);
+    
+    //nose
+    stroke(0);
+    strokeWeight(1);
+    line(x, y - 5, x - 3, y + 15);
+    line(x - 3, y + 15, x + 5, y + 15);
+    
+    //mouth
+    stroke(255, 0, 0);
+    fill(255, 0, 0);
+    arc(x, y + radius / 2, radius / 4, radius / 5, PI, 2 * PI);
+    
+    //mustache
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(x - 5, y + radius / 2 - 13, x - 20, y + radius/2 - 5);
+    line(x + 5, y + radius / 2 - 13, x + 20, y + radius/2 - 5);
+    
+    //beard
+    fill(255, 0, 0);
+    triangle(x - 5, y + radius / 2 + 5, x + 5, y + radius / 2 + 5, x, y + radius * 0.75);
   }
 }
