@@ -9,6 +9,7 @@ ArrayList<Potions> potions;
 boolean buffScreen;
 boolean end;
 boolean start;
+PImage img;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -41,6 +42,7 @@ void setup() {
   buffScreen = false;
   end = false;
   start = true;
+  img = loadImage("curtains.jpg");
   //testing
 }
 
@@ -342,16 +344,22 @@ void chooseBuff() {
 }
 
 void startScreen() {
-  clear();
+  img.resize(width, height);
+  image(img, 0, 0);
   textSize(20);
   textAlign(CENTER);
   fill(255);
-  text("get started!", width/2, height/2 - 150);
+  String s1 = "Uh oh! The clowns are trying to take control of the circus and you're the first on their hit list! ";
+  String s2 = "Let's see if you can get out safely! But fret not, there are plenty of items scattered around ";
+  String s3 = "to help you out (or possibly hurt you) on this quest. Good luck!";
+  //String s4 = "WASD keys: to move; C and V to pick up and drop up items";
+  String sFinal = s1 + s2 + s3;
+  text(sFinal, width/2 - 275, height/2 - 100, width/2 + 100, height / 2 + 400);
   fill(255);
-  rect(350, 350, 300, 100);
+  rect(350, 500, 300, 100);
   textSize(30);
   fill(0);
-  text("P L A Y  -->", 500, 410);
+  text("P L A Y  -->", 500, 560);
   
   if (leftMouse && overRect(350, 350, 300, 100)) {
     start = false;
