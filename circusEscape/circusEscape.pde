@@ -8,6 +8,7 @@ ArrayList<Bullet> bullet;
 ArrayList<Potions> potions;
 boolean buffScreen;
 boolean end;
+boolean start;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -39,59 +40,63 @@ void setup() {
   scene.createRoom(1);
   buffScreen = false;
   end = false;
+  start = true;
   //testing
 }
 
 void draw() {
+  startScreen();
   //while the player is alive
-  if (end) {
-    clear();
-    walls.clear();
-    fill(#cfcfcf);
-    stroke(255);
-    rect(200, 200, 600, 300);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("Congratulations!", width / 2, height / 2 - 30);
-    text("You made it to the end!", width / 2, height / 2 + 30);
-  } else {
-    if (p1.isAlive()) {
-      if (buffScreen) {
-        chooseBuff();
-      } else {
-        //setting up the background
-        bg();
-        scene.changeRoom();
-
-        //restricting the characters' movements, control over
-        //the bullets, monsters, and the player
-        restrictMovement();
-        removeBullet();
-        monsterAction();
-        playerAction();
-
-        //displaying the gun and health
-        displayGun();
-        displayHealth();
-        displayPotion();
-
-        //text: health, level, gun type
-        fill(0);
-        textSize(20);
-        text("health: " + p1.hp, 0, 20);
-        text("Level: " + scene.roomNum, 0, 50);
-
-        //different messages for the gun types
-        if (p1.hasGun) {
-          text("Gun: " + (p1.currentGun).type, 0, 80);
-        } else {
-          text("Gun: " + "good'ol panda paws", 0, 80);
-        }
-      }
-      //if the player is dead, display the death message
+  if (!start) {
+    if (end) {
+      clear();
+      walls.clear();
+      fill(#cfcfcf);
+      stroke(255);
+      rect(200, 200, 600, 300);
+      fill(0);
+      textSize(20);
+      textAlign(CENTER);
+      text("Congratulations!", width / 2, height / 2 - 30);
+      text("You made it to the end!", width / 2, height / 2 + 30);
     } else {
-      deathMessage();
+      if (p1.isAlive()) {
+        if (buffScreen) {
+          chooseBuff();
+        } else {
+          //setting up the background
+          bg();
+          scene.changeRoom();
+  
+          //restricting the characters' movements, control over
+          //the bullets, monsters, and the player
+          restrictMovement();
+          removeBullet();
+          monsterAction();
+          playerAction();
+  
+          //displaying the gun and health
+          displayGun();
+          displayHealth();
+          displayPotion();
+  
+          //text: health, level, gun type
+          fill(0);
+          textSize(20);
+          text("health: " + p1.hp, 0, 20);
+          text("Level: " + scene.roomNum, 0, 50);
+  
+          //different messages for the gun types
+          if (p1.hasGun) {
+            text("Gun: " + (p1.currentGun).type, 0, 80);
+          } else {
+            text("Gun: " + "good'ol panda paws", 0, 80);
+          }
+        }
+        //if the player is dead, display the death message
+      } else {
+        deathMessage();
+      }
     }
   }
 } 
@@ -333,6 +338,23 @@ void chooseBuff() {
   } else if (buff3) {
     p1.maxHealth++;
     buffScreen = false;
+  }
+}
+
+void startScreen() {
+  clear();
+  textSize(20);
+  textAlign(CENTER);
+  fill(255);
+  text("get started!", width/2, height/2 - 150);
+  fill(255);
+  rect(350, 350, 300, 100);
+  textSize(30);
+  fill(0);
+  text("P L A Y  -->", 500, 410);
+  
+  if (leftMouse && overRect(350, 350, 300, 100)) {
+    start = false;
   }
 }
 
