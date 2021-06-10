@@ -29,7 +29,12 @@ public class Bullet {
   
   void display() {
     move();
-    fill(#4ced28);
+    if (enemy) {
+      fill(#c7023d);
+    }
+    else {
+      fill(#85c45a);
+    }
     circle(location.x, location.y, r * 3);
   }
   
