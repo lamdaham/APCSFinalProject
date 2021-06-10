@@ -53,4 +53,8 @@ public class Bullet {
   float getdmg() {
     return dmg;
   }
+  
+  boolean getStatus() {
+    return enemy;
+  }
 }
