@@ -123,8 +123,6 @@ public class Player extends Characters{
   }
   
   boolean takeDamage(Bullet b) {
-    print(b.getStatus());
-    print(b.getdmg());
     if (b.getStatus()) {
       if (dist(b.getX(), b.getY(), x, y)<=(radius+b.getR())&&isAlive()) {
         hp -= b.getdmg();
