@@ -310,10 +310,10 @@ void displayPotion() {
 
 void displayInventory() {
   for (int i = 0; i < 5; i++) {
-    inventory[0] = new Potions();
-    if (inventory[i] != null) {
-      inventory[i].display();
-    }
+    fill(255);
+    stroke(0);
+    rect(i * 100 + 250, height - 100, 100, 75);
+    stroke(0);
   }
 }
 
