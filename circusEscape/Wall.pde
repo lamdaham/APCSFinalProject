@@ -101,24 +101,26 @@ public class Wall {
     float dist = sqrt((distX*distX) + (distY*distY));
     return(dist<=bb.getR());
   }
+  
+  
 
-  boolean inWalls(GameObjects g) {
-    float tempX = g.getX();
-    float tempY = g.getY();
+  boolean inWalls(float xVar, float yVar) {
+    float tempX = xVar;
+    float tempY = yVar;
 
-    if (g.getX()<x) {
+    if (xVar<x) {
       tempX = x;
-    } else if (g.getX()>(x+w)) {
+    } else if (xVar>(x+w)) {
       tempX = x+w;
     }
-    if (g.getY()<y) {
+    if (yVar<y) {
       tempY = y;
-    } else if (g.getY()>(y+h)) {
+    } else if (yVar>(y+h)) {
       tempY = y+h;
     }
 
-    float distX = g.getX() - tempX;
-    float distY = g.getY() - tempY;
+    float distX = xVar - tempX;
+    float distY = yVar - tempY;
 
     float dist = sqrt((distX*distX) + (distY*distY));
 
