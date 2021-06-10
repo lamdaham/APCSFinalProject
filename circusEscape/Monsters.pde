@@ -66,7 +66,7 @@ public class Monsters extends Characters {
     }
   }
 
-  boolean takeDamage(Bullet b) {
+  boolean takeDamageM(Bullet b) {
     if (dist(b.getX(), b.getY(), x, y)<=(radius+b.getR())&&alive) {
       hp -= b.getdmg();
       return true;
@@ -131,7 +131,7 @@ public class Monsters extends Characters {
   
   void fireM() {
     if (t >= cooldown) {
-      bulletM.add(new Bullet(x, y, 3, 5, getAngleM() + PI, 10, true));
+      bulletM.add(new Bullet(x, y, 3, 1, getAngleM() + PI, 10, true));
       t = 0;
     }
   }
