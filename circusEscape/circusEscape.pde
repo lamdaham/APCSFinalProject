@@ -5,6 +5,7 @@ Player p1 = new Player();
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
+ArrayList<Bullet> bulletM;
 ArrayList<Potions> potions;
 boolean buffScreen;
 boolean end;
@@ -32,6 +33,7 @@ void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
+  bulletM = new ArrayList<Bullet>();
   potions = new ArrayList<Potions>();
   //health = new ArrayList<Health>();
   potions.add(new Potions());
@@ -230,9 +232,21 @@ void removeBullet() {
     }
     if (!collided) {
       bullet.get(i).display();
-    } else if ((bullet.get(i)).bounce>0) {
     } else {
       bullet.remove(bullet.get(i));
+    }
+  }
+  for (int i = 0; i<bulletM.size(); i++) {
+    collided = false;
+    for (Wall w : walls) {
+      if (w.bulletCollision(bulletM.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bulletM.get(i).display();
+    } else {
+      bulletM.remove(bulletM.get(i));
     }
   }
 }
@@ -249,6 +263,7 @@ void monsterAction() {
     (monsters.get(m)).moveM(p1);
     (monsters.get(m)).attackP(p1);
     (monsters.get(m)).display();
+    (monsters.get(m)).fireM();
   }
 
   for (int m = 0; m<monsters.size(); m++) {
