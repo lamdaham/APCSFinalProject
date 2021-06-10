@@ -17,6 +17,11 @@ public class Inventory {
     }
   }
   
+  
+  GameObjects getObj() {
+    return inventory[currentIndex];
+  }
+  
   boolean overRect(float x, float y, float rectWidth, float rectHeight) {
     if (mouseX >= x && mouseX <= x+rectWidth && mouseY >= y && mouseY <= y+rectHeight) {
       return true;
