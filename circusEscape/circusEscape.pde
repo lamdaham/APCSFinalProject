@@ -7,6 +7,8 @@ ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
 ArrayList<ArrayList<Potions>> potions = new ArrayList<ArrayList<Potions>>();
+GameObjects[] inventory;
+
 boolean buffScreen;
 boolean end;
 
@@ -31,6 +33,7 @@ void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
+  inventory = new GameObjects[5];
   for(int i = 0; i<10; i++) {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
@@ -81,6 +84,7 @@ void draw() {
         displayGun();
         displayHealth();
         displayPotion();
+        displayInventory();
 
         //text: health, level, gun type
         fill(0);
@@ -300,6 +304,15 @@ void displayPotion() {
     if ((potions.get(scene.roomNum)).get(p).consumed) {
       potions.remove(p);
       p--;
+    }
+  }
+}
+
+void displayInventory() {
+  for (int i = 0; i < 5; i++) {
+    inventory[0] = new Potions();
+    if (inventory[i] != null) {
+      inventory[i].display();
     }
   }
 }
