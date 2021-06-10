@@ -85,6 +85,7 @@ void draw() {
         displayHealth();
         displayPotion();
         displayInventory();
+        timer();
 
         //text: health, level, gun type
         fill(0);
@@ -362,6 +363,17 @@ void chooseBuff() {
     p1.maxHealth++;
     buffScreen = false;
   }
+}
+
+void timer() {
+  int m = millis();
+  fill(255);
+  rect(width - 100, height - 50, 100, 50);
+  fill(0);
+  textSize(15);
+  text(m / (1000 * 60) % 60, width - 75, height - 15);
+  text(":", width - 50, height - 15);
+  text(m / (1000) % 60, width - 25, height - 15);
 }
 
 boolean overRect(int x, int y, int rectWidth, int rectHeight) {
