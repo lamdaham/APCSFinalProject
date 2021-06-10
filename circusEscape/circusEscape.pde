@@ -36,7 +36,9 @@ void setup() {
     gun.add(new ArrayList<Gun>());
   }
   //health = new ArrayList<Health>();
-  potions.get(scene.roomNum).add(new Potions());
+  for (int i = 1; i <= 9; i++) {
+    potions.get(i).add(new Potions());
+  }
 
   size(1000, 700);
   background(#C0C0C0);
