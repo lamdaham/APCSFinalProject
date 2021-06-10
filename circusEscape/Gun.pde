@@ -29,6 +29,18 @@ public class Gun extends GameObjects {
       line(x + 15, y + 10, x + 15, y + 15);
       line(x + 15, y + 15, x + 5, y + 15);
     }
+    if (type.equals("minigun")) {
+      stroke(#cccccc);
+      fill(0);
+      rect(x, y - 2.5, 10, 5);
+      ellipse(x - 3, y, 10, 5);
+      rect(x - 4, y + 2.5, 8, 3);
+      rect(x - 8, y + 5.5, 17, 10);
+      stroke(0);
+      line(x + 10, y - 1.5, x + 20, y - 1.5);
+      line(x + 10, y, x + 20, y);
+      line(x + 10, y + 1.5, x + 20, y + 1.5);
+    }
   }
 
   void display() {
