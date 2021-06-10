@@ -2,17 +2,25 @@ public class Bullet {
 
   float r,dmg;
   
-  int bounce;
+  boolean enemy;
+  
   
   PVector location;
   PVector velocity; 
   
-  Bullet(float x, float y,float r, float dmg, float deg, int bounce, int speed){
+  Bullet(float x, float y,float r, float dmg, float deg, int speed){
     location = new PVector(x, y);
     velocity = new PVector(speed*cos(deg), speed*sin(deg));
     this.r = r;
     this.dmg = dmg;
-    this.bounce = bounce;
+  }
+  
+  Bullet(float x, float y,float r, float dmg, float deg, int speed, boolean f){
+    location = new PVector(x, y);
+    velocity = new PVector(speed*cos(deg), speed*sin(deg));
+    this.r = r;
+    this.dmg = dmg;
+    enemy = f;
   }
   
   void move() {
