@@ -13,6 +13,10 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game,
 
 
 # Development Log
+**6/9/21**
+
+Sophia: Planned inventory, remaining detaiils of the project, started inventory.
+
 **6/8/21**
 
 Sophia: Coded remaining rooms and started making changes to the boss (taking account enraged state)
