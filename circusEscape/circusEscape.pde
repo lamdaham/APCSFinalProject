@@ -85,6 +85,7 @@ void draw() {
           //text: health, level, gun type
           fill(0);
           textSize(20);
+          textAlign(LEFT);
           text("health: " + p1.hp, 0, 20);
           text("Level: " + scene.roomNum, 0, 50);
   
