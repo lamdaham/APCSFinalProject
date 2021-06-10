@@ -83,9 +83,9 @@ public class Player extends Characters {
     
     if (currentObj.equals("gun")) {
       currentGun.decreaseCooldown();
-      dropGun();
+      inventory.dropGun();
     }
-    pickupGun();
+    inventory.pickupGun();
     regen();
     if (inventory.getObj() instanceof Gun) {
       if (inventory.getObj().equals(currentGun)) {
@@ -120,30 +120,9 @@ public class Player extends Characters {
     }
   }
 
-  void dropGun() {
-    if (drop&&hasGun) {
-      gun.get(scene.roomNum).add(currentGun);
-      currentGun.droppedGun();
-      hasGun = false;
-    }
-  }
+  
 
-  void pickupGun() {
-    if (pickup) {
-      for (Gun g : gun.get(scene.roomNum)) {
-        if (dist(g.x, g.y, x, y)<=radius+6) {
-          if (hasGun) {
-            dropGun();
-          }
-          g.pickedupGun();
-          gun.get(scene.roomNum).remove(g);
-          currentGun = g;
-          hasGun = true;
-          break;
-        }
-      }
-    }
-  }
+  
 
   boolean isAlive() {
     return hp>0;
