@@ -20,12 +20,22 @@ public class Gun extends GameObjects {
     this.cooldown = cooldown;
   }
 
-
+  void gunAppearance() {
+    if (type.equals("pistol")) {
+      stroke(0);
+      fill(0);
+      rect(x, y, 30, 10);
+      rect(x, y, 10, 20);
+      line(x + 15, y + 10, x + 15, y + 15);
+      line(x + 15, y + 15, x + 5, y + 15);
+    }
+  }
 
   void display() {
     if (!pickedUp) {
-      fill(255);
-      rect(x, y, 10, 10);
+      gunAppearance();
+      //fill(255);
+      //rect(x, y, 10, 10);
     } else {
       degree = 0;
       pushMatrix();
