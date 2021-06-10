@@ -255,7 +255,7 @@ void removeBullet() {
 void monsterAction() {
   for (int m = 0; m < monsters.size(); m++) {
     for (int i = 0; i<bullet.size(); i++) {
-      if ((monsters.get(m)).takeDamage(bullet.get(i))) {
+      if ((monsters.get(m)).takeDamageM(bullet.get(i))) {
         bullet.remove(i);
         i--;
       }
@@ -276,6 +276,12 @@ void monsterAction() {
 
 //player movement and firing
 void playerAction() {
+  for (int i = 0; i<bulletM.size(); i++) {
+    if (p1.takeDamage(bulletM.get(i))) {
+      bulletM.remove(i);
+      i--;
+    }
+  }
   p1.moveP();
   p1.fire();
   p1.display();
