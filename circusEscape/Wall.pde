@@ -13,10 +13,10 @@ public class Wall {
     this.rightSide = x + (w/2);
     this.topSide = y - (w/2);
     this.bottomSide = y + (w/2);
-    
+
     this.c = #9c64ba;
   }
-  
+
   public Wall(int x, int y, int w, int h, color c) {
     this.x = x;
     this.y = y;
@@ -27,7 +27,7 @@ public class Wall {
     this.rightSide = x + (w/2);
     this.topSide = y - (w/2);
     this.bottomSide = y + (w/2);
-    
+
     this.c = c;
   }
 
@@ -100,5 +100,31 @@ public class Wall {
 
     float dist = sqrt((distX*distX) + (distY*distY));
     return(dist<=bb.getR());
+  }
+
+  boolean inWalls(GameObjects g) {
+    float tempX = g.getX();
+    float tempY = g.getY();
+
+    if (g.getX()<x) {
+      tempX = x;
+    } else if (g.getX()>(x+w)) {
+      tempX = x+w;
+    }
+    if (g.getY()<y) {
+      tempY = y;
+    } else if (g.getY()>(y+h)) {
+      tempY = y+h;
+    }
+
+    float distX = g.getX() - tempX;
+    float distY = g.getY() - tempY;
+
+    float dist = sqrt((distX*distX) + (distY*distY));
+
+    if (dist<=5) {
+      return true;
+    }
+    return false;
   }
 }

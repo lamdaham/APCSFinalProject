@@ -7,5 +7,13 @@ public class GameObjects{
       fill(255);
       rect(x,y,10,10);
     }
-  } 
+  }
+  
+  float getX() {
+    return x;
+  }
+  
+  float getY() {
+    return y;
+  }
 }
