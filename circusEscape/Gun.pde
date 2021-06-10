@@ -36,6 +36,10 @@ public class Gun extends GameObjects {
       popMatrix();
     }
   }
+  
+  void display(int xC, int yC) {
+    rect(xC, yC, 10, 10);
+  }
 
   float getAngle() {
     return atan2(mouseY-p1.getY(), mouseX-p1.getX());
@@ -72,7 +76,6 @@ public class Gun extends GameObjects {
   void droppedGun() {
     x = p1.getX();
     y = p1.getY();
-    gun.get(scene.roomNum).add(p1.currentGun);
     pickedUp = false;
   }
 }

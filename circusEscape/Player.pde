@@ -83,9 +83,9 @@ public class Player extends Characters {
     
     if (currentObj.equals("gun")) {
       currentGun.decreaseCooldown();
-      inventory.dropGun();
     }
-    inventory.pickupGun();
+    inventory.drop();
+    inventory.pickup();
     regen();
     if (inventory.getObj() instanceof Gun) {
       if (inventory.getObj().equals(currentGun)) {

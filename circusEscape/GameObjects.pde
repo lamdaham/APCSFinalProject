@@ -9,6 +9,5 @@ public class GameObjects{
     }
   }
   
-  void drop() {
-  }
+
 }

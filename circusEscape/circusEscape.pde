@@ -313,6 +313,11 @@ void displayInventory() {
   for (int i = 0; i < 5; i++) {
     fill(255);
     stroke(0);
+    for(GameObjects obj: p1.inventory.inventory) {
+      if(obj != null) {
+        obj.display();
+      }
+    }
     rect(i * 100 + 250, height - 100, 100, 75);
     stroke(0);
   }
