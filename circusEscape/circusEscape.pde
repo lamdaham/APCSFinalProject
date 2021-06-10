@@ -361,7 +361,7 @@ void startScreen() {
   fill(0);
   text("P L A Y  -->", 500, 560);
   
-  if (leftMouse && overRect(350, 350, 300, 100)) {
+  if (leftMouse && overRect(350, 500, 300, 100)) {
     start = false;
   }
 }
