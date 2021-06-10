@@ -17,15 +17,6 @@ public class Inventory {
     }
   }
   
-  void display() {
-    fill(255);
-    square(0, height - 150, 150);
-    square(130, height - 150, 150);
-    square(260, height - 150, 150);
-    square(390, height - 150, 150);
-    square(520, height - 150, 150);
-  }
-  
   boolean overRect(float x, float y, float rectWidth, float rectHeight) {
     if (mouseX >= x && mouseX <= x+rectWidth && mouseY >= y && mouseY <= y+rectHeight) {
       return true;
