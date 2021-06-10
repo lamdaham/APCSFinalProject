@@ -131,7 +131,7 @@ public class Monsters extends Characters {
   
   void fireM() {
     if (t >= cooldown) {
-      bulletM.add(new Bullet(x, y, 3, 5, getAngleM() + PI, 10));
+      bulletM.add(new Bullet(x, y, 3, 5, getAngleM() + PI, 10, true));
       t = 0;
     }
   }
