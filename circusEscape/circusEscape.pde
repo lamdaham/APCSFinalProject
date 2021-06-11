@@ -1,68 +1,78 @@
+//creating a new scene, player, arraylists of characters, walls, bullets, and items to set up
 Scene scene = new Scene();
-int cleared = 0;
-ArrayList<ArrayList<Gun>> gun = new ArrayList<ArrayList<Gun>>();
-//ArrayList<Health> health = new ArrayList<Health>();
 Player p1;
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
 ArrayList<ArrayList<Potions>> potions = new ArrayList<ArrayList<Potions>>();
-
-
+ArrayList<ArrayList<Gun>> gun = new ArrayList<ArrayList<Gun>>();
 ArrayList<Bullet> bulletM;
 
+//buffScreen (when player can get buffs), end (ending the game, end screen), and start (starting the game)
 boolean buffScreen;
 boolean end;
 boolean start;
+
+//image of the curtains for the start scene
 PImage img;
+
+//cleared is the last level you cleared (keeping track of level count)
+//m is the timer (time player spent on the game before winning/dying)
+int cleared = 0;
 int m;
 
-//four different boolean instance variables to keep track
+//four boolean instance variables to keep track
 //of the direction player is moving using WASD keys
 boolean up = false;
 boolean down = false;
 boolean right = false;
 boolean left = false;
 
+//leftMouse to keep track of where the player is clicking
+//collided to keep track of whether a bullet collided w/ wall or character
 boolean leftMouse = false;
 boolean collided = false;
+
+//picking up and dropping items (weapons + potions)
 boolean pickup = false;
 boolean drop = false;
 
+//five spaces for the inventory; setting them all false first
 boolean space1 = false;
 boolean space2 = false;
 boolean space3 = false;
 boolean space4 = false;
 boolean space5 = false;
 
+//-- s e t u p --
 
 void setup() {
+  p1 = new Player();
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
-
-
-  for (int i = 0; i<12; i++) {
+  bulletM = new ArrayList<Bullet>();
+  
+  for (int i = 0; i < 12; i++) {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
   }
 
-  bulletM = new ArrayList<Bullet>();
-
-  //health = new ArrayList<Health>();
   for (int i = 1; i <= 9; i++) {
     potions.get(i).add(new Potions());
   }
 
+  //creating the window
   size(1000, 700);
   background(#C0C0C0);
+  
+  //creating the room and loading the image
   scene.createRoom(1);
+  img = loadImage("curtains.jpg");
+  
   buffScreen = false;
   end = false;
   start = true;
-  img = loadImage("curtains.jpg");
-  //testing
-  p1 = new Player();
 }
 
 void draw() {
