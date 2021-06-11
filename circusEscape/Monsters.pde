@@ -1,5 +1,6 @@
 public class Monsters extends Characters {
   int cooldown, t;
+  Gun gunM;
 
   //same as Player, copying constructors from Characters
   //changing size/color of monsters and setting the position at random positions
@@ -10,8 +11,9 @@ public class Monsters extends Characters {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    cooldown = 50;
+    cooldown = 30;
     t = 0;
+    gunM = new Gun();
   }
 
   //monsters spawn randomly on the map
@@ -64,7 +66,7 @@ public class Monsters extends Characters {
     }
   }
 
-  boolean takeDamage(Bullet b) {
+  boolean takeDamageM(Bullet b) {
     if (dist(b.getX(), b.getY(), x, y)<=(radius+b.getR())&&alive) {
       hp -= b.getdmg();
       return true;
@@ -125,6 +127,17 @@ public class Monsters extends Characters {
     //fill(0);
     //textSize(10);
     //text("health: " + hp, x + 15, y + 12);
+  }
+  
+  void fireM() {
+    if (t >= cooldown) {
+      bulletM.add(new Bullet(x, y, 3, 1, getAngleM() + PI, 10, true));
+      t = 0;
+    }
+  }
+  
+  float getAngleM() {
+    return atan2(y - p1.getY(), x - p1.getX());
   }
 
   boolean withinRange() {

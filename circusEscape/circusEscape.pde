@@ -7,10 +7,14 @@ ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
 ArrayList<ArrayList<Potions>> potions = new ArrayList<ArrayList<Potions>>();
-GameObjects[] inventory;
+
+
+ArrayList<Bullet> bulletM;
 
 boolean buffScreen;
 boolean end;
+boolean start;
+PImage img;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -33,11 +37,15 @@ void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
-  inventory = new GameObjects[5];
+
+
   for (int i = 0; i<10; i++) {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
   }
+
+  bulletM = new ArrayList<Bullet>();
+
   //health = new ArrayList<Health>();
   for (int i = 1; i <= 9; i++) {
     potions.get(i).add(new Potions());
@@ -48,63 +56,67 @@ void setup() {
   scene.createRoom(1);
   buffScreen = false;
   end = false;
+  start = true;
+  img = loadImage("curtains.jpg");
   //testing
   p1 = new Player();
 }
 
 void draw() {
+  startScreen();
   //while the player is alive
-  if (end) {
-    clear();
-    walls.clear();
-    fill(#cfcfcf);
-    stroke(255);
-    rect(200, 200, 600, 300);
-    fill(0);
-    textSize(20);
-    textAlign(CENTER);
-    text("Congratulations!", width / 2, height / 2 - 30);
-    text("You made it to the end!", width / 2, height / 2 + 30);
-  } else {
-    //print(""+mouseX +", "  + mouseY + "\n");
-    if (p1.isAlive()) {
-      if (buffScreen) {
-        chooseBuff();
-      } else {
-        //setting up the background
-        bg();
-        scene.changeRoom();
 
-        //restricting the characters' movements, control over
-        //the bullets, monsters, and the player
-        restrictMovement();
-        removeBullet();
-        monsterAction();
-        playerAction();
-
-        //displaying the gun and health
-        displayGun();
-        displayHealth();
-        displayPotion();
-        displayInventory();
-        timer();
-
-        //text: health, level, gun type
-        fill(0);
-        textSize(20);
-        text("health: " + p1.hp, 0, 20);
-        text("Level: " + scene.roomNum, 0, 50);
-
-        //different messages for the gun types
-        if (p1.hasGun) {
-          text("Gun: " + (p1.currentGun).type, 0, 80);
-        } else {
-          text("Gun: " + "good'ol panda paws", 0, 80);
-        }
-      }
-      //if the player is dead, display the death message
+  if (!start) {
+    if (end) {
+      clear();
+      walls.clear();
+      fill(#cfcfcf);
+      stroke(255);
+      rect(200, 200, 600, 300);
+      fill(0);
+      textSize(20);
+      textAlign(CENTER);
+      text("Congratulations!", width / 2, height / 2 - 30);
+      text("You made it to the end!", width / 2, height / 2 + 30);
     } else {
-      deathMessage();
+      if (p1.isAlive()) {
+        if (buffScreen) {
+          chooseBuff();
+        } else {
+          //setting up the background
+          bg();
+          scene.changeRoom();
+  
+          //restricting the characters' movements, control over
+          //the bullets, monsters, and the player
+          restrictMovement();
+          removeBullet();
+          monsterAction();
+          playerAction();
+  
+          //displaying the gun and health
+          displayGun();
+          displayHealth();
+          displayPotion();
+  
+          //text: health, level, gun type
+          fill(0);
+          textSize(20);
+          textAlign(LEFT);
+          text("health: " + p1.hp, 0, 20);
+          text("Level: " + scene.roomNum, 0, 50);
+  
+          //different messages for the gun types
+          if (p1.hasGun) {
+            text("Gun: " + (p1.currentGun).type, 0, 80);
+          } else {
+            text("Gun: " + "good'ol panda paws", 0, 80);
+          }
+        }
+        //if the player is dead, display the death message
+      } else {
+        deathMessage();
+      }
     }
   }
 } 
@@ -235,9 +247,21 @@ void removeBullet() {
     }
     if (!collided) {
       bullet.get(i).display();
-    } else if ((bullet.get(i)).bounce>0) {
     } else {
       bullet.remove(bullet.get(i));
+    }
+  }
+  for (int i = 0; i<bulletM.size(); i++) {
+    collided = false;
+    for (Wall w : walls) {
+      if (w.bulletCollision(bulletM.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bulletM.get(i).display();
+    } else {
+      bulletM.remove(bulletM.get(i));
     }
   }
 }
@@ -246,7 +270,7 @@ void removeBullet() {
 void monsterAction() {
   for (int m = 0; m < monsters.size(); m++) {
     for (int i = 0; i<bullet.size(); i++) {
-      if ((monsters.get(m)).takeDamage(bullet.get(i))) {
+      if ((monsters.get(m)).takeDamageM(bullet.get(i))) {
         bullet.remove(i);
         i--;
       }
@@ -254,6 +278,7 @@ void monsterAction() {
     (monsters.get(m)).moveM(p1);
     (monsters.get(m)).attackP(p1);
     (monsters.get(m)).display();
+    (monsters.get(m)).fireM();
   }
 
   for (int m = 0; m<monsters.size(); m++) {
@@ -272,6 +297,12 @@ void monsterAction() {
 
 //player movement and firing
 void playerAction() {
+  for (int i = 0; i<bulletM.size(); i++) {
+    if (p1.takeDamage(bulletM.get(i))) {
+      bulletM.remove(i);
+      i--;
+    }
+  }
   p1.moveP();
   p1.fire();
   p1.display();
@@ -388,6 +419,29 @@ void timer() {
   text(m / (1000 * 60) % 60, width - 75, height - 15);
   text(":", width - 50, height - 15);
   text(m / (1000) % 60, width - 25, height - 15);
+}
+
+void startScreen() {
+  img.resize(width, height);
+  image(img, 0, 0);
+  textSize(20);
+  textAlign(CENTER);
+  fill(255);
+  String s1 = "Uh oh! The clowns are trying to take control of the circus and you're the first on their hit list! ";
+  String s2 = "Let's see if you can get out safely! But fret not, there are plenty of items scattered around ";
+  String s3 = "to help you out (or possibly hurt you) on this quest. Good luck!";
+  //String s4 = "WASD keys: to move; C and V to pick up and drop up items";
+  String sFinal = s1 + s2 + s3;
+  text(sFinal, width/2 - 275, height/2 - 100, width/2 + 100, height / 2 + 400);
+  fill(255);
+  rect(350, 500, 300, 100);
+  textSize(30);
+  fill(0);
+  text("P L A Y  -->", 500, 560);
+  
+  if (leftMouse && overRect(350, 500, 300, 100)) {
+    start = false;
+  }
 }
 
 boolean overRect(int x, int y, int rectWidth, int rectHeight) {

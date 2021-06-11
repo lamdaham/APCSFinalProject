@@ -80,6 +80,12 @@ public class Player extends Characters {
     fill(255);
     circle(x - radius / 2 + 3, y - 2, radius / 6);
     circle(x + radius / 2 - 3, y - 2, radius / 6);
+    //nose + mouth
+    fill(#edcce2);
+    triangle(x - 3, y + 5, x + 3, y + 5, x, y + 8);
+    stroke(#edcce2);
+    line(x, y + 8, x - 3, y + 11);
+    line(x, y + 8, x + 3, y + 11);
     
     if (currentObj.equals("gun")) {
       currentGun.decreaseCooldown();
@@ -123,6 +129,17 @@ public class Player extends Characters {
 
   
 
+  
+
+  boolean takeDamage(Bullet b) {
+    if (b.getStatus()) {
+      if (dist(b.getX(), b.getY(), x, y)<=(radius+b.getR())&&isAlive()) {
+        hp -= b.getdmg();
+        return true;
+      }
+    }
+    return false;
+  }
   
 
   boolean isAlive() {
