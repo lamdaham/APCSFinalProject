@@ -147,6 +147,62 @@ void draw() {
   }
 } 
 
+
+// -- B A C K G R O U N D  +  S C R E E N S -- 
+
+//setting up the checkerboard background
+void bg() {
+  noStroke();
+  for (int i = 0; i < width; i += 50) {
+    for (int j = 0; j < height; j += 50) {
+      if ((i + j) % 20 == 0) {
+        fill(#c9c9c9);
+      } else {
+        fill(#8f8f8f);
+      }
+      rect(i, j, 50, 50);
+    }
+  }
+}
+
+//displayed when the player dies
+void deathMessage() {
+  clear();
+  fill(255, 0, 0);
+  rect(200, 200, 600, 300);
+  fill(255);
+  textSize(20);
+  textAlign(CENTER);
+  text("You died :(", width / 2, height / 2 - 30);
+  text("You reached level " + scene.roomNum, width / 2, height / 2);
+  text("Try Again!", width / 2, height / 2 + 30);
+}
+
+//start screen with introduction and button to play
+void startScreen() {
+  img.resize(width, height);
+  image(img, 0, 0);
+  textSize(20);
+  textAlign(CENTER);
+  fill(255);
+  String s1 = "Uh oh! The clowns are trying to take control of the circus and you're the first on their hit list! ";
+  String s2 = "Let's see if you can get out safely! But fret not, there are plenty of items scattered around ";
+  String s3 = "to help you out (or possibly hurt you) on this quest. Good luck!";
+  //String s4 = "WASD keys: to move; C and V to pick up and drop up items";
+  String sFinal = s1 + s2 + s3;
+  text(sFinal, width/2 - 275, height/2 - 100, width/2 + 100, height / 2 + 400);
+  fill(255);
+  rect(350, 500, 300, 100);
+  textSize(30);
+  fill(0);
+  text("P L A Y  -->", 500, 560);
+  
+  if (leftMouse && overRect(350, 500, 300, 100)) {
+    start = false;
+  }
+}
+
+
 //removing monsters when hp is <= 0
 void removeM(Monsters m) {
   if (m.hp <= 0) {
@@ -245,20 +301,7 @@ void mouseReleased() {
   }
 }
 
-//setting up the checkerboard background
-void bg() {
-  noStroke();
-  for (int i = 0; i < width; i += 50) {
-    for (int j = 0; j < height; j += 50) {
-      if ((i + j) % 20 == 0) {
-        fill(#c9c9c9);
-      } else {
-        fill(#8f8f8f);
-      }
-      rect(i, j, 50, 50);
-    }
-  }
-}
+
 
 //restricting the movement of the monsters when at wall
 void restrictMovement() {
@@ -415,19 +458,6 @@ void displayInventory() {
   }
 }
 
-//displayed when the player dies
-void deathMessage() {
-  clear();
-  fill(255, 0, 0);
-  rect(200, 200, 600, 300);
-  fill(255);
-  textSize(20);
-  textAlign(CENTER);
-  text("You died :(", width / 2, height / 2 - 30);
-  text("You reached level " + scene.roomNum, width / 2, height / 2);
-  text("Try Again!", width / 2, height / 2 + 30);
-}
-
 void chooseBuff() {
   clear();
   textAlign(LEFT);
@@ -481,29 +511,6 @@ void timer() {
   text(m / (1000 * 60) % 60, width - 75, height - 15);
   text(":", width - 50, height - 15);
   text(m / (1000) % 60, width - 25, height - 15);
-}
-
-void startScreen() {
-  img.resize(width, height);
-  image(img, 0, 0);
-  textSize(20);
-  textAlign(CENTER);
-  fill(255);
-  String s1 = "Uh oh! The clowns are trying to take control of the circus and you're the first on their hit list! ";
-  String s2 = "Let's see if you can get out safely! But fret not, there are plenty of items scattered around ";
-  String s3 = "to help you out (or possibly hurt you) on this quest. Good luck!";
-  //String s4 = "WASD keys: to move; C and V to pick up and drop up items";
-  String sFinal = s1 + s2 + s3;
-  text(sFinal, width/2 - 275, height/2 - 100, width/2 + 100, height / 2 + 400);
-  fill(255);
-  rect(350, 500, 300, 100);
-  textSize(30);
-  fill(0);
-  text("P L A Y  -->", 500, 560);
-  
-  if (leftMouse && overRect(350, 500, 300, 100)) {
-    start = false;
-  }
 }
 
 boolean overRect(int x, int y, int rectWidth, int rectHeight) {
