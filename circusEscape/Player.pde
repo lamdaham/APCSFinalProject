@@ -92,9 +92,13 @@ public class Player extends Characters {
     if (currentObj.equals("gun")) {
       currentGun.decreaseCooldown();
     }
+    
+    // drop/pickup item in inventory when button is pressed
     inventory.drop();
     inventory.pickup();
+    // change index to the number pressed.
     inventory.changeIndex();
+    
     regen();
     if (inventory.getObj() instanceof Gun) {
       if (inventory.getObj().equals(currentGun)) {
