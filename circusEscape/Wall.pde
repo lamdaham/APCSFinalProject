@@ -125,7 +125,6 @@ public class Wall {
     float dist = sqrt((distX*distX) + (distY*distY));
 
     if (dist<=5) {
-      print("AAA");
       return true;
     }
     return false;
