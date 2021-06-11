@@ -1,4 +1,5 @@
 public class Health {
+  //keeping track of the position of the heart
   float x, y;
   
   Health (float x, float y) {
