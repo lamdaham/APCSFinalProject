@@ -40,6 +40,10 @@ public class Inventory {
       currentIndex = 1;
     } else if (space3) {
       currentIndex = 2;
+    } else if (space4) {
+      currentIndex = 3;
+    } else if (space5) {
+      currentIndex = 4;
     }
   }
 

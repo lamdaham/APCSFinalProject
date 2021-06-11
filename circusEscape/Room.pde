@@ -29,9 +29,10 @@ public class Room {
     walls.add(new Wall(0, 0, 1600, 25, #f7d68f));
   }
 
+
+// Spawns  
   void spawnMobs() {
-    
-    for (int i = 0; i < 0; i++) {
+    for (int i = 0; i < 2*roomNum; i++) {
       monsters.add(0, new Monsters(.3  *roomNum));
       for (int w = 0; w<walls.size(); w++) {
         if ((walls.get(w)).moveRestrict(monsters.get(0)) 
