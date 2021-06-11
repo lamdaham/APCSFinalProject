@@ -1,6 +1,7 @@
 public class Wall {
 
   int x, y, w, h, leftSide, rightSide, topSide, bottomSide;
+  color c;
 
   public Wall(int x, int y, int w, int h) {
     this.x = x;
@@ -12,11 +13,27 @@ public class Wall {
     this.rightSide = x + (w/2);
     this.topSide = y - (w/2);
     this.bottomSide = y + (w/2);
+
+    this.c = #9c64ba;
+  }
+
+  public Wall(int x, int y, int w, int h, color c) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+
+    this.leftSide = x - (w/2);
+    this.rightSide = x + (w/2);
+    this.topSide = y - (w/2);
+    this.bottomSide = y + (w/2);
+
+    this.c = c;
   }
 
 
   void spawnWall() {
-    fill(#9c64ba);
+    fill(c);
     noStroke();
     rect(x, y, w, h);
   }
@@ -83,5 +100,33 @@ public class Wall {
 
     float dist = sqrt((distX*distX) + (distY*distY));
     return(dist<=bb.getR());
+  }
+  
+  
+
+  boolean inWalls(float xVar, float yVar) {
+    float tempX = xVar;
+    float tempY = yVar;
+
+    if (xVar<x) {
+      tempX = x;
+    } else if (xVar>(x+w)) {
+      tempX = x+w;
+    }
+    if (yVar<y) {
+      tempY = y;
+    } else if (yVar>(y+h)) {
+      tempY = y+h;
+    }
+
+    float distX = xVar - tempX;
+    float distY = yVar - tempY;
+
+    float dist = sqrt((distX*distX) + (distY*distY));
+
+    if (dist<=5) {
+      return true;
+    }
+    return false;
   }
 }

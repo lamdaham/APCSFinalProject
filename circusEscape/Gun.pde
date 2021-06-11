@@ -65,12 +65,19 @@ public class Gun extends GameObjects {
     } else {
       degree = 0;
       pushMatrix();
-      translate(p1.getX(), p1.getY());
+      translate(p1.getX(), p1.getY()+10);
       rotate(getAngle()- radians(45));
       fill(255);
-      rect(12, 12, 10, 10);
+      rect(4, 4, 10, 10);
       popMatrix();
     }
+  }
+  
+  void display(int xC, int yC) {
+    rectMode(CENTER);
+    rect(xC, yC, 10, 10);
+    rectMode(CORNER);
+    
   }
 
   float getAngle() {

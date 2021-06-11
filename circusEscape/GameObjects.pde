@@ -7,5 +7,6 @@ public class GameObjects{
       fill(255);
       rect(x,y,10,10);
     }
-  } 
+  }
+
 }
