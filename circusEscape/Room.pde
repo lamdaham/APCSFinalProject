@@ -23,10 +23,10 @@ public class Room {
   }
 
   void defaultRoom() {
-    walls.add(new Wall(825, 0, 175, 1000));
-    walls.add(new Wall(0, 0, 175, 1000));
-    walls.add(new Wall(0, 545, 1600, 155));
-    walls.add(new Wall(0, 0, 1600, 25));
+    walls.add(new Wall(825, 0, 175, 1000, #f7d68f));
+    walls.add(new Wall(0, 0, 175, 1000, #f7d68f));
+    walls.add(new Wall(0, 545, 1600, 155, #f7d68f));
+    walls.add(new Wall(0, 0, 1600, 25, #f7d68f));
   }
 
   void spawnMobs() {
