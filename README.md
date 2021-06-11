@@ -9,6 +9,11 @@ Prototype Google Docs Link: https://docs.google.com/document/d/1NGWOk2SVPGmJfLkT
 Brief Description:
 Our goal is to create a project that resembles SoulKnight, a dungeon-based game, but with a circus theme where the player, a panda, is trying to escape the circus overrun by evil clowns. The player would have to go through the dungeon that comprises numerous levels that only increase in difficulty in regards to the monster count, speed, and other obstacles. There will be potions, guns, and buffs on certain levels to help aid or even possibly harm the player in fulfilling their quest. Once the player defeats the boss, the true ringleader, he or she be truly free.
 
+Instructions:
+- You can run it on processing! 
+
+- Commands: WASD to move player, C + V to pick up and drop items, 1 - 5 to switch between the slots of the inventory, left click to shoot at the monsters and to consume potions!
+
 
 # Development Log
 **6/10/21**
