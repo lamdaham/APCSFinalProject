@@ -270,6 +270,79 @@ boolean overRect(int x, int y, int rectWidth, int rectHeight) {
   }
 }
 
+
+// -- D I S P L A Y S --
+//displays the gun the player is using
+void displayGun() {
+  for (Gun g : gun.get(scene.roomNum)) {
+    g.display();
+  }
+  if (p1.hasGun) {
+    p1.currentGun.display();
+  }
+}
+
+//displays the health bar of the player
+void displayHealth() {
+  ArrayList<Health> placeholder = new ArrayList<Health>();
+  for (int i = 0; i < p1.hp; i++) {
+    placeholder.add(new Health(125 + i * 30, 10));
+  }
+  for (Health h : placeholder) {
+    h.display();
+  }
+}
+
+//displays the potions
+void displayPotion() {
+  for (int p = 0; p<potions.get(scene.roomNum).size(); p++) {
+    for(int w = 0; w<walls.size(); w++) {
+      if ((walls.get(w)).inWalls(potions.get(scene.roomNum).get(p).x, potions.get(scene.roomNum).get(p).y)) {
+        potions.get(scene.roomNum).remove(p);
+        potions.get(scene.roomNum).add(new Potions());
+      }
+    }
+    potions.get(scene.roomNum).get(p).display(p1);
+  }
+
+  for (int p = 0; p <potions.get(scene.roomNum).size(); p++) {
+    if ((potions.get(scene.roomNum)).get(p).consumed) {
+      potions.remove(p);
+      p--;
+    }
+  }
+}
+
+//displays inventory bar and objects inside the inventory
+void displayInventory() {
+  for (int i = 0; i < 5; i++) {
+    fill(255);
+    stroke(0);
+    strokeWeight(1);
+    if(p1.inventory.currentIndex == i) {
+     strokeWeight(2);
+    }
+    rect(i * 100 + 250, height - 100, 100, 75);
+    
+    //readjusting the position of items in the inventory
+    if (p1.inventory.inventory[i] != null) {
+      if (p1.inventory.inventory[i] instanceof Gun) {
+        if (((Gun)p1.inventory.inventory[i]).type.equals("pistol")){
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-70);
+        } else if (((Gun)p1.inventory.inventory[i]).type.equals("minigun")) {
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+295, height-65);
+        } else if (((Gun)p1.inventory.inventory[i]).type.equals("shotgun")) {
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+270, height-75);
+        } else if (((Gun)p1.inventory.inventory[i]).type.equals("sniper")) {
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-45);
+        }
+      } else if (p1.inventory.inventory[i] instanceof Potions) {
+        ((Potions)p1.inventory.inventory[i]).display(i*100+300, height-50);
+      }
+    } 
+  }
+}
+
 //removing monsters when hp is <= 0
 void removeM(Monsters m) {
   if (m.hp <= 0) {
@@ -454,73 +527,4 @@ void playerAction() {
   p1.moveP();
   p1.fire();
   p1.display();
-}
-
-//displays the gun the player is using
-void displayGun() {
-  for (Gun g : gun.get(scene.roomNum)) {
-    g.display();
-  }
-  if (p1.hasGun) {
-    p1.currentGun.display();
-  }
-}
-
-//displays the health of the player
-void displayHealth() {
-  ArrayList<Health> placeholder = new ArrayList<Health>();
-  for (int i = 0; i < p1.hp; i++) {
-    placeholder.add(new Health(125 + i * 30, 10));
-  }
-  for (Health h : placeholder) {
-    h.display();
-  }
-}
-
-void displayPotion() {
-  for (int p = 0; p<potions.get(scene.roomNum).size(); p++) {
-    for(int w = 0; w<walls.size(); w++) {
-      if ((walls.get(w)).inWalls(potions.get(scene.roomNum).get(p).x, potions.get(scene.roomNum).get(p).y)) {
-        potions.get(scene.roomNum).remove(p);
-        potions.get(scene.roomNum).add(new Potions());
-      }
-    }
-    potions.get(scene.roomNum).get(p).display(p1);
-  }
-
-  for (int p = 0; p <potions.get(scene.roomNum).size(); p++) {
-    if ((potions.get(scene.roomNum)).get(p).consumed) {
-      potions.remove(p);
-      p--;
-    }
-  }
-}
-
-void displayInventory() {
-  for (int i = 0; i < 5; i++) {
-    fill(255);
-    stroke(0);
-    strokeWeight(1);
-    if(p1.inventory.currentIndex == i) {
-     strokeWeight(2);
-    }
-    rect(i * 100 + 250, height - 100, 100, 75);
-    
-    if (p1.inventory.inventory[i] != null) {
-      if (p1.inventory.inventory[i] instanceof Gun) {
-        if (((Gun)p1.inventory.inventory[i]).type.equals("pistol")){
-          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-70);
-        } else if (((Gun)p1.inventory.inventory[i]).type.equals("minigun")) {
-          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+295, height-65);
-        } else if (((Gun)p1.inventory.inventory[i]).type.equals("shotgun")) {
-          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+270, height-75);
-        } else if (((Gun)p1.inventory.inventory[i]).type.equals("sniper")) {
-          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-45);
-        }
-      } else if (p1.inventory.inventory[i] instanceof Potions) {
-        ((Potions)p1.inventory.inventory[i]).display(i*100+300, height-50);
-      }
-    }
-    
-  }
 }
