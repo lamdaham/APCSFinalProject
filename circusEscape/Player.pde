@@ -18,9 +18,10 @@ public class Player extends Characters {
     extraDamage = 0;
     inventory = new Inventory();
     currentObj = "none";
-    gun.get(scene.roomNum).add(new Gun("shotgun", 100, 100, 25));
+    gun.get(scene.roomNum).add(new Gun("shotgun", 500, 100, 25));
     gun.get(scene.roomNum).add(new Gun("pistol", 700, 300, 1));
-    gun.get(scene.roomNum).add(new Gun("minigun", 100, 500, 1));
+    gun.get(scene.roomNum).add(new Gun("minigun", 500, 500, 1));
+    gun.get(scene.roomNum).add(new Gun("sniper", 500, 500, 1));
     regenCooldown = 200;
     tempCooldown = 0;
   }
