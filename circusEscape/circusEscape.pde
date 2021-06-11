@@ -24,9 +24,9 @@ boolean collided = false;
 boolean pickup = false;
 boolean drop = false;
 
-boolean buff1 = false;
-boolean buff2 = false;
-boolean buff3 = false;
+boolean space1 = false;
+boolean space2 = false;
+boolean space3 = false;
 
 
 void setup() {
@@ -34,7 +34,7 @@ void setup() {
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
   inventory = new GameObjects[5];
-  for(int i = 0; i<10; i++) {
+  for (int i = 0; i<10; i++) {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
   }
@@ -47,7 +47,7 @@ void setup() {
   buffScreen = false;
   end = false;
   //testing
-  p1 = new Player(); 
+  p1 = new Player();
 }
 
 void draw() {
@@ -170,13 +170,13 @@ void keyReleased() {
     drop = false;
   }
   if (key == '1') {
-    buff1 = false;
+    space1 = false;
   }
   if (key == '2') {
-    buff2 = false;
+    space2 = false;
   }
   if (key == '3') {
-    buff3 = false;
+    space3 = false;
   }
 }
 
@@ -262,7 +262,7 @@ void monsterAction() {
   }
   if (monsters.size()==0) {
     scene.room.open = true;
-    if(scene.room.roomNum>cleared){
+    if (scene.room.roomNum>cleared) {
       cleared = scene.room.roomNum;
     }
   }
@@ -300,7 +300,7 @@ void displayPotion() {
   for (Potions p : potions.get(scene.roomNum)) {
     p.display(p1);
   }
-  
+
   for (int p = 0; p <potions.get(scene.roomNum).size(); p++) {
     if ((potions.get(scene.roomNum)).get(p).consumed) {
       potions.remove(p);
@@ -313,13 +313,16 @@ void displayInventory() {
   for (int i = 0; i < 5; i++) {
     fill(255);
     stroke(0);
-    for(GameObjects obj: p1.inventory.inventory) {
-      if(obj != null) {
-        obj.display();
-      }
-    }
     rect(i * 100 + 250, height - 100, 100, 75);
     stroke(0);
+    if (p1.inventory.inventory[i] != null) {
+      if (p1.inventory.inventory[i] instanceof Gun) {
+        ((Gun)p1.inventory.inventory[i]).display(i*100+300, height-50);
+      } else if (p1.inventory.inventory[i] instanceof Potions) {
+        ((Potions)p1.inventory.inventory[i]).display(i*100+300, height-50);
+      }
+    }
+    
   }
 }
 

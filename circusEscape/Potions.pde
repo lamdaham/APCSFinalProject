@@ -55,7 +55,7 @@ public class Potions extends GameObjects {
     //  }
     //}
   }
-  
+
   void display(int xC, int yC) {
     stroke(255);
     strokeWeight(2);
@@ -64,6 +64,8 @@ public class Potions extends GameObjects {
     ellipse(xC, yC - 19, radius * 1.5, 2);
     fill(#f5e282, 255);
     rect(xC - 3.5, yC - 27, radius - 3.5, 7);
+    fill(#f73520);
+    circle(xC, yC - 4, radius * 1.5);
   }
 
   void pickedupPotion() {

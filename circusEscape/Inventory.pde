@@ -81,6 +81,7 @@ public class Inventory {
     Potions tempPot = (Potions)inventory[currentIndex];
     potions.get(scene.roomNum).add(tempPot);
     tempPot.droppedPotion();
+    inventory[currentIndex] = null;
   }
 
   void drop() {
