@@ -343,11 +343,62 @@ void displayInventory() {
   }
 }
 
+
+// -- R E S T R I C T I O N  +  R E M O V A L --
+
+//restricting the movement of the monsters when at wall
+void restrictMovement() {
+  p1.removeRestriction();
+  for (Monsters m : monsters) {
+    m.removeRestriction();
+  }
+  for (Wall w : walls) {
+    w.spawnWall();
+    w.moveRestrict(p1);
+    for (Monsters m : monsters) {
+      w.moveRestrict(m);
+    }
+  }
+}
+
 //removing monsters when hp is <= 0
 void removeM(Monsters m) {
   if (m.hp <= 0) {
     m.hp = 0;
     monsters.remove(m);
+  }
+}
+
+//removing bullets when colliding with character or wall
+void removeBullet() {
+  //bullets that the player shoot
+  for (int i = 0; i<bullet.size(); i++) {
+    collided = false;
+    for (Wall w : walls) {
+      if (w.bulletCollision(bullet.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bullet.get(i).display();
+    } else {
+      bullet.remove(bullet.get(i));
+    }
+  }
+  
+  //bullets that the monsters shoot
+  for (int i = 0; i<bulletM.size(); i++) {
+    collided = false;
+    for (Wall w : walls) {
+      if (w.bulletCollision(bulletM.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bulletM.get(i).display();
+    } else {
+      bulletM.remove(bulletM.get(i));
+    }
   }
 }
 
@@ -441,51 +492,6 @@ void mouseReleased() {
   }
 }
 
-
-
-//restricting the movement of the monsters when at wall
-void restrictMovement() {
-  p1.removeRestriction();
-  for (Monsters m : monsters) {
-    m.removeRestriction();
-  }
-  for (Wall w : walls) {
-    w.spawnWall();
-    w.moveRestrict(p1);
-    for (Monsters m : monsters) {
-      w.moveRestrict(m);
-    }
-  }
-}
-
-void removeBullet() {
-  for (int i = 0; i<bullet.size(); i++) {
-    collided = false;
-    for (Wall w : walls) {
-      if (w.bulletCollision(bullet.get(i))) {
-        collided = true;
-      }
-    }
-    if (!collided) {
-      bullet.get(i).display();
-    } else {
-      bullet.remove(bullet.get(i));
-    }
-  }
-  for (int i = 0; i<bulletM.size(); i++) {
-    collided = false;
-    for (Wall w : walls) {
-      if (w.bulletCollision(bulletM.get(i))) {
-        collided = true;
-      }
-    }
-    if (!collided) {
-      bulletM.get(i).display();
-    } else {
-      bulletM.remove(bulletM.get(i));
-    }
-  }
-}
 
 //monster movement, taking damage, attacking player
 void monsterAction() {
