@@ -363,7 +363,15 @@ void displayInventory() {
     
     if (p1.inventory.inventory[i] != null) {
       if (p1.inventory.inventory[i] instanceof Gun) {
-        ((Gun)p1.inventory.inventory[i]).display(i*100+300, height-60);
+        if (((Gun)p1.inventory.inventory[i]).type.equals("pistol")){
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-70);
+        } else if (((Gun)p1.inventory.inventory[i]).type.equals("minigun")) {
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+295, height-65);
+        } else if (((Gun)p1.inventory.inventory[i]).type.equals("shotgun")) {
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+270, height-75);
+        } else if (((Gun)p1.inventory.inventory[i]).type.equals("sniper")) {
+          ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-45);
+        }
       } else if (p1.inventory.inventory[i] instanceof Potions) {
         ((Potions)p1.inventory.inventory[i]).display(i*100+300, height-50);
       }

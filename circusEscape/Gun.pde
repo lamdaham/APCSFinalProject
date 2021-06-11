@@ -75,6 +75,62 @@ public class Gun extends GameObjects {
       line(x + 32, y - 18, x + 32, y - 10);
     }
   }
+  
+  void gunAppearance(int xC, int yC) {
+    if (type.equals("pistol")) {
+      stroke(0);
+      fill(0);
+      rect(xC, yC, 30, 10);
+      rect(xC, yC, 10, 20);
+      line(xC + 15, yC + 10, xC + 15, yC + 15);
+      line(xC + 15, yC + 15, xC + 5, yC + 15);
+    }
+    if (type.equals("minigun")) {
+      noStroke();
+      fill(0);
+      rect(xC, yC - 2.5, 10, 5);
+      stroke(#cccccc);
+      ellipse(xC - 3, yC, 10, 5);
+      noStroke();
+      rect(xC - 4, yC + 2.5, 8, 3);
+      rect(xC - 6, yC + 5.5, 13, 7);
+      stroke(0);
+      line(xC + 10, yC - 1.5, xC + 20, yC - 1.5);
+      line(xC + 10, yC, xC + 20, yC);
+      line(xC + 10, yC + 1.5, xC + 20, yC + 1.5);
+    }
+    if (type.equals("shotgun")) {
+      noStroke();
+      fill(0);
+      pushMatrix();
+      translate(xC, yC);
+      rotate(PI/3.0);
+      rect(10, -15, 10, 15);
+      popMatrix();
+      rect(xC + 18, yC, 40, 13);
+      rect(xC + 18, yC + 10, 10, 15);
+      stroke(0);
+      line(xC + 15, yC + 10, xC + 15, yC + 17);
+      line(xC + 15, yC + 17, xC + 25, yC + 17);
+    }
+    if (type.equals("sniper")) {
+      noStroke();
+      fill(0);
+      pushMatrix();
+      translate(xC, yC);
+      rotate(-PI/3.0);
+      rect(10, -15, 15, 10);
+      popMatrix();
+      rect(xC + 2, yC - 28, 50, 10);
+      rect(xC + 5, yC - 33, 10, 5);
+      rect(xC - 15, yC - 18, 15, 10);
+      stroke(0);
+      strokeWeight(2);
+      line(xC + 32, yC - 18, xC + 40, yC - 10);
+      line(xC + 32, yC - 18, xC + 24, yC - 10);
+      line(xC + 32, yC - 18, xC + 32, yC - 10);
+    }
+  }
 
   void display() {
     if (!pickedUp) {
