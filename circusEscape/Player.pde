@@ -11,8 +11,8 @@ public class Player extends Characters {
 
   Player() {
     super();
+    hp=100;
     maxHealth = hp;
-    hp=5;
     hasGun = false;
     inventory = new Inventory();
     currentObj = "none";
