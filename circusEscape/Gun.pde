@@ -38,7 +38,10 @@ public class Gun extends GameObjects {
   }
   
   void display(int xC, int yC) {
+    rectMode(CENTER);
     rect(xC, yC, 10, 10);
+    rectMode(CORNER);
+    
   }
 
   float getAngle() {

@@ -86,6 +86,7 @@ public class Player extends Characters {
     }
     inventory.drop();
     inventory.pickup();
+    inventory.changeIndex();
     regen();
     if (inventory.getObj() instanceof Gun) {
       if (inventory.getObj().equals(currentGun)) {

@@ -139,13 +139,13 @@ void keyPressed() {
     drop = true;
   }
   if (key == '1') {
-    buff1 = true;
+    space1 = true;
   }
   if (key == '2') {
-    buff2 = true;
+    space2 = true;
   }
   if (key == '3') {
-    buff3 = true;
+    space3 = true;
   }
 }
 
@@ -313,11 +313,15 @@ void displayInventory() {
   for (int i = 0; i < 5; i++) {
     fill(255);
     stroke(0);
+    strokeWeight(1);
+    if(p1.inventory.currentIndex == i) {
+     strokeWeight(2);
+    }
     rect(i * 100 + 250, height - 100, 100, 75);
-    stroke(0);
+    
     if (p1.inventory.inventory[i] != null) {
       if (p1.inventory.inventory[i] instanceof Gun) {
-        ((Gun)p1.inventory.inventory[i]).display(i*100+300, height-50);
+        ((Gun)p1.inventory.inventory[i]).display(i*100+300, height-60);
       } else if (p1.inventory.inventory[i] instanceof Potions) {
         ((Potions)p1.inventory.inventory[i]).display(i*100+300, height-50);
       }
@@ -361,16 +365,16 @@ void chooseBuff() {
   text("Increase Max Health", 610, 350);
   text("(3)", 610, 370);
   fill(255);
-  if (buff1) {
-    p1.extraDamage++;
-    buffScreen = false;
-  } else if (buff2) {
-    p1.regenCooldown-=5;
-    buffScreen = false;
-  } else if (buff3) {
-    p1.maxHealth++;
-    buffScreen = false;
-  }
+  //if (buff1) {
+  //  p1.extraDamage++;
+  //  buffScreen = false;
+  //} else if (buff2) {
+  //  p1.regenCooldown-=5;
+  //  buffScreen = false;
+  //} else if (buff3) {
+  //  p1.maxHealth++;
+  //  buffScreen = false;
+  //}
 }
 
 void timer() {

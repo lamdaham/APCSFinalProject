@@ -31,12 +31,24 @@ public class Inventory {
     }
     return false;
   }
+  
+  
+  void changeIndex() {
+    if(space1) {
+      currentIndex = 0;
+    } else if (space2) {
+      currentIndex = 1;
+    } else if (space3) {
+      currentIndex = 2;
+    }
+  }
 
 
   void pickup() {
     for (GameObjects g : inventory) {
       print(g);
     }
+    print(currentIndex);
     print("\n");
     if(tempCooldown>=cooldown) {
       if (pickup) {
