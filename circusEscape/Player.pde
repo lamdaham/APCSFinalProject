@@ -120,9 +120,8 @@ public class Player extends Characters {
     }
   }
 
-  void look() {
-  }
 
+//fires a gun in the direction of the mouse
   void fire() {
     if (leftMouse&&hasGun) {
       currentGun.fire(extraDamage);
@@ -136,7 +135,7 @@ public class Player extends Characters {
   
 
   
-
+// takes damage from bullets if they are from monsters
   boolean takeDamage(Bullet b) {
     if (b.getStatus()) {
       if (dist(b.getX(), b.getY(), x, y)<=(radius+b.getR())&&isAlive()) {
@@ -147,19 +146,24 @@ public class Player extends Characters {
     return false;
   }
   
-
+// checks to see if player is alive
   boolean isAlive() {
     return hp>0;
   }
   
+  
+// returns maxHealth
   int getMaxHealth() {
     return maxHealth;
   }
   
+  
+// sets HP of the player
   void setHP(int h) {
     hp = h;
   }
 
+// player regenerates one health after a period of time
   void regen() {
     if (hp<maxHealth) {
       if (tempCooldown>=regenCooldown) {

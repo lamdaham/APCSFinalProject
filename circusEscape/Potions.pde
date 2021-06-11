@@ -29,6 +29,8 @@ public class Potions extends GameObjects {
     radius = 10;
   }
 
+
+//displays the potion
   void display(Player p) {
     stroke(255);
     strokeWeight(2);
@@ -67,6 +69,8 @@ public class Potions extends GameObjects {
     //}
   }
 
+
+//displays the potion at a coordinate
   void display(int xC, int yC) {
     stroke(255);
     strokeWeight(2);
@@ -79,16 +83,22 @@ public class Potions extends GameObjects {
     circle(xC, yC - 4, radius * 1.5);
   }
 
+
+//pick up a potion
   void pickedupPotion() {
     pickedUp = true;
   }
 
+
+//drop a potion
   void droppedPotion() {
     x = p1.getX();
     y = p1.getY();
     pickedUp = false;
   }
   
+  
+//use a potion
   boolean use() {
     if (p1.hp<p1.maxHealth) {
       p1.setHP(p1.getHP()+2);

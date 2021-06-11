@@ -34,6 +34,8 @@ public class Characters {
   float getR() {
     return radius;
   }
+  
+  //getting the hp
   int getHP() {
     return hp;
   }

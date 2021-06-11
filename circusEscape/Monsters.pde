@@ -66,6 +66,7 @@ public class Monsters extends Characters {
     }
   }
 
+// takes damage from player bullets
   boolean takeDamageM(Bullet b) {
     if (dist(b.getX(), b.getY(), x, y)<=(radius+b.getR())&&alive) {
       hp -= b.getdmg();
@@ -129,6 +130,8 @@ public class Monsters extends Characters {
     //text("health: " + hp, x + 15, y + 12);
   }
   
+  
+  //fires a bullet at the direction of the player with cooldown
   void fireM() {
     if (t >= cooldown) {
       bulletM.add(new Bullet(x, y, 3, 1, getAngleM() + PI, 10, true));
@@ -136,11 +139,11 @@ public class Monsters extends Characters {
     }
   }
   
+  
+  //get the angle direction to the player
   float getAngleM() {
     return atan2(y - p1.getY(), x - p1.getX());
   }
 
-  boolean withinRange() {
-    return false;
-  }
+
 }
