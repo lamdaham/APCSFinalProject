@@ -203,6 +203,73 @@ void startScreen() {
 }
 
 
+// -- B U F F S  +  B U T T O N S  +  T I M E R --
+
+void chooseBuff() {
+  clear();
+  textAlign(LEFT);
+  fill(255);
+  noStroke();
+  
+  //buff 1 display
+  textSize(10);
+  rect(300, 300, 100, 100);
+  fill(0);
+  text("Extra Damage +1", 310, 350);
+  
+  //buff 2 display
+  fill(255);
+  rect(450, 300, 100, 100);
+  fill(0);
+  textSize(10);
+  textAlign(CENTER);
+  text("Increase Health", 500, 340);
+  text("Regeneration", 500, 360);
+
+  //buff 3 display
+  fill(255);
+  rect(600, 300, 100, 100);
+  fill(0);
+  textSize(10);
+  textAlign(CENTER);
+  text("Increase Max", 650, 340);
+  text("Health", 650, 360);
+  fill(255);
+  
+  //choosing buffs
+  if (leftMouse && overRect(300, 300, 100, 100)) {
+    p1.extraDamage++;
+    buffScreen = false;
+  } else if (leftMouse && overRect(450, 300, 100, 100)) {
+    p1.regenCooldown-=5;
+    buffScreen = false;
+  } else if (leftMouse && overRect(600, 300, 100, 100)) {
+    p1.maxHealth++;
+    buffScreen = false;
+  }
+}
+
+//keeping track of time spent (min : sec display)
+void timer() {
+  m = millis();
+  fill(255);
+  rect(width - 100, height - 50, 100, 50);
+  fill(0);
+  textSize(15);
+  text(m / (1000 * 60) % 60, width - 75, height - 15);
+  text(":", width - 50, height - 15);
+  text(m / (1000) % 60, width - 25, height - 15);
+}
+
+//for buttons
+boolean overRect(int x, int y, int rectWidth, int rectHeight) {
+  if (mouseX >= x && mouseX <= x+rectWidth && mouseY >= y && mouseY <= y+rectHeight) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 //removing monsters when hp is <= 0
 void removeM(Monsters m) {
   if (m.hp <= 0) {
@@ -455,68 +522,5 @@ void displayInventory() {
       }
     }
     
-  }
-}
-
-void chooseBuff() {
-  clear();
-  textAlign(LEFT);
-  fill(255);
-  noStroke();
-  
-  //buff 1
-  textSize(10);
-  rect(300, 300, 100, 100);
-  fill(0);
-  text("Extra Damage +1", 310, 350);
-  
-  //buff 2
-  fill(255);
-  rect(450, 300, 100, 100);
-  fill(0);
-  textSize(10);
-  textAlign(CENTER);
-  text("Increase Health", 500, 340);
-  text("Regeneration", 500, 360);
-
-  //buff 3
-  fill(255);
-  rect(600, 300, 100, 100);
-  fill(0);
-  textSize(10);
-  textAlign(CENTER);
-  text("Increase Max", 650, 340);
-  text("Health", 650, 360);
-  fill(255);
-  
-  //choosing buffs
-  if (leftMouse && overRect(300, 300, 100, 100)) {
-    p1.extraDamage++;
-    buffScreen = false;
-  } else if (leftMouse && overRect(450, 300, 100, 100)) {
-    p1.regenCooldown-=5;
-    buffScreen = false;
-  } else if (leftMouse && overRect(600, 300, 100, 100)) {
-    p1.maxHealth++;
-    buffScreen = false;
-  }
-}
-
-void timer() {
-  m = millis();
-  fill(255);
-  rect(width - 100, height - 50, 100, 50);
-  fill(0);
-  textSize(15);
-  text(m / (1000 * 60) % 60, width - 75, height - 15);
-  text(":", width - 50, height - 15);
-  text(m / (1000) % 60, width - 25, height - 15);
-}
-
-boolean overRect(int x, int y, int rectWidth, int rectHeight) {
-  if (mouseX >= x && mouseX <= x+rectWidth && mouseY >= y && mouseY <= y+rectHeight) {
-    return true;
-  } else {
-    return false;
   }
 }
