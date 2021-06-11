@@ -30,10 +30,12 @@ public class Gun extends GameObjects {
       line(x + 15, y + 15, x + 5, y + 15);
     }
     if (type.equals("minigun")) {
-      stroke(#cccccc);
+      noStroke();
       fill(0);
       rect(x, y - 2.5, 10, 5);
+      stroke(#cccccc);
       ellipse(x - 3, y, 10, 5);
+      noStroke();
       rect(x - 4, y + 2.5, 8, 3);
       rect(x - 6, y + 5.5, 13, 7);
       stroke(0);
@@ -42,18 +44,35 @@ public class Gun extends GameObjects {
       line(x + 10, y + 1.5, x + 20, y + 1.5);
     }
     if (type.equals("shotgun")) {
-      stroke(#cccccc);
+      noStroke();
       fill(0);
       pushMatrix();
       translate(x, y);
       rotate(PI/3.0);
       rect(10, -15, 10, 15);
       popMatrix();
-      rect(x + 20, y, 30, 10);
-      rect(x + 20, y + 10, 15, 10);
+      rect(x + 18, y, 40, 13);
+      rect(x + 18, y + 10, 10, 15);
       stroke(0);
       line(x + 15, y + 10, x + 15, y + 17);
       line(x + 15, y + 17, x + 25, y + 17);
+    }
+    if (type.equals("sniper")) {
+      noStroke();
+      fill(0);
+      pushMatrix();
+      translate(x, y);
+      rotate(-PI/3.0);
+      rect(10, -15, 15, 10);
+      popMatrix();
+      rect(x + 2, y - 28, 50, 10);
+      rect(x + 5, y - 33, 10, 5);
+      rect(x - 15, y - 18, 15, 10);
+      stroke(0);
+      strokeWeight(2);
+      line(x + 32, y - 18, x + 40, y - 10);
+      line(x + 32, y - 18, x + 24, y - 10);
+      line(x + 32, y - 18, x + 32, y - 10);
     }
   }
 
