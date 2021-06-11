@@ -44,7 +44,7 @@ boolean space3 = false;
 boolean space4 = false;
 boolean space5 = false;
 
-//-- s e t u p --
+// -- s e t u p --
 
 void setup() {
   p1 = new Player();
@@ -75,11 +75,14 @@ void setup() {
   start = true;
 }
 
+// -- d r a w --
+
 void draw() {
   startScreen();
-  //while the player is alive
 
+  //if player presses start, then the game begins
   if (!start) {
+    //if the player makes it to the end
     if (end) {
       clear();
       walls.clear();
@@ -91,8 +94,13 @@ void draw() {
       textAlign(CENTER);
       text("Congratulations!", width / 2, height / 2 - 30);
       text("You made it to the end!", width / 2, height / 2 + 30);
-    } else {
+    } 
+    
+    //if the player hasn't reached the end yet
+    else {
+      //if the player is still alive
       if (p1.isAlive()) {
+        //choose buffs
         if (buffScreen) {
           chooseBuff();
         } else {
@@ -107,27 +115,30 @@ void draw() {
           monsterAction();
           playerAction();
   
-          //displaying the gun and health
+          //displaying the gun, health, potion, inventory
           displayGun();
           displayHealth();
           displayPotion();
           displayInventory();
+          
+          //timer on the bottom right to keep track of the time
           timer();
   
           //text: health, level, gun type
           fill(0);
           textSize(20);
           textAlign(LEFT);
-          text("health: " + p1.hp, 0, 20);
+          text("Health: " + p1.hp, 0, 20);
           text("Level: " + scene.roomNum, 0, 50);
   
           //different messages for the gun types
           if (p1.hasGun) {
             text("Gun: " + (p1.currentGun).type, 0, 80);
           } else {
-            text("Gun: " + "good'ol panda paws", 0, 80);
+            text("Gun: " + "good ol' panda paws", 0, 80);
           }
         }
+        
         //if the player is dead, display the death message
       } else {
         deathMessage();
