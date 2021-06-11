@@ -15,7 +15,18 @@ public class Potions extends GameObjects {
   }
 
   Potions() {
-    this(random(30, width - 30), random(30, height - 30), 10);
+    float x1 = random(175, 650 + 175);
+    float y1 = random(25, 520 + 25);
+    for (int i = 0; i < walls.size(); i++) {
+      if (walls.get(i).inWalls(x, y)) { 
+        x1 = random(175, 650 + 175);
+        y1 = random(25, 520 + 25);
+        i = 0;
+      }
+    }
+    x = x1;
+    y = y1;
+    radius = 10;
   }
 
   void display(Player p) {

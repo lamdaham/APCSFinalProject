@@ -8,6 +8,5 @@ public class GameObjects{
       rect(x,y,10,10);
     }
   }
-  
 
 }
