@@ -184,14 +184,15 @@ void deathMessage() {
 void startScreen() {
   img.resize(width, height);
   image(img, 0, 0);
-  textSize(20);
+  textSize(17);
   textAlign(CENTER);
   fill(255);
   String s1 = "Uh oh! The clowns are trying to take control of the circus and you're the first on their hit list! ";
   String s2 = "Let's see if you can get out safely! But fret not, there are plenty of items scattered around ";
-  String s3 = "to help you out (or possibly hurt you) on this quest. Good luck!";
-  //String s4 = "WASD keys: to move; C and V to pick up and drop up items";
-  String sFinal = s1 + s2 + s3;
+  String s3 = "to help you out (or possibly hurt you) on this quest. ";
+  String s4 = "(Keep in mind: WASD keys: to move, C and V to pick up and drop up items, 1 - 5 to switch between the slots of the inventory! ";
+  String s5 = "Left click to shoot at the monsters and to consume potions!) Good luck!";
+  String sFinal = s1 + s2 + s3 + s4 + s5;
   text(sFinal, width/2 - 275, height/2 - 100, width/2 + 100, height / 2 + 400);
   fill(255);
   rect(350, 500, 300, 100);
