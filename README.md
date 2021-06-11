@@ -14,6 +14,8 @@ Instructions:
 
 - Commands: WASD to move player, C + V to pick up and drop items, 1 - 5 to switch between the slots of the inventory, left click to shoot at the monsters and to consume potions!
 
+UML:
+![image](https://user-images.githubusercontent.com/72899330/121706593-c3e55a00-caa3-11eb-96f6-bf67c3c85d93.png)
 
 # Development Log
 **6/11/21**
@@ -121,5 +123,3 @@ In Class: Started creating files, confirmed plans for the project, delegated rol
 Ivan: Created walls of the game and made skeleton code for files
 
 Sophia: Started working on the character and player class: player moves accordingly with WASD keys
-
-
