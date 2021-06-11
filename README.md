@@ -13,9 +13,15 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game,
 
 
 # Development Log
+**6/10/21**
+
+Ivan: Finished inventory, allowed picking up and putting down items, and potion usage, and did comments
+
 **6/9/21**
 
 Sophia: Planned inventory, remaining detaiils of the project, started inventory.
+
+Ivan: Fixed walls to prevent potion from getting into walls
 
 **6/8/21**
 
