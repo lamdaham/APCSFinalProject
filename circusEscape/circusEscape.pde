@@ -7,6 +7,8 @@ ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
 ArrayList<ArrayList<Potions>> potions = new ArrayList<ArrayList<Potions>>();
+GameObjects[] inventory;
+
 boolean buffScreen;
 boolean end;
 
@@ -22,16 +24,17 @@ boolean collided = false;
 boolean pickup = false;
 boolean drop = false;
 
-boolean buff1 = false;
-boolean buff2 = false;
-boolean buff3 = false;
+boolean space1 = false;
+boolean space2 = false;
+boolean space3 = false;
 
 
 void setup() {
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
-  for(int i = 0; i<10; i++) {
+  inventory = new GameObjects[5];
+  for (int i = 0; i<10; i++) {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
   }
@@ -46,7 +49,7 @@ void setup() {
   buffScreen = false;
   end = false;
   //testing
-  p1 = new Player(); 
+  p1 = new Player();
 }
 
 void draw() {
@@ -83,6 +86,8 @@ void draw() {
         displayGun();
         displayHealth();
         displayPotion();
+        displayInventory();
+        timer();
 
         //text: health, level, gun type
         fill(0);
@@ -136,13 +141,13 @@ void keyPressed() {
     drop = true;
   }
   if (key == '1') {
-    buff1 = true;
+    space1 = true;
   }
   if (key == '2') {
-    buff2 = true;
+    space2 = true;
   }
   if (key == '3') {
-    buff3 = true;
+    space3 = true;
   }
 }
 
@@ -167,13 +172,13 @@ void keyReleased() {
     drop = false;
   }
   if (key == '1') {
-    buff1 = false;
+    space1 = false;
   }
   if (key == '2') {
-    buff2 = false;
+    space2 = false;
   }
   if (key == '3') {
-    buff3 = false;
+    space3 = false;
   }
 }
 
@@ -259,7 +264,7 @@ void monsterAction() {
   }
   if (monsters.size()==0) {
     scene.room.open = true;
-    if(scene.room.roomNum>cleared){
+    if (scene.room.roomNum>cleared) {
       cleared = scene.room.roomNum;
     }
   }
@@ -297,12 +302,33 @@ void displayPotion() {
   for (Potions p : potions.get(scene.roomNum)) {
     p.display(p1);
   }
-  
+
   for (int p = 0; p <potions.get(scene.roomNum).size(); p++) {
     if ((potions.get(scene.roomNum)).get(p).consumed) {
       potions.remove(p);
       p--;
     }
+  }
+}
+
+void displayInventory() {
+  for (int i = 0; i < 5; i++) {
+    fill(255);
+    stroke(0);
+    strokeWeight(1);
+    if(p1.inventory.currentIndex == i) {
+     strokeWeight(2);
+    }
+    rect(i * 100 + 250, height - 100, 100, 75);
+    
+    if (p1.inventory.inventory[i] != null) {
+      if (p1.inventory.inventory[i] instanceof Gun) {
+        ((Gun)p1.inventory.inventory[i]).display(i*100+300, height-60);
+      } else if (p1.inventory.inventory[i] instanceof Potions) {
+        ((Potions)p1.inventory.inventory[i]).display(i*100+300, height-50);
+      }
+    }
+    
   }
 }
 
@@ -341,16 +367,27 @@ void chooseBuff() {
   text("Increase Max Health", 610, 350);
   text("(3)", 610, 370);
   fill(255);
-  if (buff1) {
-    p1.extraDamage++;
-    buffScreen = false;
-  } else if (buff2) {
-    p1.regenCooldown-=5;
-    buffScreen = false;
-  } else if (buff3) {
-    p1.maxHealth++;
-    buffScreen = false;
-  }
+  //if (buff1) {
+  //  p1.extraDamage++;
+  //  buffScreen = false;
+  //} else if (buff2) {
+  //  p1.regenCooldown-=5;
+  //  buffScreen = false;
+  //} else if (buff3) {
+  //  p1.maxHealth++;
+  //  buffScreen = false;
+  //}
+}
+
+void timer() {
+  int m = millis();
+  fill(255);
+  rect(width - 100, height - 50, 100, 50);
+  fill(0);
+  textSize(15);
+  text(m / (1000 * 60) % 60, width - 75, height - 15);
+  text(":", width - 50, height - 15);
+  text(m / (1000) % 60, width - 25, height - 15);
 }
 
 boolean overRect(int x, int y, int rectWidth, int rectHeight) {

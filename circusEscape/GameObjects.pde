@@ -8,12 +8,5 @@ public class GameObjects{
       rect(x,y,10,10);
     }
   }
-  
-  float getX() {
-    return x;
-  }
-  
-  float getY() {
-    return y;
-  }
+
 }
