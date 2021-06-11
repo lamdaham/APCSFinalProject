@@ -34,6 +34,18 @@ public class Characters {
   float getR() {
     return radius;
   }
+  int getHP() {
+    return hp;
+  }
+  
+  
+  // set coordinates of character
+  void setX(float xC) {
+    x = xC;
+  }
+  void setY(float yC) {
+    y = yC;
+  }
   
   //keeping track of restrictions on characters using booleans
   void removeRestriction() {

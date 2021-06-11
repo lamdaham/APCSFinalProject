@@ -8,7 +8,6 @@ public class Room {
   boolean open;
 
   Room(int num) {
-
     roomNum = num;
     x=175;
     y=25;
@@ -18,10 +17,14 @@ public class Room {
     open = false;
   }
 
+
+//returns mob count
   int getMobCount() {
     return monsters.size();
   }
 
+
+//default room with walls in all four sides
   void defaultRoom() {
     walls.add(new Wall(825, 0, 175, 1000, #f7d68f));
     walls.add(new Wall(0, 0, 175, 1000, #f7d68f));
@@ -30,7 +33,7 @@ public class Room {
   }
 
 
-// Spawns  
+// Spawns monsters in each room; it spwans two times the room number in the room  
   void spawnMobs() {
     for (int i = 0; i < 2*roomNum; i++) {
       monsters.add(0, new Monsters(.3  *roomNum));
@@ -45,7 +48,7 @@ public class Room {
     }
   }
 
-
+//creates a room based on the roomNum
   void createRoom() {
     if (roomNum == 0) {
       room0();
@@ -76,7 +79,9 @@ public class Room {
       bossRoom();
     } 
   }
-
+  
+  
+// creates the boss room at level 10
   void bossRoom() {
     spawnX = 300;
     spawnY = 200;
@@ -86,6 +91,7 @@ public class Room {
     walls.add(new Door(x + 650, y + 390, 10, 130, "forward"));
   }
 
+//updates mobcount
   void updateCount() {
     mobCount=monsters.size();
   }

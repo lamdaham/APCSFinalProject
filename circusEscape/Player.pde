@@ -151,6 +151,14 @@ public class Player extends Characters {
   boolean isAlive() {
     return hp>0;
   }
+  
+  int getMaxHealth() {
+    return maxHealth;
+  }
+  
+  void setHP(int h) {
+    hp = h;
+  }
 
   void regen() {
     if (hp<maxHealth) {

@@ -31,13 +31,15 @@ public class Wall {
     this.c = c;
   }
 
-
+//spawns a wall at the coordniates 
   void spawnWall() {
     fill(c);
     noStroke();
     rect(x, y, w, h);
   }
 
+
+//restricts the movement of player based on its location in relation to the wall
   boolean moveRestrict(Characters c) {
     char dir;
     float tempX = c.getX();
@@ -79,6 +81,7 @@ public class Wall {
     return false;
   }
 
+//checks for bullet collision with walls
   boolean bulletCollision(Bullet bb) {
 
     float tempX = bb.getX();
@@ -103,7 +106,7 @@ public class Wall {
   }
   
   
-
+//checks if a set of coordinates are within a wall
   boolean inWalls(float xVar, float yVar) {
     float tempX = xVar;
     float tempY = yVar;

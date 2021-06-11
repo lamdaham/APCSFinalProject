@@ -41,7 +41,7 @@ public class Potions extends GameObjects {
     circle(x, y - 4, radius * 1.5);
     int r = (int) random(0, 5);
 
-    //if (dist(x, y, p1.x, p1.y) < p1.radius + radius) {
+    //if (dist(x, y, p1.getX(), p1.getY()) < p1.radius + radius) {
     //  //increasing health
     //  if (r == 0) {
     //    p.hp += 2;
@@ -91,8 +91,10 @@ public class Potions extends GameObjects {
   
   boolean use() {
     if (p1.hp<p1.maxHealth) {
-      p1.hp += 2;
-      p1.hp =(p1.hp % p1.maxHealth);
+      p1.setHP(p1.getHP()+2);
+      if (p1.getHP()>p1.getMaxHealth()){
+        p1.setHP(p1.getMaxHealth());
+      }
       return true;
     } else {
       return false;

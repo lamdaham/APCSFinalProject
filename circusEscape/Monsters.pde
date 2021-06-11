@@ -35,20 +35,20 @@ public class Monsters extends Characters {
     }
 
     //monster moves towards player
-    if (abs(p1.x - x) > p1.radius) {
-      if (p1.x - x < 0 && ableLeft) {
+    if (abs(p1.getX() - x) > p1.radius) {
+      if (p1.getX() - x < 0 && ableLeft) {
         x -= speed;
       }
-      if (p1.x - x >= 0 && ableRight) {
+      if (p1.getX() - x >= 0 && ableRight) {
         x += speed;
       }
     }
 
-    if (abs(p1.y - y) > p1.radius) {
-      if (p1.y - y < 0 && ableUp) {
+    if (abs(p1.getY() - y) > p1.radius) {
+      if (p1.getY() - y < 0 && ableUp) {
         y -= speed;
       }
-      if (p1.y - y >= 0 && ableDown) {
+      if (p1.getY() - y >= 0 && ableDown) {
         y += speed;
       }
     }
@@ -57,7 +57,7 @@ public class Monsters extends Characters {
   //if the player and monsters are touching, then attack the player and decrease health
   void attackP(Player p1) {
     if (alive) {
-      if (dist(x, y, p1.x, p1.y) < p1.radius + radius && t>=cooldown) {
+      if (dist(x, y, p1.getX(), p1.getY()) < p1.radius + radius && t>=cooldown) {
         p1.hp -= atkPower;
         t = 0;
       } else {

@@ -23,10 +23,13 @@ public class Bullet {
     enemy = f;
   }
   
+  
+  //moves the bullet in the direction angle and velocity
   void move() {
     location.add(velocity);
   }
   
+  //displays the bullet and moves it; different colors for clown bullets and player bullets
   void display() {
     move();
     if (enemy) {
@@ -38,6 +41,8 @@ public class Bullet {
     circle(location.x, location.y, r * 3);
   }
   
+  
+  //return x, y, radius, damage, and status of the bullet
   float getX() {
     return location.x;
   }
