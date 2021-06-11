@@ -35,11 +35,25 @@ public class Gun extends GameObjects {
       rect(x, y - 2.5, 10, 5);
       ellipse(x - 3, y, 10, 5);
       rect(x - 4, y + 2.5, 8, 3);
-      rect(x - 8, y + 5.5, 17, 10);
+      rect(x - 6, y + 5.5, 13, 7);
       stroke(0);
       line(x + 10, y - 1.5, x + 20, y - 1.5);
       line(x + 10, y, x + 20, y);
       line(x + 10, y + 1.5, x + 20, y + 1.5);
+    }
+    if (type.equals("shotgun")) {
+      stroke(#cccccc);
+      fill(0);
+      pushMatrix();
+      translate(x, y);
+      rotate(PI/3.0);
+      rect(10, -15, 10, 15);
+      popMatrix();
+      rect(x + 20, y, 30, 10);
+      rect(x + 20, y + 10, 15, 10);
+      stroke(0);
+      line(x + 15, y + 10, x + 15, y + 17);
+      line(x + 15, y + 17, x + 25, y + 17);
     }
   }
 
