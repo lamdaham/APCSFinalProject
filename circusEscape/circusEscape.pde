@@ -92,8 +92,9 @@ void draw() {
       fill(0);
       textSize(20);
       textAlign(CENTER);
-      text("Congratulations!", width / 2, height / 2 - 30);
-      text("You made it to the end!", width / 2, height / 2 + 30);
+      text("Congratulations! You made it to the end!", width / 2, height / 2 - 30);
+      String s = "You've spent " + m / (1000 * 60) % 60 + " minutes and " + m / (1000) % 60 + " seconds! Good job!";
+      text(s, width / 2, height / 2 + 30);
     } 
     
     //if the player hasn't reached the end yet
