@@ -102,17 +102,17 @@ public class Room {
     spawnY = 90;
     endX = 195+x;
     endY = y+h-65;
-    walls.add(new Wall(x+130, y+0, 10, 130, #800080));
-    walls.add(new Wall(x+130, y+130, 130, 10, #800080));
-    walls.add(new Wall(x+260, y+130, 10, 130, #800080));
-    walls.add(new Wall(x, y+260, 130, 260, #800080));
+    walls.add(new Wall(x+130, y+0, 10, 130, #c595cf));
+    walls.add(new Wall(x+130, y+130, 130, 10, #c595cf));
+    walls.add(new Wall(x+260, y+130, 10, 130, #c595cf));
+    walls.add(new Wall(x, y+260, 130, 260, #c595cf));
 
-    walls.add(new Wall(x+520, y+0, 130, 130, #800080));
-    walls.add(new Wall(x+400, y+130, 130, 10, #800080));
-    walls.add(new Wall(x+400, y+130, 250, 130, #800080));
+    walls.add(new Wall(x+520, y+0, 130, 130, #c595cf));
+    walls.add(new Wall(x+400, y+130, 130, 10, #c595cf));
+    walls.add(new Wall(x+400, y+130, 250, 130, #c595cf));
 
 
-    walls.add(new Wall(x+w-130, y+h-130, 130, 130, #800080));
+    walls.add(new Wall(x+w-130, y+h-130, 130, 130, #c595cf));
     walls.add(new Door(x+130, y+520,130,10, "forward"));
   }
   
@@ -122,15 +122,15 @@ public class Room {
     spawnY = 90;
     endX = 325+x;
     endY = y+h-65;
-    walls.add(new Wall(x+0, y+0, 130, 130, #800080));
-    //walls.add(new Wall(x, y+120, 130, 10, #800080));
-    walls.add(new Wall(x+260, y+0, 390, 130, #800080));
-    walls.add(new Wall(x+520, y+130, 10, 130, #800080));
-    walls.add(new Wall(x+390, y+250, 130, 10, #800080));
-    walls.add(new Wall(x+130, y+250, 130, 10, #800080));
-    walls.add(new Wall(x+130, y+260, 10, 130, #800080));
-    walls.add(new Wall(x+0, y+390, 260, 130, #800080));
-    walls.add(new Wall(x+390, y+390, 260, 130, #800080));
+    walls.add(new Wall(x+0, y+0, 130, 130, #c595cf));
+    //walls.add(new Wall(x, y+120, 130, 10, #c595cf));
+    walls.add(new Wall(x+260, y+0, 390, 130, #c595cf));
+    walls.add(new Wall(x+520, y+130, 10, 130, #c595cf));
+    walls.add(new Wall(x+390, y+250, 130, 10, #c595cf));
+    walls.add(new Wall(x+130, y+250, 130, 10, #c595cf));
+    walls.add(new Wall(x+130, y+260, 10, 130, #c595cf));
+    walls.add(new Wall(x+0, y+390, 260, 130, #c595cf));
+    walls.add(new Wall(x+390, y+390, 260, 130, #c595cf));
     walls.add(new Door(x+260, y+520, 130, 10, "forward"));
     walls.add(new Door(x+130, y+0,130,10, "backward"));
   }
@@ -141,17 +141,17 @@ public class Room {
     spawnY= 90;
     endX = x+w-65;
     endY = y+h-65;
-    walls.add(new Wall(x+0, y+0, 260, 130, #800080));
-    walls.add(new Wall(x+0, y+130, 130, 130, #800080));
+    walls.add(new Wall(x+0, y+0, 260, 130, #c595cf));
+    walls.add(new Wall(x+0, y+130, 130, 130, #c595cf));
     
-    walls.add(new Wall(x+390, y+0, 260, 130, #800080));
-    walls.add(new Wall(x+520, y+130, 130, 260, #800080));
-    walls.add(new Wall(x+390, y+260, 130, 10, #800080));
+    walls.add(new Wall(x+390, y+0, 260, 130, #c595cf));
+    walls.add(new Wall(x+520, y+130, 130, 260, #c595cf));
+    walls.add(new Wall(x+390, y+260, 130, 10, #c595cf));
     
-    walls.add(new Wall(x+130, y+390, 10, 130, #800080));
-    walls.add(new Wall(x+130, y+390, 130, 10, #800080));
-    walls.add(new Wall(x+260, y+270, 10, 130, #800080));
-    walls.add(new Wall(x+390, y+390, 10, 130, #800080));
+    walls.add(new Wall(x+130, y+390, 10, 130, #c595cf));
+    walls.add(new Wall(x+130, y+390, 130, 10, #c595cf));
+    walls.add(new Wall(x+260, y+270, 10, 130, #c595cf));
+    walls.add(new Wall(x+390, y+390, 10, 130, #c595cf));
     walls.add(new Door(x+650, y+390,10,130, "forward"));
     walls.add(new Door(x+260, y+0,130,10, "backward"));
   }
@@ -162,14 +162,14 @@ public class Room {
     spawnY = y+3*130+65;
     endX = x+390+65;
     endY = y+65;
-    walls.add(new Wall(x,y, 130, 390, #800080));
-    walls.add(new Wall(x+130,y, 130, 260, #800080));
-    walls.add(new Wall(x+260,y, 130, 130, #800080));
-    walls.add(new Wall(x+520,y, 130, 130, #800080));
+    walls.add(new Wall(x,y, 130, 390, #c595cf));
+    walls.add(new Wall(x+130,y, 130, 260, #c595cf));
+    walls.add(new Wall(x+260,y, 130, 130, #c595cf));
+    walls.add(new Wall(x+520,y, 130, 130, #c595cf));
     
-    walls.add(new Wall(x+260,y+390, 10, 130, #800080));
-    walls.add(new Wall(x+390,y+260, 10, 260, #800080));
-    walls.add(new Wall(x+520,y+260, 130, 260, #800080));
+    walls.add(new Wall(x+260,y+390, 10, 130, #c595cf));
+    walls.add(new Wall(x+390,y+260, 10, 260, #c595cf));
+    walls.add(new Wall(x+520,y+260, 130, 260, #c595cf));
     
     
     walls.add(new Door(x+390, y-10,130,10, "forward"));
@@ -183,20 +183,20 @@ public class Room {
     endX = x + 400 - 130 - 65;
     endY = y + 65;
     
-    walls.add(new Wall(x,y, 130, 130, #800080));
-    walls.add(new Wall(x,y+260, 130, 260, #800080));
+    walls.add(new Wall(x,y, 130, 130, #c595cf));
+    walls.add(new Wall(x,y+260, 130, 260, #c595cf));
     
-    walls.add(new Wall(x+390,y+390, 10, 130, #800080));
-    walls.add(new Wall(x+260,y+390, 130, 10, #800080));
-    walls.add(new Wall(x+260,y+260, 10, 130, #800080));
-    walls.add(new Wall(x+260,y+260, 130, 10, #800080));
-    walls.add(new Wall(x+390,y+130, 10, 140, #800080));
-    walls.add(new Wall(x+260,y+130, 130, 10, #800080));
+    walls.add(new Wall(x+390,y+390, 10, 130, #c595cf));
+    walls.add(new Wall(x+260,y+390, 130, 10, #c595cf));
+    walls.add(new Wall(x+260,y+260, 10, 130, #c595cf));
+    walls.add(new Wall(x+260,y+260, 130, 10, #c595cf));
+    walls.add(new Wall(x+390,y+130, 10, 140, #c595cf));
+    walls.add(new Wall(x+260,y+130, 130, 10, #c595cf));
     
-    walls.add(new Wall(x+520,y+390, 130, 130, #800080));
+    walls.add(new Wall(x+520,y+390, 130, 130, #c595cf));
     
-    walls.add(new Wall(x+520,y+260, 130, 10, #800080));
-    walls.add(new Wall(x+520,y+130, 10, 140, #800080));
+    walls.add(new Wall(x+520,y+260, 130, 10, #c595cf));
+    walls.add(new Wall(x+520,y+130, 10, 140, #c595cf));
     
     walls.add(new Door(x+130, y-10,130,10, "forward"));
     walls.add(new Door(x+400, y+510,120,10, "backward"));
@@ -210,17 +210,17 @@ public class Room {
     endX = x + 650 - 65;
     endY = x + h - 390 + 45;
     
-    walls.add(new Wall(x, y, 130, 260, #800080));
-    walls.add(new Wall(x, y + 390, 130, 130, #800080));
+    walls.add(new Wall(x, y, 130, 260, #c595cf));
+    walls.add(new Wall(x, y + 390, 130, 130, #c595cf));
     
-    walls.add(new Wall(x + 130, y + 130, 130, 10, #800080));
-    walls.add(new Wall(x + 260, y + 130, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y + 390, 10, 130, #800080));
-    walls.add(new Wall(x + 520, y + 390, 10, 130, #800080));
-    walls.add(new Wall(x + 520, y, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y + 130, 10, 260, #800080));
-    walls.add(new Wall(x + 390, y + 130, 140, 10, #800080));
-    walls.add(new Wall(x + 390, y + 260, 130, 10, #800080));
+    walls.add(new Wall(x + 130, y + 130, 130, 10, #c595cf));
+    walls.add(new Wall(x + 260, y + 130, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y + 390, 10, 130, #c595cf));
+    walls.add(new Wall(x + 520, y + 390, 10, 130, #c595cf));
+    walls.add(new Wall(x + 520, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y + 130, 10, 260, #c595cf));
+    walls.add(new Wall(x + 390, y + 130, 140, 10, #c595cf));
+    walls.add(new Wall(x + 390, y + 260, 130, 10, #c595cf));
     
     walls.add(new Door(x + 650, y + 260, 10, 130, "forward"));
     walls.add(new Door(x + 130, y + h - 10, 130, 10,"backward"));
@@ -233,18 +233,18 @@ public class Room {
     endX = x + 520 + 65;
     endY = y + 390 + 65;
     
-    walls.add(new Wall(x + 130, y + 130, 10, 130, #800080));
-    walls.add(new Wall(x, y + 260, 140, 10, #800080));
-    walls.add(new Wall(x + 130, y + 390, 10, 130, #800080));
-    walls.add(new Wall(x + 130, y + 390, 140, 10, #800080));
-    walls.add(new Wall(x + 260, y + 260, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y + 130, 130, 10, #800080));
-    walls.add(new Wall(x + 520, y + 130, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y + 260, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y + 390, 130, 10, #800080));
-    walls.add(new Wall(x + 520, y + 390, 10, 130, #800080));
+    walls.add(new Wall(x + 130, y + 130, 10, 130, #c595cf));
+    walls.add(new Wall(x, y + 260, 140, 10, #c595cf));
+    walls.add(new Wall(x + 130, y + 390, 10, 130, #c595cf));
+    walls.add(new Wall(x + 130, y + 390, 140, 10, #c595cf));
+    walls.add(new Wall(x + 260, y + 260, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y + 130, 130, 10, #c595cf));
+    walls.add(new Wall(x + 520, y + 130, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y + 260, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y + 390, 130, 10, #c595cf));
+    walls.add(new Wall(x + 520, y + 390, 10, 130, #c595cf));
     
     walls.add(new Door(x + 520, y + h, 130, 10, "forward"));
     walls.add(new Door(x, y + h - 260, 10, 130, "backward"));
@@ -257,17 +257,17 @@ public class Room {
     endX = x + 160 + 50;
     endY = y + 390 + 65;
     
-    walls.add(new Wall(x + 130, y, 10, 130, #800080));
-    walls.add(new Wall(x + 130, y + 260, 10, 130, #800080));
-    walls.add(new Wall(x, y + 390, 140, 10, #800080));
-    walls.add(new Wall(x + 520, y, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y + 130, 270, 10, #800080));
-    walls.add(new Wall(x + 260, y + 130, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y + 260, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y + 260, 130, 10, #800080));
-    walls.add(new Wall(x + 520, y + 260, 10, 130, #800080));
-    walls.add(new Wall(x + 520, y + 390, 130, 10, #800080));
-    walls.add(new Wall(x + 260, y + 390, 10, 130, #800080));
+    walls.add(new Wall(x + 130, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 130, y + 260, 10, 130, #c595cf));
+    walls.add(new Wall(x, y + 390, 140, 10, #c595cf));
+    walls.add(new Wall(x + 520, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y + 130, 270, 10, #c595cf));
+    walls.add(new Wall(x + 260, y + 130, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y + 260, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y + 260, 130, 10, #c595cf));
+    walls.add(new Wall(x + 520, y + 260, 10, 130, #c595cf));
+    walls.add(new Wall(x + 520, y + 390, 130, 10, #c595cf));
+    walls.add(new Wall(x + 260, y + 390, 10, 130, #c595cf));
     
     walls.add(new Door(x + 130, y + 520, 130, 10, "forward"));
     walls.add(new Door(x + 520, y, 130, 10, "backward"));
@@ -278,19 +278,19 @@ public class Room {
     spawnX = x + 160 + 50;
     spawnY = 65;
     
-    walls.add(new Wall(x + 130, y, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y + 130, 130, 10, #800080));
-    walls.add(new Wall(x + 520, y + 130, 130, 10, #800080));
-    walls.add(new Wall(x + 520, y + 130, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y + 260, 270, 10, #800080));
-    walls.add(new Wall(x, y + 260, 130, 10, #800080));
-    walls.add(new Wall(x + 130, y + 260, 10, 130, #800080));
-    walls.add(new Wall(x + 130, y, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y + 390, 10, 130, #800080));
-    walls.add(new Wall(x + 260, y + 390, 10, 130, #800080));
-    walls.add(new Wall(x + 390, y + 390, 10, 130, #800080));
-    walls.add(new Wall(x + 520, y + 390, 10, 130, #800080));
+    walls.add(new Wall(x + 130, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y + 130, 130, 10, #c595cf));
+    walls.add(new Wall(x + 520, y + 130, 130, 10, #c595cf));
+    walls.add(new Wall(x + 520, y + 130, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y + 260, 270, 10, #c595cf));
+    walls.add(new Wall(x, y + 260, 130, 10, #c595cf));
+    walls.add(new Wall(x + 130, y + 260, 10, 130, #c595cf));
+    walls.add(new Wall(x + 130, y, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y + 390, 10, 130, #c595cf));
+    walls.add(new Wall(x + 260, y + 390, 10, 130, #c595cf));
+    walls.add(new Wall(x + 390, y + 390, 10, 130, #c595cf));
+    walls.add(new Wall(x + 520, y + 390, 10, 130, #c595cf));
     
     walls.add(new Door(x + 650, y + 390, 10, 130, "forward"));
     walls.add(new Door(x + 130, y, 130, 10, "backward"));
