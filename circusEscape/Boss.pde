@@ -34,31 +34,31 @@ public class Boss extends Monsters {
     }
 
     //monster moves towards player
-    if (abs(p1.x - x) > p1.radius) {
-      if (p1.x - x < 0 && ableLeft) {
+    if (abs(p1.getX() - x) > p1.radius) {
+      if (p1.getX() - x < 0 && ableLeft) {
         x -= speed;
-        if (enraged && p1.x - x < 0 && ableLeft) {
+        if (enraged && p1.getX() - x < 0 && ableLeft) {
           x-=speed;
         }
       }
-      if (p1.x - x >= 0 && ableRight) {
+      if (p1.getX() - x >= 0 && ableRight) {
         x += speed;
-        if (enraged && p1.x - x >= 0 && ableRight) {
+        if (enraged && p1.getX() - x >= 0 && ableRight) {
           x += speed;
         }
       }
     }
 
-    if (abs(p1.y - y) > p1.radius) {
-      if (p1.y - y < 0 && ableUp) {
+    if (abs(p1.getY() - y) > p1.radius) {
+      if (p1.getY() - y < 0 && ableUp) {
         y -= speed;
-        if (enraged && p1.y - y < 0 && ableUp) {
+        if (enraged && p1.getY() - y < 0 && ableUp) {
           y -= speed;
         }
       }
-      if (p1.y - y >= 0 && ableDown) {
+      if (p1.getY() - y >= 0 && ableDown) {
         y += speed;
-        if (enraged && p1.y - y >= 0 && ableDown) {
+        if (enraged && p1.getY() - y >= 0 && ableDown) {
           y += speed;
         }
       }

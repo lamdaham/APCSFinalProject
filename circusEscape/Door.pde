@@ -15,6 +15,8 @@ public class Door extends Wall {
     
   }
 
+
+// spawns a door; different colors if opened or closed
   void spawnWall() {
     if (scene.room.open) {      
       fill(255);
@@ -25,6 +27,8 @@ public class Door extends Wall {
     rect(x, y, w, h);
   }
 
+
+// prevent player from going into doors if level not complete; if complete, it will increment room number and the next room will spawn
   boolean moveRestrict(Characters c) {
     char dir;
     float tempX = c.getX();
@@ -65,8 +69,8 @@ public class Door extends Wall {
         if (direction.equals("forward")) {
           scene.roomNum++;
           scene.onDoor = true;
-          p1.x = 400;
-          p1.y = 400;
+          p1.setX(400);
+          p1.setY(400);
           return true;
         } else {
           scene.roomNum--;

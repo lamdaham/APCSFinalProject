@@ -20,6 +20,8 @@ public class Gun extends GameObjects {
     this.cooldown = cooldown;
   }
 
+
+// displays the amazing design of guns
   void gunAppearance() {
     if (type.equals("pistol")) {
       stroke(0);
@@ -76,6 +78,8 @@ public class Gun extends GameObjects {
     }
   }
   
+  
+  //displays the design at an x y coordinate
   void gunAppearance(int xC, int yC) {
     if (type.equals("pistol")) {
       stroke(0);
@@ -132,6 +136,7 @@ public class Gun extends GameObjects {
     }
   }
 
+//displays it when the player holds it
   void display() {
     if (!pickedUp) {
       gunAppearance();
@@ -148,17 +153,13 @@ public class Gun extends GameObjects {
     }
   }
   
-  void display(int xC, int yC) {
-    rectMode(CENTER);
-    rect(xC, yC, 10, 10);
-    rectMode(CORNER);
-    
-  }
 
+//returns the angle from the player to the mouse; aims the gun
   float getAngle() {
     return atan2(mouseY-p1.getY(), mouseX-p1.getX());
   }
 
+// fires a bullet in the direction angle with the damage of the bullet
   void fire(int extra) {
     if (t>=cooldown) {
       if (type.equals("pistol")) {
@@ -179,10 +180,14 @@ public class Gun extends GameObjects {
     }
   }
 
+
+//decreases cooldown; when t reaches a certain point, it allows the gun to fire again
   void decreaseCooldown() {
     t++;
   }
 
+
+//pick up and drop gun
   void pickedupGun() {
     pickedUp = true;
   }

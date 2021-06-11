@@ -9,22 +9,15 @@ public class Scene {
     onDoor = true;
   }
 
-  void clearBoard() {
-    clear();
-  }
 
+//creates a new room with the room number
   void createRoom(int num) {
     room = new Room(num);
   }
 
+//change rooms if player goes through a door
   void changeRoom() {
     if (onDoor) {
-      //if (roomNum % 2 == 1) {
-      //  int r = (int) random(0, 3);
-      //  for (int i = 0; i < r; i++) {
-      //    potions.get(scene.roomNum).add(new Potions());
-      //  }
-      //}
       if (roomNum%2 == 0 && roomNum != 0) {
         buffScreen = true;
       }
@@ -41,14 +34,14 @@ public class Scene {
         room.spawnMobs();
       }
       if (backDoor) {
-        p1.x = room.endX;
-        p1.y = room.endY;
+        p1.setX(room.endX);
+        p1.setY(room.endY);
         monsters.clear();
         onDoor = false;
         backDoor = false;
       } else {
-        p1.x = room.spawnX;
-        p1.y = room.spawnY;
+        p1.setX(room.spawnX);
+        p1.setY(room.spawnY);
         onDoor = false;
       }
       room.spawnedMobs = true;
