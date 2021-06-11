@@ -6,10 +6,8 @@ Group Members: Ivan Lam and Sophia Lin
 
 Prototype Google Docs Link: https://docs.google.com/document/d/1NGWOk2SVPGmJfLkTwbxSw3zEVVOJJ0LxqdBAeoh3f2s/edit?usp=sharing
 
-UML Diagram: https://lucid.app/documents/view/f862518b-b57b-46a9-a488-8afe638d5ff7
-
 Brief Description:
-Our goal is to create a project that resembles SoulKnight, a dungeon-based game, but with a circus theme where the player is meant to be a panda fighting against the clowns in order to free the other circus animals. The player would be able to control his/her motions using the WASD keys to defeat the monsters to get through the dungeon. The dungeon comprises numerous levels that only increase in difficulty: the monsters’ speed along with attack power and other obstacles. Attacks will accordingly decrease the character’s health and at the end of each level, the player would be able to get either a debuff or a buff or even a new type of gun. Only when all monsters in that particular level are cleared would the next level become available and the game would end when the player loses full health, resulting in the game over screen, or if the boss is defeated. 
+Our goal is to create a project that resembles SoulKnight, a dungeon-based game, but with a circus theme where the player, a panda, is trying to escape the circus overrun by evil clowns. The player would have to go through the dungeon that comprises numerous levels that only increase in difficulty in regards to the monster count, speed, and other obstacles. There will be potions, guns, and buffs on certain levels to help aid or even possibly harm the player in fulfilling their quest. Once the player defeats the boss, the true ringleader, he or she be truly free.
 
 
 # Development Log
@@ -17,9 +15,11 @@ Our goal is to create a project that resembles SoulKnight, a dungeon-based game,
 
 Ivan: Finished inventory, allowed picking up and putting down items, and potion usage, and did comments
 
+Sophia: Finished designing/changing appearance of player, guns, and buffs; included start scene; included comments.
+
 **6/9/21**
 
-Sophia: Planned inventory, remaining detaiils of the project, started inventory.
+Sophia: Planned inventory, remaining details of the project, started inventory.
 
 Ivan: Fixed walls to prevent potion from getting into walls
 
