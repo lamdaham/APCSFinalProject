@@ -51,7 +51,7 @@ void setup() {
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
   bulletM = new ArrayList<Bullet>();
-  
+
   for (int i = 0; i < 12; i++) {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
@@ -65,11 +65,11 @@ void setup() {
   //creating the window
   size(1000, 700);
   background(#C0C0C0);
-  
+
   //creating the room and loading the image
   scene.createRoom(1);
   img = loadImage("curtains.jpg");
-  
+
   buffScreen = false;
   end = false;
   start = true;
@@ -95,7 +95,7 @@ void draw() {
       text("Congratulations!", width / 2, height / 2 - 30);
       text("You made it to the end!", width / 2, height / 2 + 30);
     } 
-    
+
     //if the player hasn't reached the end yet
     else {
       //if the player is still alive
@@ -107,38 +107,40 @@ void draw() {
           //setting up the background
           bg();
           scene.changeRoom();
-  
+
           //restricting the characters' movements, control over
           //the bullets, monsters, and the player
           restrictMovement();
           removeBullet();
           monsterAction();
           playerAction();
-  
+
           //displaying the gun, health, potion, inventory
           displayGun();
           displayHealth();
           displayPotion();
           displayInventory();
-          
+
           //timer on the bottom right to keep track of the time
           timer();
-  
-          //text: health, level, gun type
+
+          //text: health, level, gun type, atkDmg
           fill(0);
           textSize(20);
           textAlign(LEFT);
-          text("Health: " + p1.hp, 0, 20);
+          text("Health: " + p1.getHP(), 0, 20);
           text("Level: " + scene.roomNum, 0, 50);
-  
+          text("Attack Power: " + p1.getATK(), 0, 80); 
+
           //different messages for the gun types
           if (p1.hasGun) {
-            text("Gun: " + (p1.currentGun).type, 0, 80);
+            text("Gun: " + (p1.currentGun).type, 0, 110);
           } else {
-            text("Gun: " + "good ol' panda paws", 0, 80);
+            String s = "Gun: " + "good ol' panda paws";
+            text(s, 0, 90, 130, 120);
           }
         }
-        
+
         //if the player is dead, display the death message
       } else {
         deathMessage();
@@ -196,7 +198,7 @@ void startScreen() {
   textSize(30);
   fill(0);
   text("P L A Y  -->", 500, 560);
-  
+
   if (leftMouse && overRect(350, 500, 300, 100)) {
     start = false;
   }
@@ -210,13 +212,13 @@ void chooseBuff() {
   textAlign(LEFT);
   fill(255);
   noStroke();
-  
+
   //buff 1 display
   textSize(10);
   rect(300, 300, 100, 100);
   fill(0);
   text("Extra Damage +1", 310, 350);
-  
+
   //buff 2 display
   fill(255);
   rect(450, 300, 100, 100);
@@ -235,10 +237,10 @@ void chooseBuff() {
   text("Increase Max", 650, 340);
   text("Health", 650, 360);
   fill(255);
-  
+
   //choosing buffs
   if (leftMouse && overRect(300, 300, 100, 100)) {
-    p1.extraDamage++;
+    p1.atkPower++;
     buffScreen = false;
   } else if (leftMouse && overRect(450, 300, 100, 100)) {
     p1.regenCooldown-=5;
@@ -296,7 +298,7 @@ void displayHealth() {
 //displays the potions
 void displayPotion() {
   for (int p = 0; p<potions.get(scene.roomNum).size(); p++) {
-    for(int w = 0; w<walls.size(); w++) {
+    for (int w = 0; w<walls.size(); w++) {
       if ((walls.get(w)).inWalls(potions.get(scene.roomNum).get(p).x, potions.get(scene.roomNum).get(p).y)) {
         potions.get(scene.roomNum).remove(p);
         potions.get(scene.roomNum).add(new Potions());
@@ -315,19 +317,27 @@ void displayPotion() {
 
 //displays inventory bar and objects inside the inventory
 void displayInventory() {
-  for (int i = 0; i < 5; i++) {
+  for (int i = 4; i >= 0; i--) {
     fill(255);
     stroke(0);
     strokeWeight(1);
-    if(p1.inventory.currentIndex == i) {
-     strokeWeight(2);
+    if (p1.inventory.currentIndex == i) {
+      strokeWeight(2);
     }
     rect(i * 100 + 250, height - 100, 100, 75);
-    
+
+
     //readjusting the position of items in the inventory
+    textAlign(LEFT);
+    textSize(20);
+    fill(0);
+
     if (p1.inventory.inventory[i] != null) {
       if (p1.inventory.inventory[i] instanceof Gun) {
-        if (((Gun)p1.inventory.inventory[i]).type.equals("pistol")){
+        if (overRect(i * 100 + 250, height - 100, 100, 75)) {
+          text("" + ((Gun)p1.inventory.inventory[i]).type, mouseX, mouseY);
+        }
+        if (((Gun)p1.inventory.inventory[i]).type.equals("pistol")) {
           ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-70);
         } else if (((Gun)p1.inventory.inventory[i]).type.equals("minigun")) {
           ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+295, height-65);
@@ -337,9 +347,25 @@ void displayInventory() {
           ((Gun)p1.inventory.inventory[i]).gunAppearance(i*100+285, height-45);
         }
       } else if (p1.inventory.inventory[i] instanceof Potions) {
+        if (overRect(i * 100 + 250, height - 100, 100, 75)) {
+          if (((Potions)p1.inventory.inventory[i]).m != 0) {
+            text("MYSTERY", mouseX, mouseY);
+          } else {
+            print(((Potions)p1.inventory.inventory[i]).r);
+            if (((Potions)p1.inventory.inventory[i]).r == 0) {
+              text("Health Pot: +2 HP", mouseX, mouseY);
+            } else if (((Potions)p1.inventory.inventory[i]).r == 1) {
+              text("Posion Pot: -1 HP", mouseX, mouseY);
+            } else if (((Potions)p1.inventory.inventory[i]).r == 2) {
+              text("Strenght Pot: +1 atkDMG", mouseX, mouseY);
+            } else if (((Potions)p1.inventory.inventory[i]).r == 3) {
+              text("Bad Milk: -1 atkDMG", mouseX, mouseY);
+            }
+          }
+        }
         ((Potions)p1.inventory.inventory[i]).display(i*100+300, height-50);
       }
-    } 
+    }
   }
 }
 
@@ -385,7 +411,7 @@ void removeBullet() {
       bullet.remove(bullet.get(i));
     }
   }
-  
+
   //bullets that the monsters shoot
   for (int i = 0; i<bulletM.size(); i++) {
     collided = false;
@@ -427,7 +453,7 @@ void monsterAction() {
       m--;
     }
   }
-  
+
   //if there are no more monsters in that level,
   //move on to the next level and update cleared
   if (monsters.size()==0) {

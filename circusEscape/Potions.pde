@@ -29,8 +29,8 @@ public class Potions extends GameObjects {
     x = x1;
     y = y1;
     radius = 10;
-    r = (int) random(0, 5);
-    m = (int) random(0, 2);
+    r = (int) random(0, 4);
+    m = (int) random(0, 3);
   }
 
 
@@ -43,7 +43,7 @@ public class Potions extends GameObjects {
     ellipse(x, y - 19, radius * 1.5, 2);
     fill(#f5e282, 255);
     rect(x - 3.5, y - 27, radius - 3.5, 7);
-    if (m==0) {
+    if (m!=0) {
       fill(#bc40dd);
     } else if(r==0) {
       fill(#f73520);
@@ -68,7 +68,7 @@ public class Potions extends GameObjects {
     ellipse(xC, yC - 19, radius * 1.5, 2);
     fill(#f5e282, 255);
     rect(xC - 3.5, yC - 27, radius - 3.5, 7);
-    if (m==0) {
+    if (m!=0) {
       fill(#bc40dd);
     } else if(r==0) {
       fill(#f73520);
