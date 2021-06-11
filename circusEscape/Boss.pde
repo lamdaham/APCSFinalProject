@@ -74,7 +74,7 @@ public class Boss extends Monsters {
       displayNormal();
     }
     
-    //print(hp + "\n");
+
   }
   
   void displayNormal() {

@@ -45,11 +45,6 @@ public class Inventory {
 
 
   void pickup() {
-    for (GameObjects g : inventory) {
-      print(g);
-    }
-    print(currentIndex);
-    print("\n");
     if(tempCooldown>=cooldown) {
       if (pickup) {
         for (Gun g : gun.get(scene.roomNum)) {

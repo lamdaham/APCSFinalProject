@@ -31,7 +31,7 @@ public class Room {
 
   void spawnMobs() {
     
-    for (int i = 0; i < roomNum * 5; i++) {
+    for (int i = 0; i < 0; i++) {
       monsters.add(0, new Monsters(.3  *roomNum));
       for (int w = 0; w<walls.size(); w++) {
         if ((walls.get(w)).moveRestrict(monsters.get(0)) 
@@ -68,16 +68,19 @@ public class Room {
     else if (roomNum == 8) {
       room8();
     }
-    else if (roomNum >= 9) {
+    else if (roomNum == 9) {
       room9();
-    }
+    } 
+    else if (roomNum == 10) {
+      bossRoom();
+    } 
   }
 
   void bossRoom() {
-    clear();
     defaultRoom();
     Boss boss = new Boss();
     monsters.add(boss);
+    walls.add(new Door(x + 650, y + 390, 10, 130, "forward"));
   }
 
   void updateCount() {

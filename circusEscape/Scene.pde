@@ -7,7 +7,6 @@ public class Scene {
   Scene() {
     roomNum = 0;
     onDoor = true;
-    
   }
 
   void clearBoard() {
@@ -33,34 +32,27 @@ public class Scene {
       if (roomNum == 11) {
         end = true;
       }
-      if (roomNum==10) {
-        walls.clear();
-        room.bossRoom();
-      } else {
-        walls.clear();
-        monsters.clear();
-        createRoom(roomNum);
-        room.createRoom();
-        if(roomNum>cleared){
-            room.spawnMobs();
-         }
-        if (backDoor) {
-          p1.x = room.endX;
-          p1.y = room.endY;
-          monsters.clear();
-          onDoor = false;
-          backDoor = false;
-        } else {
-          p1.x = room.spawnX;
-          p1.y = room.spawnY;
-          print(roomNum>cleared);
-          print(roomNum);
-          print(cleared);
-          print("\n");
-          onDoor = false;
-        }
-        room.spawnedMobs = true;
+
+      walls.clear();
+      monsters.clear();
+      createRoom(roomNum);
+      room.createRoom();
+      if (roomNum>cleared) {
+        room.spawnMobs();
       }
+      if (backDoor) {
+        p1.x = room.endX;
+        p1.y = room.endY;
+        monsters.clear();
+        onDoor = false;
+        backDoor = false;
+      } else {
+        p1.x = room.spawnX;
+        p1.y = room.spawnY;
+        onDoor = false;
+      }
+      room.spawnedMobs = true;
     }
   }
-} 
+}
+ 

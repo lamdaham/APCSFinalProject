@@ -12,13 +12,15 @@ public class Player extends Characters {
 
   Player() {
     super();
+    hp=100;
     maxHealth = hp;
+    speed = 25;
     hasGun = false;
     extraDamage = 0;
     inventory = new Inventory();
     currentObj = "none";
     gun.get(scene.roomNum).add(new Gun("shotgun", 100, 100, 25));
-    gun.get(scene.roomNum).add(new Gun("pistol", 700, 300, 10));
+    gun.get(scene.roomNum).add(new Gun("pistol", 700, 300, 1));
     gun.get(scene.roomNum).add(new Gun("minigun", 100, 500, 1));
     regenCooldown = 200;
     tempCooldown = 0;
@@ -148,7 +150,6 @@ public class Player extends Characters {
 
   void regen() {
     if (hp<maxHealth) {
-      //print(tempCooldown);
       if (tempCooldown>=regenCooldown) {
         hp++;
         tempCooldown = tempCooldown%regenCooldown;

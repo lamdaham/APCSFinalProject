@@ -39,7 +39,7 @@ void setup() {
   bullet = new ArrayList<Bullet>();
 
 
-  for (int i = 0; i<10; i++) {
+  for (int i = 0; i<12; i++) {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
   }
@@ -98,6 +98,7 @@ void draw() {
           displayGun();
           displayHealth();
           displayPotion();
+          displayInventory();
   
           //text: health, level, gun type
           fill(0);
