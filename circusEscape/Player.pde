@@ -13,6 +13,7 @@ public class Player extends Characters {
   Player() {
     super();
     maxHealth = hp;
+    hp=5;
     hasGun = false;
     extraDamage = 0;
     inventory = new Inventory();
@@ -124,6 +125,10 @@ public class Player extends Characters {
   void fire() {
     if (leftMouse&&hasGun) {
       currentGun.fire(extraDamage);
+    } else if (leftMouse&&currentObj.equals("potion")) {  
+      if(currentPotion.use()) {
+        (inventory.inventory)[inventory.currentIndex] = null;
+      }
     }
   }
 

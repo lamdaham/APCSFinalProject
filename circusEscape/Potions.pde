@@ -88,4 +88,16 @@ public class Potions extends GameObjects {
     y = p1.getY();
     pickedUp = false;
   }
+  
+  boolean use() {
+    if (p1.hp<p1.maxHealth) {
+      p1.hp += 2;
+      p1.hp =(p1.hp % p1.maxHealth);
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  
 }
