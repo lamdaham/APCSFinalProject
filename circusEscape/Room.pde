@@ -77,6 +77,8 @@ public class Room {
   }
 
   void bossRoom() {
+    spawnX = 300;
+    spawnY = 200;
     defaultRoom();
     Boss boss = new Boss();
     monsters.add(boss);

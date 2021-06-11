@@ -18,7 +18,7 @@ public class Potions extends GameObjects {
     float x1 = random(175, 650 + 175);
     float y1 = random(25, 520 + 25);
     for (int i = 0; i < walls.size(); i++) {
-      if (walls.get(i).inWalls(x, y)) { 
+      if (walls.get(i).inWalls(x1, y1)) { 
         x1 = random(175, 650 + 175);
         y1 = random(25, 520 + 25);
         i = 0;

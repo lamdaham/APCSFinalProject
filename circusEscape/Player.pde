@@ -12,9 +12,7 @@ public class Player extends Characters {
 
   Player() {
     super();
-    hp=100;
     maxHealth = hp;
-    speed = 25;
     hasGun = false;
     extraDamage = 0;
     inventory = new Inventory();
