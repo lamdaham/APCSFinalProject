@@ -25,9 +25,9 @@ public class Scene {
       //    potions.get(scene.roomNum).add(new Potions());
       //  }
       //}
-      //if (roomNum%2 == 0) {
-      //  buffScreen = true;
-      //}
+      if (roomNum%2 == 0 && roomNum != 0) {
+        buffScreen = true;
+      }
 
       if (roomNum == 11) {
         end = true;
