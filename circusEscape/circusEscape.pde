@@ -387,36 +387,46 @@ void deathMessage() {
 
 void chooseBuff() {
   clear();
+  textAlign(LEFT);
   fill(255);
   noStroke();
+  
+  //buff 1
   textSize(10);
   rect(300, 300, 100, 100);
   fill(0);
   text("Extra Damage +1", 310, 350);
-  text("(1)", 310, 370);
+  
+  //buff 2
   fill(255);
   rect(450, 300, 100, 100);
   fill(0);
-  textSize(8);
-  text("Increase Health Regen", 460, 350);
-  text("(2)", 460, 370);
+  textSize(10);
+  textAlign(CENTER);
+  text("Increase Health", 500, 340);
+  text("Regeneration", 500, 360);
+
+  //buff 3
   fill(255);
   rect(600, 300, 100, 100);
   fill(0);
-  textSize(9);
-  text("Increase Max Health", 610, 350);
-  text("(3)", 610, 370);
+  textSize(10);
+  textAlign(CENTER);
+  text("Increase Max", 650, 340);
+  text("Health", 650, 360);
   fill(255);
-  //if (buff1) {
-  //  p1.extraDamage++;
-  //  buffScreen = false;
-  //} else if (buff2) {
-  //  p1.regenCooldown-=5;
-  //  buffScreen = false;
-  //} else if (buff3) {
-  //  p1.maxHealth++;
-  //  buffScreen = false;
-  //}
+  
+  //choosing buffs
+  if (leftMouse && overRect(300, 300, 100, 100)) {
+    p1.extraDamage++;
+    buffScreen = false;
+  } else if (leftMouse && overRect(450, 300, 100, 100)) {
+    p1.regenCooldown-=5;
+    buffScreen = false;
+  } else if (leftMouse && overRect(600, 300, 100, 100)) {
+    p1.maxHealth++;
+    buffScreen = false;
+  }
 }
 
 void timer() {
