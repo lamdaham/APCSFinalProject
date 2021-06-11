@@ -163,7 +163,7 @@ public class Gun extends GameObjects {
   void fire(int extra) {
     if (t>=cooldown) {
       if (type.equals("pistol")) {
-        bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 5+extra, getAngle(), 10));
+        bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 1+extra, getAngle(), 10));
         t = 0;
       } else if (type.equals("shotgun")) {
         for (int ang = -50; ang <= 50; ang += 10) {
@@ -171,7 +171,7 @@ public class Gun extends GameObjects {
           t = 0;
         }
       } else if (type.equals("sniper")) {
-        bullet.add(new Bullet(p1.getX(), p1.getY(), 6, 100 + extra, getAngle(), 30));
+        bullet.add(new Bullet(p1.getX(), p1.getY(), 6, 10 + extra, getAngle(), 30));
         t = 0;
       } else if (type.equals("minigun")) {
         bullet.add(new Bullet(p1.getX(), p1.getY(), 3, 3 + extra, getAngle(), 10));

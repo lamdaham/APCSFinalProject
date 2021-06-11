@@ -11,7 +11,7 @@ public class Monsters extends Characters {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    cooldown = 30;
+    cooldown = 100;
     t = 0;
     gunM = new Gun();
   }

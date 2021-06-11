@@ -3,7 +3,6 @@ public class Player extends Characters {
   Potions currentPotion;
   String currentObj;
   boolean hasGun;
-  int extraDamage;
   int maxHealth;
   int regenCooldown;
   int tempCooldown;
@@ -18,7 +17,7 @@ public class Player extends Characters {
     extraDamage = 0;
     inventory = new Inventory();
     currentObj = "none";
-    gun.get(scene.roomNum).add(new Gun("pistol", 700, 300, 1));
+    gun.get(scene.roomNum).add(new Gun("pistol", 700, 300, 5));
     regenCooldown = 200;
     tempCooldown = 0;
   }
