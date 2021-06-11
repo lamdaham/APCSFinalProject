@@ -15,6 +15,7 @@ boolean buffScreen;
 boolean end;
 boolean start;
 PImage img;
+int m;
 
 //four different boolean instance variables to keep track
 //of the direction player is moving using WASD keys
@@ -99,6 +100,7 @@ void draw() {
           displayHealth();
           displayPotion();
           displayInventory();
+          timer();
   
           //text: health, level, gun type
           fill(0);
@@ -331,8 +333,14 @@ void displayHealth() {
 }
 
 void displayPotion() {
-  for (Potions p : potions.get(scene.roomNum)) {
-    p.display(p1);
+  for (int p = 0; p<potions.get(scene.roomNum).size(); p++) {
+    for(int w = 0; w<walls.size(); w++) {
+      if ((walls.get(w)).inWalls(potions.get(scene.roomNum).get(p).x, potions.get(scene.roomNum).get(p).y)) {
+        potions.get(scene.roomNum).remove(p);
+        potions.get(scene.roomNum).add(new Potions());
+      }
+    }
+    potions.get(scene.roomNum).get(p).display(p1);
   }
 
   for (int p = 0; p <potions.get(scene.roomNum).size(); p++) {
@@ -412,7 +420,7 @@ void chooseBuff() {
 }
 
 void timer() {
-  int m = millis();
+  m = millis();
   fill(255);
   rect(width - 100, height - 50, 100, 50);
   fill(0);
