@@ -92,9 +92,8 @@ void draw() {
       fill(0);
       textSize(20);
       textAlign(CENTER);
-      text("Congratulations! You made it to the end!", width / 2, height / 2 - 30);
-      String s = "You've spent " + m / (1000 * 60) % 60 + " minutes and " + m / (1000) % 60 + " seconds! Good job!";
-      text(s, width / 2, height / 2 + 30);
+      text("Congratulations!", width / 2, height / 2 - 30);
+      text("You made it to the end!", width / 2, height / 2 + 30);
     } 
 
     //if the player hasn't reached the end yet
@@ -241,13 +240,13 @@ void chooseBuff() {
 
   //choosing buffs
   if (leftMouse && overRect(300, 300, 100, 100)) {
-    p1.atkPower++;
+    p1.increaseATK();
     buffScreen = false;
   } else if (leftMouse && overRect(450, 300, 100, 100)) {
-    p1.regenCooldown-=5;
+    p1.regenBuff();
     buffScreen = false;
   } else if (leftMouse && overRect(600, 300, 100, 100)) {
-    p1.maxHealth++;
+    p1.maxHealthBuff();
     buffScreen = false;
   }
 }
@@ -280,8 +279,8 @@ void displayGun() {
   for (Gun g : gun.get(scene.roomNum)) {
     g.display();
   }
-  if (p1.hasGun) {
-    p1.currentGun.display();
+  if (p1.hasGun()) {
+    p1.getCurrentGun().display();
   }
 }
 

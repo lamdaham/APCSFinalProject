@@ -57,6 +57,10 @@ public class Characters {
     return atkPower;
   }
   
+  void increaseATK() {
+    atkPower++;
+  }
+  
   //keeping track of restrictions on characters using booleans
   void removeRestriction() {
     ableLeft = true;

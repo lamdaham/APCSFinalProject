@@ -14,11 +14,10 @@ public class Player extends Characters {
     maxHealth = hp;
     hp=5;
     hasGun = false;
-    extraDamage = 0;
     inventory = new Inventory();
     currentObj = "none";
     gun.get(scene.roomNum).add(new Gun("pistol", 700, 300, 5));
-    regenCooldown = 200;
+    regenCooldown = 1000;
     tempCooldown = 0;
   }
 
@@ -133,7 +132,15 @@ public class Player extends Characters {
   }
 
   
-
+//checks if player has gun
+  boolean hasGun() {
+    return hasGun;
+  }
+  
+// returns the current gun
+  Gun getCurrentGun() {
+    return currentGun;
+  }
   
 // takes damage from bullets if they are from monsters
   boolean takeDamage(Bullet b) {
@@ -175,5 +182,15 @@ public class Player extends Characters {
     } else {
       tempCooldown = 0;
     }
+  }
+  
+  
+  //buffs from buffscreen
+  void regenBuff() {
+    regenCooldown-=100;
+  }
+  
+  void maxHealthBuff() {
+    maxHealth++;
   }
 }
