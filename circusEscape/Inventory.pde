@@ -6,7 +6,7 @@ public class Inventory {
   int tempCooldown;
 
   Inventory() {
-    inventory = new GameObjects[10];
+    inventory = new GameObjects[5];
     currentIndex = 0;
     cooldown = 10;
     tempCooldown = 0;

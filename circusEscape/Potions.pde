@@ -1,6 +1,8 @@
 public class Potions extends GameObjects {
   float x, y, radius;
   boolean consumed;
+  int r;
+  int m;
 
   Potions(float x, float y, float radius) {
     this.x = x;
@@ -27,11 +29,13 @@ public class Potions extends GameObjects {
     x = x1;
     y = y1;
     radius = 10;
+    r = (int) random(0, 5);
+    m = (int) random(0, 2);
   }
 
 
 //displays the potion
-  void display(Player p) {
+  void display() {
     stroke(255);
     strokeWeight(2);
     fill(#a1ebed, 100);
@@ -39,34 +43,19 @@ public class Potions extends GameObjects {
     ellipse(x, y - 19, radius * 1.5, 2);
     fill(#f5e282, 255);
     rect(x - 3.5, y - 27, radius - 3.5, 7);
-    fill(#f73520);
+    if (m==0) {
+      fill(#bc40dd);
+    } else if(r==0) {
+      fill(#f73520);
+    } else if (r == 1){
+      fill(#209a20);
+    } else if (r == 2) {
+      fill(#303ce1);
+    } else if (r == 3) {
+      fill(#c2ce00);
+    }
     circle(x, y - 4, radius * 1.5);
-    int r = (int) random(0, 5);
-
-    //if (dist(x, y, p1.getX(), p1.getY()) < p1.radius + radius) {
-    //  //increasing health
-    //  if (r == 0) {
-    //    p.hp += 2;
-    //    consumed = true;
-    //  }
-    //  //decreasing health
-    //  if (r == 1) {
-    //    if (p.hp >= 2) {
-    //      p.hp -= 1;
-    //      consumed = true;
-    //    }
-    //  }
-    //  //increasing attack power
-    //  if (r == 2) {
-    //    p.atkPower += 2;
-    //    consumed = true;
-    //  }
-    //  //decreasing attack power
-    //  if (r == 3) {
-    //    p.atkPower -= 2;
-    //    consumed = true;
-    //  }
-    //}
+    
   }
 
 
@@ -79,7 +68,17 @@ public class Potions extends GameObjects {
     ellipse(xC, yC - 19, radius * 1.5, 2);
     fill(#f5e282, 255);
     rect(xC - 3.5, yC - 27, radius - 3.5, 7);
-    fill(#f73520);
+    if (m==0) {
+      fill(#bc40dd);
+    } else if(r==0) {
+      fill(#f73520);
+    } else if (r == 1){
+      fill(#209a20);
+    } else if (r == 2) {
+      fill(#303ce1);
+    } else if (r == 3) {
+      fill(#c2ce00);
+    }
     circle(xC, yC - 4, radius * 1.5);
   }
 
@@ -100,10 +99,26 @@ public class Potions extends GameObjects {
   
 //use a potion
   boolean use() {
-    if (p1.hp<p1.maxHealth) {
-      p1.setHP(p1.getHP()+2);
-      if (p1.getHP()>p1.getMaxHealth()){
-        p1.setHP(p1.getMaxHealth());
+    if (r == 0) {
+      if (p1.getHP()<p1.getMaxHealth()) {
+        p1.setHP(p1.getHP()+2);
+        if (p1.getHP()>p1.getMaxHealth()){
+          p1.setHP(p1.getMaxHealth());
+        }
+        return true;
+      } else {
+        return false;
+      }
+    } else if (r == 1) {
+      p1.setHP(p1.getHP()-1);
+      return true;
+    } else if (r == 2) {
+      p1.setATK(p1.getATK()+1);
+      return true;
+    } else if (r == 3) {
+      p1.setATK(p1.getATK()-1);
+      if (p1.getATK() < 0) {
+        p1.setATK(0);
       }
       return true;
     } else {

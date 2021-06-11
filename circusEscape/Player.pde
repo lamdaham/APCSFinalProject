@@ -18,10 +18,7 @@ public class Player extends Characters {
     extraDamage = 0;
     inventory = new Inventory();
     currentObj = "none";
-    gun.get(scene.roomNum).add(new Gun("shotgun", 500, 100, 25));
     gun.get(scene.roomNum).add(new Gun("pistol", 700, 300, 1));
-    gun.get(scene.roomNum).add(new Gun("minigun", 500, 500, 1));
-    gun.get(scene.roomNum).add(new Gun("sniper", 500, 500, 1));
     regenCooldown = 200;
     tempCooldown = 0;
   }
@@ -128,7 +125,7 @@ public class Player extends Characters {
 //fires a gun in the direction of the mouse
   void fire() {
     if (leftMouse&&hasGun) {
-      currentGun.fire(extraDamage);
+      currentGun.fire(atkPower);
     } else if (leftMouse&&currentObj.equals("potion")) {  
       if(currentPotion.use()) {
         (inventory.inventory)[inventory.currentIndex] = null;
@@ -161,11 +158,11 @@ public class Player extends Characters {
     return maxHealth;
   }
   
-  
-// sets HP of the player
-  void setHP(int h) {
-    hp = h;
+// set atkPower of player
+  void setATK(int pwr) {
+    atkPower = pwr;
   }
+
 
 // player regenerates one health after a period of time
   void regen() {

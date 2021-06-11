@@ -103,6 +103,10 @@ public class Room {
     walls.add(new Door(x, y+520,130,10, "forward"));
   }
   
+  
+  
+    
+    
   void room1() {
     defaultRoom();
     spawnX = 240;
@@ -161,6 +165,8 @@ public class Room {
     walls.add(new Wall(x+390, y+390, 10, 130, #c595cf));
     walls.add(new Door(x+650, y+390,10,130, "forward"));
     walls.add(new Door(x+260, y+0,130,10, "backward"));
+    
+    gun.get(scene.roomNum).add(new Gun("shotgun", 400, 500, 25));
   }
   
   void room4() {
@@ -231,6 +237,7 @@ public class Room {
     
     walls.add(new Door(x + 650, y + 260, 10, 130, "forward"));
     walls.add(new Door(x + 130, y + h - 10, 130, 10,"backward"));
+    gun.get(scene.roomNum).add(new Gun("sniper", 500, 500, 1));
   }
   
   void room7() {
@@ -301,5 +308,6 @@ public class Room {
     
     walls.add(new Door(x + 650, y + 390, 10, 130, "forward"));
     walls.add(new Door(x + 130, y, 130, 10, "backward"));
+    gun.get(scene.roomNum).add(new Gun("minigun", 500, 500, 1));
   }
 } 

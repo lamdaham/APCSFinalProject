@@ -1,11 +1,11 @@
 //creating a new scene, player, arraylists of characters, walls, bullets, and items to set up
 Scene scene = new Scene();
+ArrayList<ArrayList<Potions>> potions = new ArrayList<ArrayList<Potions>>();
+ArrayList<ArrayList<Gun>> gun = new ArrayList<ArrayList<Gun>>();
 Player p1;
 ArrayList<Wall> walls;
 ArrayList<Monsters> monsters;
 ArrayList<Bullet> bullet;
-ArrayList<ArrayList<Potions>> potions = new ArrayList<ArrayList<Potions>>();
-ArrayList<ArrayList<Gun>> gun = new ArrayList<ArrayList<Gun>>();
 ArrayList<Bullet> bulletM;
 
 //buffScreen (when player can get buffs), end (ending the game, end screen), and start (starting the game)
@@ -47,7 +47,6 @@ boolean space5 = false;
 // -- s e t u p --
 
 void setup() {
-  p1 = new Player();
   walls = new ArrayList<Wall>();
   monsters = new ArrayList<Monsters>();
   bullet = new ArrayList<Bullet>();
@@ -57,6 +56,7 @@ void setup() {
     potions.add(new ArrayList<Potions>());
     gun.add(new ArrayList<Gun>());
   }
+  p1 = new Player();
 
   for (int i = 1; i <= 9; i++) {
     potions.get(i).add(new Potions());
@@ -302,7 +302,7 @@ void displayPotion() {
         potions.get(scene.roomNum).add(new Potions());
       }
     }
-    potions.get(scene.roomNum).get(p).display(p1);
+    potions.get(scene.roomNum).get(p).display();
   }
 
   for (int p = 0; p <potions.get(scene.roomNum).size(); p++) {

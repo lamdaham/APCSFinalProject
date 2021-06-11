@@ -40,6 +40,10 @@ public class Characters {
     return hp;
   }
   
+  // sets HP of the player
+  void setHP(int h) {
+    hp = h;
+  }
   
   // set coordinates of character
   void setX(float xC) {
@@ -47,6 +51,10 @@ public class Characters {
   }
   void setY(float yC) {
     y = yC;
+  }
+  
+  int getATK() {
+    return atkPower;
   }
   
   //keeping track of restrictions on characters using booleans

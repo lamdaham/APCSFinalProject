@@ -18,11 +18,11 @@ public class Monsters extends Characters {
 
   //monsters spawn randomly on the map
   Monsters() {
-    this(5, 1, 10.0, random(scene.room.x, scene.room.x+scene.room.w), random(scene.room.y, scene.room.y+scene.room.h), 0);
+    this(5, 1, 10.0, random(scene.room.x, scene.room.x+scene.room.w), random(scene.room.y, scene.room.y+scene.room.h), 0.5);
   }
   
   Monsters(float speed) {
-    this(5, 1, 10.0, random(scene.room.x, scene.room.x+scene.room.w), random(scene.room.y, scene.room.y+scene.room.h), 0);
+    this(5, 1, 10.0, random(scene.room.x, scene.room.x+scene.room.w), random(scene.room.y, scene.room.y+scene.room.h), 0.5);
   }
 
   //if hp is 0, then set hp + speed to 0 
