@@ -55,6 +55,23 @@ public class Gun extends GameObjects {
       line(x + 15, y + 10, x + 15, y + 17);
       line(x + 15, y + 17, x + 25, y + 17);
     }
+    if (type.equals("sniper")) {
+      noStroke();
+      fill(0);
+      pushMatrix();
+      translate(x, y);
+      rotate(-PI/3.0);
+      rect(10, -15, 15, 10);
+      popMatrix();
+      rect(x + 2, y - 28, 50, 10);
+      rect(x + 5, y - 33, 10, 5);
+      rect(x - 15, y - 18, 15, 10);
+      stroke(0);
+      strokeWeight(2);
+      line(x + 32, y - 18, x + 40, y - 10);
+      line(x + 32, y - 18, x + 24, y - 10);
+      line(x + 32, y - 18, x + 32, y - 10);
+    }
   }
 
   void display() {
