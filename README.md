@@ -16,6 +16,11 @@ Instructions:
 
 
 # Development Log
+**6/11/21**
+Ivan: Added back potions (along with other types of potions) and monster movement, finishing touches
+
+Sophia: Added finishing touches to the project + doc, changes to the intro screen.
+
 **6/10/21**
 
 Ivan: Finished inventory, allowed picking up and putting down items, and potion usage, and did comments
