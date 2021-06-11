@@ -343,6 +343,24 @@ void displayInventory() {
   }
 }
 
+
+// -- R E S T R I C T I O N  +  R E M O V A L --
+
+//restricting the movement of the monsters when at wall
+void restrictMovement() {
+  p1.removeRestriction();
+  for (Monsters m : monsters) {
+    m.removeRestriction();
+  }
+  for (Wall w : walls) {
+    w.spawnWall();
+    w.moveRestrict(p1);
+    for (Monsters m : monsters) {
+      w.moveRestrict(m);
+    }
+  }
+}
+
 //removing monsters when hp is <= 0
 void removeM(Monsters m) {
   if (m.hp <= 0) {
@@ -351,10 +369,97 @@ void removeM(Monsters m) {
   }
 }
 
+//removing bullets when colliding with character or wall
+void removeBullet() {
+  //bullets that the player shoot
+  for (int i = 0; i<bullet.size(); i++) {
+    collided = false;
+    for (Wall w : walls) {
+      if (w.bulletCollision(bullet.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bullet.get(i).display();
+    } else {
+      bullet.remove(bullet.get(i));
+    }
+  }
+  
+  //bullets that the monsters shoot
+  for (int i = 0; i<bulletM.size(); i++) {
+    collided = false;
+    for (Wall w : walls) {
+      if (w.bulletCollision(bulletM.get(i))) {
+        collided = true;
+      }
+    }
+    if (!collided) {
+      bulletM.get(i).display();
+    } else {
+      bulletM.remove(bulletM.get(i));
+    }
+  }
+}
+
+
+// -- M O V E M E N T --
+
+//monster movement, taking damage, attacking.firing at player
+void monsterAction() {
+  for (int m = 0; m < monsters.size(); m++) {
+    for (int i = 0; i<bullet.size(); i++) {
+      if ((monsters.get(m)).takeDamageM(bullet.get(i))) {
+        bullet.remove(i);
+        i--;
+      }
+    }
+    (monsters.get(m)).moveM(p1);
+    (monsters.get(m)).attackP(p1);
+    (monsters.get(m)).display();
+    (monsters.get(m)).fireM();
+  }
+
+  //remove monsters if not alive
+  for (int m = 0; m<monsters.size(); m++) {
+    if (!(monsters.get(m).alive)) {
+      monsters.remove(m);
+      m--;
+    }
+  }
+  
+  //if there are no more monsters in that level,
+  //move on to the next level and update cleared
+  if (monsters.size()==0) {
+    scene.room.open = true;
+    if (scene.room.roomNum>cleared) {
+      cleared = scene.room.roomNum;
+    }
+  }
+}
+
+//player movement, attacking, taking damage (same as monsters)
+void playerAction() {
+  for (int i = 0; i<bulletM.size(); i++) {
+    if (p1.takeDamage(bulletM.get(i))) {
+      bulletM.remove(i);
+      i--;
+    }
+  }
+  p1.moveP();
+  p1.fire();
+  p1.display();
+}
+
+
+// -- K E Y S  +  M O U S E --
+
+//keeping track of which keys and where the player clicks
+
 //if key is pressed, then set appropriate boolean true
 //WASD is for the directions
-//c is to pickup weapon
-//v is to drop weapon
+//c is to pickup weapon, v is to drop weapon
+//1, 2, 3, 4, 5 for the inventory slots
 void keyPressed() {
   if (key == 'w') {
     up = true;
@@ -428,7 +533,7 @@ void keyReleased() {
   }
 }
 
-
+//keeping track of what player is clicking
 void mousePressed() {
   if (mouseButton == LEFT) {
     leftMouse = true;
@@ -439,92 +544,4 @@ void mouseReleased() {
   if (mouseButton == LEFT) {
     leftMouse = false;
   }
-}
-
-
-
-//restricting the movement of the monsters when at wall
-void restrictMovement() {
-  p1.removeRestriction();
-  for (Monsters m : monsters) {
-    m.removeRestriction();
-  }
-  for (Wall w : walls) {
-    w.spawnWall();
-    w.moveRestrict(p1);
-    for (Monsters m : monsters) {
-      w.moveRestrict(m);
-    }
-  }
-}
-
-void removeBullet() {
-  for (int i = 0; i<bullet.size(); i++) {
-    collided = false;
-    for (Wall w : walls) {
-      if (w.bulletCollision(bullet.get(i))) {
-        collided = true;
-      }
-    }
-    if (!collided) {
-      bullet.get(i).display();
-    } else {
-      bullet.remove(bullet.get(i));
-    }
-  }
-  for (int i = 0; i<bulletM.size(); i++) {
-    collided = false;
-    for (Wall w : walls) {
-      if (w.bulletCollision(bulletM.get(i))) {
-        collided = true;
-      }
-    }
-    if (!collided) {
-      bulletM.get(i).display();
-    } else {
-      bulletM.remove(bulletM.get(i));
-    }
-  }
-}
-
-//monster movement, taking damage, attacking player
-void monsterAction() {
-  for (int m = 0; m < monsters.size(); m++) {
-    for (int i = 0; i<bullet.size(); i++) {
-      if ((monsters.get(m)).takeDamageM(bullet.get(i))) {
-        bullet.remove(i);
-        i--;
-      }
-    }
-    (monsters.get(m)).moveM(p1);
-    (monsters.get(m)).attackP(p1);
-    (monsters.get(m)).display();
-    (monsters.get(m)).fireM();
-  }
-
-  for (int m = 0; m<monsters.size(); m++) {
-    if (!(monsters.get(m).alive)) {
-      monsters.remove(m);
-      m--;
-    }
-  }
-  if (monsters.size()==0) {
-    scene.room.open = true;
-    if (scene.room.roomNum>cleared) {
-      cleared = scene.room.roomNum;
-    }
-  }
-}
-
-//player movement and firing
-void playerAction() {
-  for (int i = 0; i<bulletM.size(); i++) {
-    if (p1.takeDamage(bulletM.get(i))) {
-      bulletM.remove(i);
-      i--;
-    }
-  }
-  p1.moveP();
-  p1.fire();
-  p1.display();
 }
